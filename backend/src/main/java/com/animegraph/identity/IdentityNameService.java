@@ -43,6 +43,6 @@ public class IdentityNameService {
     }
     private Map<String,Object> snapshot(IdentityReviewMapper.Identity identity,List<IdentityNameMapper.Name> rows){Map<String,Object> state=json.convertValue(identity,new TypeReference<LinkedHashMap<String,Object>>(){});state.put("names",rows);return state;}
     private IdentityReviewMapper.Identity required(long id){if(id<1)throw GraphStore.bad("身份编号不正确");var row=identities.find(id);if(row==null)throw new ApiException(HttpStatus.NOT_FOUND,"NOT_FOUND","身份记录不存在");return row;}
-    static String normalize(String value){return Normalizer.normalize(value,Normalizer.Form.NFKC).toLowerCase(Locale.ROOT).strip();}
+    public static String normalize(String value){return Normalizer.normalize(value,Normalizer.Form.NFKC).toLowerCase(Locale.ROOT).strip();}
     private static ApiException conflict(){return new ApiException(HttpStatus.CONFLICT,"IDENTITY_CHANGED","身份记录已更新，请重新读取后核对别名");}
 }

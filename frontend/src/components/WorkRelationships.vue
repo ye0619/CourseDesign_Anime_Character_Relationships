@@ -2,10 +2,11 @@
 import { computed, shallowRef, watch } from 'vue'
 import WorkGraphPanel from './WorkGraphPanel.vue'
 import OnlineCreditsPanel from './OnlineCreditsPanel.vue'
-import { providePortraitMode } from '../composables/usePortraitFrames'
+import { providePortraitMode,providePortraitSubject } from '../composables/usePortraitFrames'
 const props = withDefaults(defineProps<{ subjectId: string; source?: 'LOCAL' | 'ONLINE'; uid?: string; workTitle?: string; initialView?: 'CHARACTERS' | 'STAFF' | 'CREDITS' }>(), { source: 'ONLINE', initialView: 'CHARACTERS' })
 const workUid = computed(() => props.uid || `anime:bangumi:${props.subjectId}`)
 providePortraitMode()
+providePortraitSubject(workUid)
 const view = shallowRef<'CHARACTERS' | 'STAFF' | 'CREDITS'>(props.initialView)
 watch(() => props.initialView, value => { view.value = value })
 </script>

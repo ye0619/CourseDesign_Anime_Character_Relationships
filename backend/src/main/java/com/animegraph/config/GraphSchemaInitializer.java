@@ -15,7 +15,7 @@ public class GraphSchemaInitializer implements ApplicationRunner {
     private final GraphStore graph;
     public GraphSchemaInitializer(GraphStore graph) {this.graph=graph;}
     public void run(ApplicationArguments arguments) throws Exception {
-        for(String version:java.util.List.of("V001__graph_schema","V002__universe_schema","V003__evidence_import_batches","V004__local_graph"))apply(version);
+        for(String version:java.util.List.of("V001__graph_schema","V002__universe_schema","V003__evidence_import_batches","V004__local_graph","V005__connections"))apply(version);
     }
     private void apply(String file) throws Exception {
         String version=file.substring(0,4);

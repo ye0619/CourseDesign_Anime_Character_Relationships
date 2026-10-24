@@ -2,7 +2,7 @@ import type { CreditEntity, CreditPage, CastCredit, CreditPosition } from '../ty
 import type { CharacterNode } from '../types/characterGraph'
 
 export function creditNode(entity: CreditEntity): CharacterNode {
-  return { ...entity, role: '', group: '', description: '', characterType: entity.providerType }
+  return { ...entity, role: '', group: '', description: entity.description||'', characterType: entity.providerType }
 }
 export function mergeCredits(pages: CreditPage[]) {
   const people = new Map<string, CreditEntity>(), characters = new Map<string, CreditEntity>()

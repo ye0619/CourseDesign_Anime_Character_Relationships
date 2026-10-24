@@ -10,15 +10,24 @@ import org.springframework.http.HttpStatus;
 public final class LocalGraphRules {
     private LocalGraphRules() {}
     public static void validate(long subject,Document document,Map<String,Integer> official) {
-        if(document==null || document.schemaVersion()!=1 || document.version()<0 || !("anime:bangumi:"+subject).equals(document.workUid()))throw bad("备份作品或格式不匹配");
+        if(document==null || (document.schemaVersion()!=1&&document.schemaVersion()!=2) || document.version()<0 || !("anime:bangumi:"+subject).equals(document.workUid()))throw bad("备份作品或格式不匹配");
         if(document.nodes()==null||document.edges()==null||document.nodes().size()>300||document.edges().size()>800)throw bad("每部作品最多300个本地实体、800条本地关系");
         var ids=new HashMap<String,String>();
         for(var node:document.nodes()) {
             if(node==null||!uuid(node.id(),"local:entity:")||!Set.of("CHARACTER","ORGANIZATION").contains(node.kind()))throw bad("本地实体编号或类型无效");
             if(ids.put(node.id(),node.kind())!=null)throw bad("本地实体编号重复");
-            text(node.name(),100,true);text(node.gender(),40,false);text(node.description(),4000,false);text(node.notes(),2000,false);text(node.organizationType(),60,false);
+            text(node.name(),200,true);text(node.gender(),40,false);text(node.description(),4000,false);text(node.notes(),2000,false);text(node.organizationType(),60,false);
             if(node.aliases()==null||node.aliases().size()>20)throw bad("别名最多20项");for(var alias:node.aliases())text(alias,100,true);
             image(node.imageUrl());
+            if(document.schemaVersion()==1&&(node.names()!=null||node.preferredNameId()!=null||node.portraits()!=null))throw bad("多语言名称需要工作区格式2，请升级客户端");
+            if(node.portraits()!=null) {
+                if(node.portraits().size()>2)throw bad("本地角色仅支持通用及本作取景");
+                node.portraits().forEach((scope,crop)->{if(!scope.equals("GLOBAL")&&!scope.equals(document.workUid()))throw bad("本地角色取景范围无效");com.animegraph.characteredit.CharacterEditService.validateCrop(crop);});
+            }
+            if(node.names()!=null) {
+                com.animegraph.identity.NameResolutionService.validateLocal(node.names(),node.preferredNameId());
+                if(!node.name().equals(com.animegraph.identity.NameResolutionService.localDisplay(node.names(),node.preferredNameId(),List.of())))throw bad("显示名称与多语言名称规则不一致");
+            }
         }
         var signatures=new HashSet<String>();var edgeIds=new HashSet<String>();
         for(var edge:document.edges()) {
@@ -48,7 +57,7 @@ public final class LocalGraphRules {
         if(value==null){if(required)throw bad("名称不能为空");return;}
         if(value.length()>limit||required&&value.isBlank()||value.indexOf(0)>=0)throw bad("字段为空或超过长度限制");
     }
-    static void image(String value) {
+    public static void image(String value) {
         if(value==null||value.isBlank())return;
         if(value.matches("https://lain\\.bgm\\.tv/[^\\s]{1,1000}"))return;
         if(!value.matches("data:image/(png|jpeg|webp);base64,[A-Za-z0-9+/=]+"))throw bad("头像支持 Bangumi 图片地址或上传的 PNG/JPEG/WebP");

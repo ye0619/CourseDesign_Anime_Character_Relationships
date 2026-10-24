@@ -19,7 +19,7 @@ final class ViewingReportAnalyzer {
                     : new WorkCoverage(work.subjectId(),credits.source(),credits.version(),credits.staff(),credits.cast());
         }).toList();
         var full = scope(all,inputs,coverage);
-        return new Report("viewing-report/4",Instant.now(),full.completed(),full.rated(),full.metadataConsidered(),full.metadataCovered(),
+        return new Report("viewing-report/5",Instant.now(),full.completed(),full.rated(),full.metadataConsidered(),full.metadataCovered(),
                 full.personnel(),List.of(
                     "人员与正向评分偏好仅统计当前范围内已看动画；按全片单实际部数统计，接触频次不代表喜爱。",
                     "仅自然人；来源明确为组织或未知类型不自动归入人员。姓名相同不合并，身份使用稳定UID。",

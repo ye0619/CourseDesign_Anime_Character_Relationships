@@ -2,6 +2,7 @@ import type { NameAssertion } from './characterGraph'
 export type CreditKind = 'CAST' | 'STAFF'
 export interface CreditEntity {
   id: string; label: string; originalName: string | null; imageUrl: string; category: 'PERSON' | 'CHARACTER'
+  description?:string;gender?:string;notes?:string;sourceOriginal?:import('./characterGraph').CharacterNode;portraitSettings?:Record<string,import('./characterEdit').CharacterCrop>
   providerType: number | null; aliases: string[]; nameAssertions: NameAssertion[]; namePolicyVersion: string; sourceUrl: string
 }
 export interface CreditPosition { code: string; label: string; episodeScope: string | null; description: string | null }

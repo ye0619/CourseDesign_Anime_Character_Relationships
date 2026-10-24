@@ -10,7 +10,7 @@ const { data, error, pending, refresh } = usePrivateResource<ReportResult>(() =>
 const busy = shallowRef(false), actionError = shallowRef(''), role = shallowRef(''), limit = shallowRef(20)
 const view = shallowRef<'OVERALL' | 'ROLE'>('OVERALL')
 const current = computed(() => data.value?.report)
-const modern = computed(() => ['viewing-report/2', 'viewing-report/3', 'viewing-report/4'].includes(data.value?.report?.version || ''))
+const modern = computed(() => ['viewing-report/2', 'viewing-report/3', 'viewing-report/4', 'viewing-report/5'].includes(data.value?.report?.version || ''))
 const roles = computed(() => [...new Set(current.value?.personnel.map(person => person.role) || [])].sort())
 const candidates = computed(() => view.value === 'OVERALL' ? current.value?.overall || [] : current.value?.personnel || [])
 const filtered = computed(() => candidates.value.filter(person => !role.value || (view.value === 'ROLE' ? person.role === role.value : person.roles?.includes(role.value))))
@@ -25,7 +25,7 @@ const statusLabels: Record<string, string> = { COMPLETE: '完整', PARTIAL: '部
 watch(() => props.scope, () => { busy.value = false; actionError.value = ''; role.value = ''; limit.value = 20; view.value = 'OVERALL' })
 watch(view, () => { role.value = ''; limit.value = 20 })
 watch(role, () => { limit.value = 20 })
-watch(() => data.value?.report?.version, value => { if (value && !['viewing-report/2', 'viewing-report/3', 'viewing-report/4'].includes(value)) { view.value = 'ROLE' } })
+watch(() => data.value?.report?.version, value => { if (value && !['viewing-report/2', 'viewing-report/3', 'viewing-report/4', 'viewing-report/5'].includes(value)) { view.value = 'ROLE' } })
 function sectionText(section: WorkCoverage['staff']) {
   return statusLabels[section.collectionStatus] + ' / ' + statusLabels[section.freshness]
 }
@@ -64,7 +64,7 @@ function printReport() { window.print() }
     <p class="muted">偏好统计使用已看作品，行为分析使用全部观看状态；优先复用已保存制作、配音资料，缺失时补充公共名册。运行中的报告任务在服务重启后需重新发起，已保存报告保留。</p>
     <p v-if="!data?.report">生成后可查看人员总体与职务统计。资料不足时会保留覆盖说明。</p>
     <template v-if="data?.report">
-      <ProfileBreakdown :report="data.report"/>
+      <p v-if="data.report.version!=='viewing-report/5'" class="notice">当前为旧版统计口径，请重新生成以核对制作公司的来源职责。</p><ProfileBreakdown :report="data.report"/>
       <p v-if="!modern" class="notice">当前为旧版按职务报告；重新生成后可查看人员总体和分组覆盖。</p>
       <div class="report-filters print-hide">
         <label>统计视角<select v-model="view"><option value="OVERALL" :disabled="!modern">人员总体（跨职务去重）</option><option value="ROLE">按职务</option></select></label>

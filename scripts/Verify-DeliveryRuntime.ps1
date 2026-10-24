@@ -23,7 +23,7 @@ if([int]$names.StatusCode -ne 401){throw 'Default-disabled maintenance boundary 
 Add-Type -AssemblyName System.IO.Compression
 $archive=[IO.Compression.ZipFile]::OpenRead($jar)
 try {
-    foreach($entry in @('BOOT-INF/classes/db/migration/V9__saved_anime.sql','BOOT-INF/classes/com/animegraph/explore/SavedAnimeService.class','BOOT-INF/classes/com/animegraph/explore/BangumiArchiveRelationProvider.class','BOOT-INF/classes/com/animegraph/identity/IdentityNameService.class')) {
+    foreach($entry in @('BOOT-INF/classes/db/migration/V9__saved_anime.sql','BOOT-INF/classes/db/migration/V10__character_edit.sql','BOOT-INF/classes/neo4j/V005__connections.cypher','BOOT-INF/classes/com/animegraph/characteredit/CharacterEditService.class','BOOT-INF/classes/com/animegraph/connection/ConnectionSearchEngine.class','BOOT-INF/classes/com/animegraph/explore/SavedAnimeService.class','BOOT-INF/classes/com/animegraph/explore/BangumiArchiveRelationProvider.class','BOOT-INF/classes/com/animegraph/identity/IdentityNameService.class')) {
         if(-not $archive.GetEntry($entry)){throw 'Unified feature missing from packaged JAR.'}
     }
     if(@($archive.Entries|Where-Object {$_.FullName -match '^BOOT-INF/classes/com/animegraph/curated/'}).Count){throw 'Retired curated module remains in JAR.'}
@@ -33,7 +33,7 @@ $graph=(Invoke-RestMethod 'http://127.0.0.1:5173/api/v1/explore/anime/373267/gra
 if($detail.dataSource -ne 'LOCAL' -or $graph.nodes.Count -eq 0 -or $graph.edges.Count -eq 0){throw 'Saved work is not available through unified runtime.'}
 $removed=Invoke-WebRequest 'http://127.0.0.1:5173/api/v1/curated' -SkipHttpErrorCheck -TimeoutSec 10
 if([int]$removed.StatusCode -ne 404){throw 'Retired curated business API still exists.'}
-$record=[ordered]@{checkedAt=[DateTime]::UtcNow.ToString('o');passed=$true;mode='Release';backendExecutableJar=$true;frontendBuiltPreview=$true;backendSha256=$jarHash;indexMatchesBuild=$true;ready='READY';anonymousNameMaintenance=401;mysqlMigrationV9Bundled=$true;curatedModuleRemoved=$true;unifiedSavedSubject=373267;characters=$graph.nodes.Count;relations=$graph.edges.Count;scope='Current local runtimes and existing databases; not fresh-machine or Docker acceptance'}
+$record=[ordered]@{checkedAt=[DateTime]::UtcNow.ToString('o');passed=$true;mode='Release';backendExecutableJar=$true;frontendBuiltPreview=$true;backendSha256=$jarHash;indexMatchesBuild=$true;ready='READY';anonymousNameMaintenance=401;mysqlMigrationV10Bundled=$true;neo4jMigrationV005Bundled=$true;curatedModuleRemoved=$true;unifiedSavedSubject=373267;characters=$graph.nodes.Count;relations=$graph.edges.Count;scope='Current local runtimes and existing databases; not fresh-machine or Docker acceptance'}
 if(-not $RecordPath){$RecordPath=Join-Path $root '.local/delivery-runtime.json'}
 [IO.File]::WriteAllText([IO.Path]::GetFullPath($RecordPath),($record|ConvertTo-Json -Depth 5),[Text.UTF8Encoding]::new($false))
 Write-Output 'Current executable JAR and stamped built frontend are running; proxy READY and maintenance default disabled.'

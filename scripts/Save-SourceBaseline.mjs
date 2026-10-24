@@ -13,7 +13,7 @@ function walk(path) {
   if (stat.isDirectory()) { for (const entry of readdirSync(full)) if (!excluded.has(entry)) walk(path + '/' + entry) }
   else paths.push(path)
 }
-for (const path of ['backend/src','backend/.mvn','frontend/src','scripts','docs','plans','data/curated','README.md','.gitignore','.env.example','compose.yaml','backend/pom.xml','backend/mvnw','backend/mvnw.cmd','frontend/package.json','frontend/package-lock.json','frontend/vite.config.ts','frontend/tsconfig.json','frontend/index.html','Start-Project.cmd','Stop-Project.cmd']) walk(path)
+for (const path of ['backend/src','backend/.mvn','frontend/src','scripts','docs','data/fixtures','data/samples','README.md','.gitignore','.env.example','compose.yaml','backend/pom.xml','backend/mvnw','backend/mvnw.cmd','frontend/package.json','frontend/package-lock.json','frontend/vite.config.ts','frontend/tsconfig.json','frontend/index.html','Start-Project.cmd','Stop-Project.cmd']) walk(path)
 const hash = bytes => createHash('sha256').update(bytes).digest('hex')
 const files = paths.sort().map(path => {
   const target = resolve(output, 'source', path)

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, shallowRef } from 'vue'
 import CharacterPortrait from './CharacterPortrait.vue'
+import ReportChart from './ReportChart.vue'
 import ReportWorkList from './ReportWorkList.vue'
 import type { ViewingReport } from '../types/viewingReport'
 const props = defineProps<{ report: ViewingReport }>()
@@ -12,6 +13,17 @@ const companies = computed(() => [...(props.report.companies || [])].sort((a,b) 
   ratingBins: Object.entries(company.scores.distribution).map(([score,count]) => ({score,count,works:company.works.filter(work=>work.status===2&&work.personalRating===Number(score))})),
   statusGroups: Object.entries(company.statuses).map(([status,count])=>({status,count,works:company.works.filter(work=>work.status===Number(status))}))
 })))
+const voiceChart=computed(()=>voices.value.map(v=>({id:v.uid,label:v.name,count:v.workCount,score:v.scores.averageRating,sample:v.scores.ratedCount})))
+const companyChart=computed(()=>companies.value.map(v=>({id:v.uid,label:v.name,count:v.completed,score:v.scores.averageRating,sample:v.scores.ratedCount})))
+const behaviorChart=computed(()=>(props.report.behaviors||[]).map(v=>({id:String(v.status),label:v.label,count:v.count})))
+function openRow(prefix:string,id:string){const row=document.getElementById(prefix+id);if(row instanceof HTMLDetailsElement){row.open=true;row.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'nearest'});row.querySelector('summary')?.focus()}}
+const comparisonKind=shallowRef<'tags'|'formats'|'companies'>('tags'),comparisonSelection=shallowRef('')
+const behaviorComparison=computed(()=>{
+ const values=new Map<string,{id:string;label:string;count:number;secondaryCount:number}>()
+ for(const status of [4,5])for(const group of props.report.behaviors?.find(b=>b.status===status)?.[comparisonKind.value]||[]){const row=values.get(group.id)||{id:group.id,label:group.label,count:0,secondaryCount:0};if(status===4)row.count=group.count;else row.secondaryCount=group.count;values.set(group.id,row)}
+ return [...values.values()].sort((a,b)=>b.count+b.secondaryCount-a.count-a.secondaryCount||a.id.localeCompare(b.id)).slice(0,12)
+})
+const comparisonWorks=computed(()=>[4,5].map(status=>({status,label:status===4?'搁置':'抛弃',works:props.report.behaviors?.find(b=>b.status===status)?.[comparisonKind.value].find(g=>g.id===comparisonSelection.value)?.works||[]})))
 const statusNames: Record<string, string> = { 1: '想看', 2: '看过', 3: '在看', 4: '搁置', 5: '抛弃' }
 const portrait = (id: string, label: string, imageUrl: string) => ({ id, label: label || '未命名', imageUrl, group: '', role: '', description: '' })
 </script>
@@ -19,22 +31,22 @@ const portrait = (id: string, label: string, imageUrl: string) => ({ id, label: 
   <div class="profile-breakdown">
     <section aria-label="声优配音角色"><h3>从声音，找到你看过的角色</h3><p class="muted">仅列出本作明确配音记录。作品按作品编号去重，角色按角色编号去重；同一角色跨作品的演出分别列出。</p>
       <p v-if="!report.voices">重新生成报告，可查看实际配音角色。</p><p v-else-if="!voices.length">当前没有可核对的配音角色资料。可继续补充公共名册。</p>
-      <details v-for="voice in voices" :key="voice.uid" class="profile-row"><summary><CharacterPortrait :node="portrait(voice.uid, voice.name, voice.imageUrl)"/><strong>{{ voice.name }}</strong><span>{{ voice.workCount }} 部 · {{ voice.characterCount }} 个角色</span><span>个人均分 {{ voice.scores.averageRating ?? '未评分' }}（{{ voice.scores.ratedCount }} 部）</span></summary>
+      <ReportChart :items="voiceChart" label="声优作品数排行" @select="openRow('voice-',$event.id)"/><details v-for="voice in voices" :id="'voice-'+voice.uid" :key="voice.uid" class="profile-row"><summary><CharacterPortrait :node="portrait(voice.uid, voice.name, voice.imageUrl)"/><strong>{{ voice.name }}</strong><span>{{ voice.workCount }} 部 · {{ voice.characterCount }} 个角色</span><span>个人均分 {{ voice.scores.averageRating ?? '未评分' }}（{{ voice.scores.ratedCount }} 部）</span></summary>
         <div class="role-grid"><article v-for="role in voice.roles" :key="role.subjectId + ':' + role.characterUid" class="voice-role"><CharacterPortrait :node="portrait(role.characterUid, role.characterName, role.imageUrl)" large/><div><RouterLink :to="{path: `/explore/anime/${role.subjectId}/network`, query: {character: role.characterUid}}">{{ role.characterName || '未命名角色' }}</RouterLink><RouterLink :to="`/explore/anime/${role.subjectId}`">{{ role.title }}</RouterLink><small>个人评分 {{ role.personalRating || '未评分' }}</small></div></article></div>
       </details><button v-if="(report.voices?.length || 0) > voiceLimit" @click="voiceLimit += 20">更多声优</button>
     </section>
     <section aria-label="动画制作公司偏好"><h3>动画制作公司</h3><p class="muted">仅纳入 Bangumi 明确为机构且职责为“动画制作”的记录。联合制作各计一部，同机构同作品只计一次；均分及代表作仅基于看过作品，未评分不计入。缺失资料不推断公司。</p>
       <label>排行<select v-model="companySort"><option value="COUNT">最常观看</option><option value="RATING">评分较高（至少3部已评分）</option></select></label>
       <p v-if="!companies.length">尚无有效动画制作机构样本，请补充资料后重新生成。</p>
-      <details v-for="company in companies" :key="company.uid" class="profile-row"><summary><CharacterPortrait :node="portrait(company.uid,company.name,company.imageUrl)"/><strong>{{ company.name }}</strong><span>看过 {{ company.completed }} 部 / 相关 {{ company.allCount }} 部</span><span>均分 {{ company.scores.averageRating ?? '未评分' }} · 评分样本 {{ company.scores.ratedCount }} {{ company.scores.ratedCount < 3 ? '（样本不足）' : '' }}</span></summary>
+      <ReportChart :items="companyChart" :mode="companySort==='RATING'?'scatter':'bar'" :label="companySort==='RATING'?'制作公司作品数与个人均分':'制作公司看过作品排行'" @select="openRow('company-',$event.id)"/><details v-for="company in companies" :id="'company-'+company.uid" :key="company.uid" class="profile-row"><summary><CharacterPortrait :node="portrait(company.uid,company.name,company.imageUrl)"/><strong>{{ company.name }}</strong><span>看过 {{ company.completed }} 部 / 相关 {{ company.allCount }} 部</span><span>均分 {{ company.scores.averageRating ?? '未评分' }} · 评分样本 {{ company.scores.ratedCount }} {{ company.scores.ratedCount < 3 ? '（样本不足）' : '' }}</span></summary>
         <div class="score-bars" aria-label="个人评分分布"><details v-for="bin in company.ratingBins" :key="bin.score" class="score-bin"><summary :title="`${bin.score}分 ${bin.count}部，展开查看作品`"><i :style="{height: `${Math.max(2, bin.count / Math.max(1,company.scores.ratedCount) * 70)}px`}"></i>{{ bin.score }}分<small>{{ bin.count }}部</small></summary><ReportWorkList :works="bin.works"/></details></div>
         <div class="status-groups"><details v-for="group in company.statusGroups" :key="group.status"><summary>{{ statusNames[group.status] }} {{ group.count }}</summary><ReportWorkList :works="group.works"/></details></div>
-        <h4>高分代表作</h4><ReportWorkList :works="company.representatives"/><details><summary>核对全部相关作品</summary><ReportWorkList :works="company.works"/></details>
+        <details v-if="company.credits?.length"><summary>逐作品核对动画制作职责</summary><ul><li v-for="credit in company.credits" :key="credit.subjectId+credit.revision"><RouterLink :to="'/explore/anime/'+credit.subjectId">作品 {{ credit.subjectId }}</RouterLink> · {{ credit.role }} <a v-if="/^https?:\/\//.test(credit.sourceUrl)" :href="credit.sourceUrl" target="_blank" rel="noopener noreferrer">来源名册</a><small> 资料版本 {{ credit.revision }}</small></li></ul></details><h4>高分代表作</h4><ReportWorkList :works="company.representatives"/><details><summary>核对全部相关作品</summary><ReportWorkList :works="company.works"/></details>
       </details><button v-if="(report.companies?.length || 0) > companyLimit" @click="companyLimit += 20">更多制作公司</button>
     </section>
     <section aria-label="观看行为分析"><h3>观看状态与中途停留</h3><p class="muted">搁置、抛弃是观看行为线索，不能据此认定讨厌某种题材。标签使用现有社区标签，形式由现有标签识别；分别标明资料覆盖。</p>
       <p v-if="!report.behaviors">重新生成报告，可查看搁置和抛弃分析。</p>
-      <details v-for="behavior in report.behaviors" :key="behavior.status" class="profile-row" :open="behavior.status >= 4"><summary><strong>{{ behavior.label }}</strong><span>{{ behavior.count }} 部 · {{ behavior.share }}%</span><span>个人均分 {{ behavior.scores.averageRating ?? '未评分' }}（{{ behavior.scores.ratedCount }} 部）</span></summary>
+      <label>比较搁置与抛弃<select v-model="comparisonKind" @change="comparisonSelection=''"><option value="tags">社区标签</option><option value="formats">动画形式</option><option value="companies">动画制作公司</option></select></label><p class="muted">按两组记录合计展示前12项，多标签与联合制作可重叠；数量不表示厌恶程度。</p><ReportChart :items="behaviorComparison" mode="grouped" :comparison="{first:'搁置',second:'抛弃'}" label="搁置与抛弃的已记录样本" @select="comparisonSelection=$event.id"/><div v-if="comparisonSelection"><section v-for="group in comparisonWorks" :key="group.status"><h4>{{ group.label }} · {{ group.works.length }} 部</h4><ReportWorkList :works="group.works"/></section></div><ReportChart :items="behaviorChart" label="五种观看状态数量" @select="openRow('behavior-',$event.id)"/><details v-for="behavior in report.behaviors" :id="'behavior-'+behavior.status" :key="behavior.status" class="profile-row" :open="behavior.status >= 4"><summary><strong>{{ behavior.label }}</strong><span>{{ behavior.count }} 部 · {{ behavior.share }}%</span><span>个人均分 {{ behavior.scores.averageRating ?? '未评分' }}（{{ behavior.scores.ratedCount }} 部）</span></summary>
         <p class="muted">标签覆盖 {{ behavior.tagged }}/{{ behavior.count }} 部；制作公司覆盖 {{ behavior.companyCovered }}/{{ behavior.count }} 部。{{ behavior.count < 5 ? '样本较少，仅展示记录。' : '' }}</p>
         <div class="behavior-groups"><section v-for="group in [{name:'类型 / 形式',items:behavior.formats},{name:'标签',items:behavior.tags},{name:'动画制作公司',items:behavior.companies}]" :key="group.name"><h4>{{ group.name }}</h4><details v-for="item in group.items" :key="item.id"><summary>{{ item.label }} · {{ item.count }} 部</summary><ReportWorkList :works="item.works"/></details><p v-if="!group.items.length" class="muted">暂无资料</p></section></div>
         <details><summary>查看全部{{ behavior.label }}作品</summary><ReportWorkList :works="behavior.works"/></details>

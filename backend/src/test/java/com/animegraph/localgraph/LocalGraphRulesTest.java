@@ -35,4 +35,11 @@ class LocalGraphRulesTest {
         assertThrows(ApiException.class,()->LocalGraphRules.image("https://example.com/a.png"));
         assertDoesNotThrow(()->LocalGraphRules.image("https://lain.bgm.tv/pic/crt/a.jpg"));
     }
+    @Test void schemaTwoPreservesMultilingualNamesAndRejectsOldClientLoss() {
+        var names=List.of(new com.animegraph.identity.NameResolutionService.LocalName("en","English","en","PRIMARY","LOCAL","MANUAL"),new com.animegraph.identity.NameResolutionService.LocalName("zh","中文","zh","ALIAS","LOCAL","MANUAL"));
+        var entity=new Entity(nodeId(),"CHARACTER","中文","",List.of(),"","","","",names,null,Map.of());
+        assertDoesNotThrow(()->LocalGraphRules.validate(1,new Document(0,2,"anime:bangumi:1",List.of(entity),List.of()),Map.of()));
+        assertThrows(ApiException.class,()->LocalGraphRules.validate(1,new Document(0,1,"anime:bangumi:1",List.of(entity),List.of()),Map.of()));
+    }
+
 }

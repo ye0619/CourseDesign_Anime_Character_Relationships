@@ -16,18 +16,22 @@ import org.springframework.stereotype.Repository;
 public class LocalGraphRepository {
     private final Driver driver;private final String database;private final ObjectMapper json;
     public LocalGraphRepository(Driver driver,@Value("${app.neo4j.database}")String database,ObjectMapper json){this.driver=driver;this.database=database;this.json=json;}
+    public Map<String,Entity> currentEntities(List<String> ids) {
+        if(ids.isEmpty())return Map.of();if(ids.size()>1200)throw LocalGraphRules.bad("本次本地实体过多");
+        try(var session=driver.session(SessionConfig.forDatabase(database))){return session.executeRead(tx->{var result=new HashMap<String,Entity>();for(var row:tx.run("MATCH (n:LocalGraphEntity) WHERE n.uid IN $ids RETURN n.payload AS payload LIMIT 1201",Map.of("ids",ids)).list()){var entity=decode(row.get("payload").asString(),Entity.class);result.put(entity.id(),entity);}return result;},TransactionConfig.builder().withTimeout(Duration.ofSeconds(5)).build());}
+    }
     public Document read(String work) {
         try(var session=driver.session(SessionConfig.forDatabase(database))){return session.executeRead(tx->load(tx,work),TransactionConfig.builder().withTimeout(Duration.ofSeconds(5)).build());}
     }
     private Document load(TransactionContext tx,String work) {
-        var rows=tx.run("MATCH (w:LocalGraphWorkspace {uid:$work}) RETURN w.version AS version",Map.of("work",work));
+        var rows=tx.run("MATCH (w:LocalGraphWorkspace {uid:$work}) RETURN w.version AS version,coalesce(w.schemaVersion,1) AS schemaVersion",Map.of("work",work));
         if(!rows.hasNext())return new Document(0,1,work,List.of(),List.of());
-        long version=rows.single().get("version").asLong();
+        var workspace=rows.single();long version=workspace.get("version").asLong();int schema=workspace.get("schemaVersion").asInt();
         var nodes=tx.run("MATCH (n:LocalGraphEntity {workUid:$work}) RETURN n.payload AS payload ORDER BY n.uid",Map.of("work",work))
                 .list(row->decode(row.get("payload").asString(),Entity.class));
         var edges=tx.run("MATCH ()-[r:LOCAL_GRAPH_LINK {workUid:$work}]->() RETURN r.payload AS payload ORDER BY r.uid",Map.of("work",work))
                 .list(row->decode(row.get("payload").asString(),Link.class));
-        return new Document(version,1,work,nodes,edges);
+        return new Document(version,schema,work,nodes,edges);
     }
     public Document replace(Document next) {
         // Lock the workspace before revision check. Competing app instances serialize here too.
@@ -52,9 +56,9 @@ public class LocalGraphRepository {
                 tx.run("MATCH (a),(b) WHERE (a:LocalGraphEntity OR a:LocalGraphAnchor) AND (b:LocalGraphEntity OR b:LocalGraphAnchor) AND a.uid=$source AND b.uid=$target AND a.workUid=$work AND b.workUid=$work CREATE (a)-[:LOCAL_GRAPH_LINK {uid:$uid,workUid:$work,source:'LOCAL',payload:$payload}]->(b)",
                         Map.of("source",source,"target",target,"work",work,"uid",edge.id(),"payload",encode(edge))).consume();
             }
-            tx.run("MATCH (w:LocalGraphWorkspace {uid:$work}) SET w.version=w.version+1,w.updatedAt=$now",params).consume();
+            tx.run("MATCH (w:LocalGraphWorkspace {uid:$work}) SET w.version=w.version+1,w.updatedAt=$now,w.schemaVersion=$schema",Map.of("work",work,"now",now,"schema",next.schemaVersion())).consume();
             tx.run("MATCH (b:LocalGraphBackup {workUid:$work}) WITH b ORDER BY b.createdAt DESC,b.uid DESC SKIP 20 DELETE b",params).consume();
-            return new Document(previous.version()+1,1,work,next.nodes().stream().sorted(Comparator.comparing(Entity::id)).toList(),next.edges().stream().sorted(Comparator.comparing(Link::id)).toList());
+            return new Document(previous.version()+1,next.schemaVersion(),work,next.nodes().stream().sorted(Comparator.comparing(Entity::id)).toList(),next.edges().stream().sorted(Comparator.comparing(Link::id)).toList());
         },TransactionConfig.builder().withTimeout(Duration.ofSeconds(15)).build());}
     }
     public List<Map<String,Object>> backups(String work) {

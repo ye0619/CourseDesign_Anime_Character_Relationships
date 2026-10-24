@@ -17,7 +17,7 @@ public class LocalGraphService {
         work(id);if(document==null||!validator.validate(document).isEmpty())throw LocalGraphRules.bad("字段校验失败，请检查必填项与长度限制");
         try{if(json.writeValueAsBytes(document).length>8*1024*1024)throw LocalGraphRules.bad("本作本地资料总大小不得超过8MB");}catch(com.fasterxml.jackson.core.JsonProcessingException e){throw LocalGraphRules.bad("本地资料格式不正确");}
         // Previously validated anchors remain valid when the official cache/network is unavailable.
-        var previous=repository.read(work(id));var ids=new HashMap<String,Integer>();
+        var previous=repository.read(work(id));if(previous.schemaVersion()==2&&document.schemaVersion()==1)throw LocalGraphRules.bad("当前工作区已有格式2资料，请升级客户端或先转换旧备份，避免丢失多语言名称");var ids=new HashMap<String,Integer>();
         for(var edge:previous.edges())for(var uid:List.of(edge.source(),edge.target()))if(uid.matches("character:bangumi:[1-9]\\d*"))ids.put(uid,1);
         boolean newAnchor=document.edges().stream().anyMatch(edge->java.util.stream.Stream.of(edge.source(),edge.target())
                 .anyMatch(uid->uid!=null&&uid.startsWith("character:bangumi:")&&!ids.containsKey(uid)));

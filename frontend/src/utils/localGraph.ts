@@ -4,9 +4,9 @@ export function mergeLocalGraph(official: CharacterGraph, local?: LocalGraphDocu
   const nodes: CharacterNode[] = official.nodes.map(node => ({ ...node, dataSource: 'BANGUMI' as const }))
   const edges: CharacterEdge[] = official.edges.map(edge => ({ ...edge, dataSource: 'BANGUMI' as const }))
   if (!local) return { ...official, nodes, edges }
-  for (const node of local.nodes) nodes.push({ id: node.id, label: node.name, originalName: node.aliases[0] || '', aliases: node.aliases,
+  for (const node of local.nodes) nodes.push({ id: node.id, label: node.name, originalName: node.aliases[0] || '', aliases: [...node.aliases,...(node.names?.map(n=>n.text)||[])],
     group: node.organizationType || '', role: node.kind === 'ORGANIZATION' ? '组织' : '本地角色', description: node.description,
-    imageUrl: node.imageUrl, characterType: node.kind === 'ORGANIZATION' ? 4 : 1, dataSource: 'LOCAL', notes: node.notes, gender: node.gender, organizationType: node.organizationType })
+    imageUrl: node.imageUrl, portraitSettings:node.portraits,portraitSubjectUid:local.workUid, characterType: node.kind === 'ORGANIZATION' ? 4 : 1, dataSource: 'LOCAL', notes: node.notes, gender: node.gender, organizationType: node.organizationType })
   const ids = new Set(nodes.map(node => node.id))
   for (const edge of local.edges) for (const id of [edge.source,edge.target]) if (!ids.has(id) && /^character:bangumi:[1-9]\d*$/.test(id)) {
     nodes.push({id,label:`Bangumi角色 #${id.split(':').at(-1)}`,group:'',role:'资料待补全',description:'已保存关系中的官方编号引用；姓名与头像暂不可用。',dataSource:'BANGUMI',characterType:1});ids.add(id)

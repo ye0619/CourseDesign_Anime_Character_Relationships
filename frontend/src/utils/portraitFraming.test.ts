@@ -25,4 +25,12 @@ describe('shared portrait geometry', () => {
     expect(portraitFrame('character:bangumi:1', `${url}?new`, image, 'auto', 1, overrides).y).toBe(0)
     expect(portraitFrame('character:bangumi:1', url, image, 'full', 1, overrides).full).toBe(true)
   })
+  it('invalidates a saved content-bound crop when pixels change at the same URL and dimensions',()=>{
+    const url='https://lain.bgm.tv/pic/crt/l/same.jpg',first='sha256:'+'a'.repeat(64),second='sha256:'+'b'.repeat(64)
+    const overrides:PortraitOverride[]=[{entityUid:'c',imageFingerprint:first,reviewed:true,mode:'portrait',focalX:.4,focalY:.3,scale:1.2}]
+    expect(portraitFrame('c',url,{width:400,height:600,contentFingerprint:first},'auto',1,overrides).y).toBe(30)
+    expect(portraitFrame('c',url,{width:400,height:600,contentFingerprint:second},'auto',1,overrides).y).toBe(0)
+    expect(portraitFrame('c',url,{width:400,height:600},'auto',1,overrides).y).toBe(0)
+  })
+
 })

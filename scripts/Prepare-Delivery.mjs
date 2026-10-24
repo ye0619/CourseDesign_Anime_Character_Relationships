@@ -4,8 +4,8 @@ import {dirname,resolve,relative,sep} from 'node:path'
 import {fileURLToPath} from 'node:url'
 
 const jar='backend/target/animegraph-backend-0.1.0-SNAPSHOT.jar'
-const singles=['README.md','.env.example','.gitignore','compose.yaml','Start-Project.cmd','Stop-Project.cmd','修改计划10.21.md','backend/pom.xml','backend/mvnw','backend/mvnw.cmd','frontend/package.json','frontend/package-lock.json','frontend/index.html','frontend/tsconfig.json','frontend/vite.config.ts',jar]
-const trees=['backend/src','backend/.mvn','frontend/src','frontend/dist','scripts','docs','plans','data/curated','data/samples']
+const singles=['README.md','.env.example','.gitignore','compose.yaml','Start-Project.cmd','Stop-Project.cmd','backend/pom.xml','backend/mvnw','backend/mvnw.cmd','frontend/package.json','frontend/package-lock.json','frontend/index.html','frontend/tsconfig.json','frontend/vite.config.ts',jar]
+const trees=['backend/src','backend/.mvn','frontend/src','frontend/dist','scripts','docs','data/fixtures','data/samples']
 const forbidden=/^(?:\.env(?!\.example$).*|\.local|\.git|\.agents|\.codex|node_modules|raw|normalized)$/i
 export function safeRelative(path){return typeof path==='string'&&path.length>0&&!path.includes('\\')&&!path.includes(':')&&!path.startsWith('/')&&path.split('/').every(p=>p&&p!=='.'&&p!=='..'&&!forbidden.test(p))&&!/\.(pem|key|p12|pfx|jks)$/i.test(path)}
 export const sha256=bytes=>createHash('sha256').update(bytes).digest('hex')
@@ -18,7 +18,7 @@ export function collectFiles(root){
   for(const path of trees)walk(path)
   return [...new Set(files)].sort()
 }
-export function codeFingerprint(root){return sha256(collectFiles(root).filter(p=>/^(backend\/src\/|backend\/\.mvn\/|frontend\/src\/|scripts\/|data\/curated\/)/.test(p)||['backend/pom.xml','frontend/package.json','frontend/package-lock.json','frontend/vite.config.ts','frontend/tsconfig.json'].includes(p)).map(p=>`${p}\0${sha256(readFileSync(resolve(root,p)))}`).join('\n'))}
+export function codeFingerprint(root){return sha256(collectFiles(root).filter(p=>/^(backend\/src\/|backend\/\.mvn\/|frontend\/src\/|scripts\/|data\/fixtures\/)/.test(p)||['backend/pom.xml','frontend/package.json','frontend/package-lock.json','frontend/vite.config.ts','frontend/tsconfig.json'].includes(p)).map(p=>`${p}\0${sha256(readFileSync(resolve(root,p)))}`).join('\n'))}
 export function attestArtifacts(root){const checks=JSON.parse(readFileSync(resolve(root,'.local/project-checks.json'),'utf8'));if(!checks.passed||checks.codeFingerprint!==codeFingerprint(root))throw new Error('Project checks do not match current source');const artifacts=collectFiles(root).filter(p=>p===jar||p.startsWith('frontend/dist/')).map(path=>({path,sha256:sha256(readFileSync(resolve(root,path)))}));if(!artifacts.some(a=>a.path===jar)||!artifacts.some(a=>a.path==='frontend/dist/index.html'))throw new Error('Build artifacts missing');const stamp={builtAt:new Date().toISOString(),codeFingerprint:checks.codeFingerprint,artifacts};writeFileSync(resolve(root,'.local/artifact-build.json'),JSON.stringify(stamp,null,2)+'\n');return stamp}
 function secretsFromEnvironment(root){
   if(!existsSync(resolve(root,'.env')))return []

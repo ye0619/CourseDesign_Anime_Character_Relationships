@@ -102,6 +102,8 @@ const style: StylesheetJson = [
     'background-position-x': node => `${node.data('portraitX') ?? 50}%`, 'background-position-y': node => `${node.data('portraitY') ?? 50}%`,
     'background-clip': 'node', 'background-image-crossorigin': 'anonymous' } },
   { selector: '.faded', style: { opacity: .1, 'text-opacity': .15 } },
+  {selector:'node.depth-secondary',style:{opacity:.48,'text-opacity':.5,'border-style':'dotted','border-width':2,'border-color':'#95b2bf','z-index':2}},
+  {selector:'node.depth-context',style:{opacity:.12,'text-opacity':.12,'z-index':0}},
   { selector: 'node.neighbor', style: { opacity: 1, 'border-color': '#bed3c2', 'border-width': 3, 'min-zoomed-font-size': 0 } },
   { selector: 'node.active', style: { opacity: 1, 'border-color': '#d6a66a', 'border-width': 5, 'font-weight': 700, 'underlay-color':'#d6a66a','underlay-padding':13,'underlay-opacity':.16, 'min-zoomed-font-size': 0, 'z-index': 20 } },
   { selector: 'edge.active', style: { opacity: 1, width: 2.8, label: 'data(label)', 'min-zoomed-font-size': 0, 'z-index': 10 } },
@@ -113,7 +115,7 @@ function applyEmphasis() {
   if (!cy) return
   cy.batch(() => {
     const all = cy!.elements()
-    all.removeClass('faded neighbor active labels-on path-node path-edge')
+    all.removeClass('faded neighbor active labels-on path-node path-edge depth-secondary depth-context')
     cy!.nodes().toggleClass('portraits-on', props.showPortraits)
     if (props.showEdgeLabels) cy!.edges().addClass('labels-on')
     const nodeId = hovered || (props.selectedId ? nodeKey(props.selectedId) : null)
@@ -130,6 +132,7 @@ function applyEmphasis() {
     const nearby = nodeId ? item.closedNeighborhood() : cy!.collection().union(item).union(item.connectedNodes())
     all.difference(nearby).addClass('faded')
     nearby.nodes().addClass('neighbor'); nearby.edges().addClass('active'); item.addClass('active')
+    if(depthView.value&&props.nodes.length<=100&&nodeId){const second=nearby.nodes().closedNeighborhood().nodes();second.difference(nearby.nodes()).addClass('depth-secondary');cy!.nodes().difference(second).addClass('depth-context')}
   })
   scheduleSemanticStyles()
 }
@@ -387,7 +390,7 @@ watch(() => props.layout, runLayout, { flush: 'post' })
 watch(() => [props.selectedId, props.selectedEdgeId], () => { if (props.selectedId) expandedGroup.value = []; revealSelection() }, { flush: 'post' })
 watch(() => props.showEdgeLabels, applyEmphasis)
 watch(() => props.showPortraits, applyEmphasis)
-watch(depthView,applyDepth)
+watch(depthView,()=>{applyDepth();applyEmphasis()})
 watch(portraits, applyPortraits)
 watch(() => props.path, () => { applyEmphasis(); if (cy && props.path?.nodeIds.length) { const elements = cy.collection().union(props.path.nodeIds.map(id => cy!.getElementById(nodeKey(id))).reduce((all, item) => all.union(item), cy.collection())); cy.fit(elements, 70) } }, { flush: 'post' })
 watch(() => props.resetKey, () => render(false))
@@ -401,7 +404,7 @@ onUnmounted(() => {
 <template>
   <div class="relation-canvas-wrapper">
     <p v-if="activeRelation" class="notice" role="status">选中关系：{{ nodes.find(n => n.id === activeRelation?.source)?.label }} {{ activeRelation.directed ? '→' : '—' }} {{ nodes.find(n => n.id === activeRelation?.target)?.label }} · {{ activeRelation.label }}{{ activeRelation.ended ? '（已结束）' : '' }}。{{ activeRelation.description }}</p>
-    <div v-if="layout !== 'roster'" class="canvas-reading-note"><template v-if="audience === 'staff'"><span><i></i> 制作人员</span><span><i class="support"></i> 方形节点为职务</span></template><template v-else><span><i></i> 主角</span><span><i class="support"></i> 其他定位见角色索引</span></template><span>{{ focusOnSelection && selectedId ? '已围绕选中节点排列 · 适应画布可看全图' : '大小代表直接关联人数' }}</span></div>
+    <div v-if="layout !== 'roster'" class="canvas-reading-note"><template v-if="audience === 'staff'"><span><i></i> 制作人员</span><span><i class="support"></i> 方形节点为职务</span></template><template v-else><span><i></i> 主角</span><span><i class="support"></i> 其他定位见角色索引</span></template><span v-if="depthView&&selectedId">前景为焦点与直接关系，中景为二级关联，背景为其他角色</span><span>{{ focusOnSelection && selectedId ? '已围绕选中节点排列 · 适应画布可看全图' : '大小代表直接关联人数' }}</span></div>
     <div v-show="layout !== 'roster'" ref="container" class="relation-canvas" aria-hidden="true"></div>
     <div v-if="expandedGroup.length" class="relation-group" aria-label="聚合关系明细"><strong>这组连线包含 {{ expandedGroup.length }} 条来源关系</strong><button v-for="edge in expandedGroup" :key="edge.id" @click="emit('selectEdge', edge.id)">{{ nodes.find(n => n.id === edge.source)?.label }} {{ edge.directed ? '→' : '—' }} {{ nodes.find(n => n.id === edge.target)?.label }} · {{ edge.label }}{{ edge.ended ? ' · 已结束' : '' }}</button><button @click="expandedGroup = []">收起</button></div>
     <div v-if="layout === 'roster'" class="canvas-roster" :aria-label="audience === 'staff' ? '制作名册' : '角色名册'"><button v-for="node in roster" :key="node.id" :aria-pressed="selectedId === node.id" @click="emit('selectNode', node.id)"><CharacterPortrait :node="node"/><span><strong>{{ node.label }}</strong><small>{{ node.role || '未标注定位' }}</small></span></button></div>

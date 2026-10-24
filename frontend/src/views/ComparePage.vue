@@ -45,8 +45,8 @@ onScopeDispose(()=>{version++;controller?.abort();clearTimeout(timer)})
   <p v-if="!valid" class="notice">从下拉候选中选定两部动画，即可比较；不需要先导入本地。</p>
   <p v-if="error" class="feedback error" role="alert">{{ error }} <button @click="load">重试读取</button></p>
   <template v-if="valid"><div class="actions"><button :disabled="preparing" @click="prepare()">{{ preparing?'正在请求…':'补充 / 继续读取两部作品资料' }}</button><button :disabled="preparing" @click="prepare(true)">刷新来源资料</button></div><p class="muted">每轮有界补充；若来源失败，已保存的分页仍可比较。首次读取需主动补充资料。</p></template>
-  <p v-if="pending" role="status" class="feedback">正在核对共同项…</p>
+  <p><RouterLink :to="{path:'/connections',query:{...(a?{fromSubject:a}:{}),...(b?{toSubject:b}:{})}}">从这两部作品选择角色，探索配音与剧情联系</RouterLink></p><p v-if="pending" role="status" class="feedback">正在核对共同项…</p>
   <template v-if="result"><p v-for="side in [result.a,result.b].filter(s=>s.metadata.job)" :key="side.subjectId" class="notice" role="status">作品 {{ side.entity.nameCn||side.entity.name||side.subjectId }}：{{ ({PENDING:'等待补充',RUNNING:'补充中',COMPLETE:'已读完',PARTIAL:'本轮已达上限，可继续补充',FAILED:'补充失败'} as Record<string,string>)[side.metadata.job!.status] }} · 本轮 {{ side.metadata.job!.processed }} 页 {{ side.metadata.job!.error }}</p><OnlineComparisonResults :result="result"/></template>
-  <details class="local-comparison" @toggle="showLocal=($event.target as HTMLDetailsElement).open"><summary>本地档案与有限路径查询</summary><p class="notice">以下仅查询已导入本地知识库的作品和有界路径，覆盖范围与上方在线资料不同。</p><LocalComparison v-if="showLocal"/></details>
+  <details class="local-comparison" @toggle="showLocal=($event.target as HTMLDetailsElement).open"><summary>本地档案共同项</summary><p class="notice">以下仅核对已保存作品的共同项，覆盖范围与上方在线资料不同。</p><LocalComparison v-if="showLocal"/></details>
 </template>
 <style scoped>.comparison-search{align-items:end}.local-comparison{margin:30px 0;border-top:1px solid #dce6d1;padding-top:20px}.local-comparison>summary{cursor:pointer;padding:12px;font-size:14px}.actions{flex-wrap:wrap}</style>

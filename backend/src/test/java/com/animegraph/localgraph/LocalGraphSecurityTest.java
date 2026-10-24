@@ -24,7 +24,7 @@ class LocalGraphSecurityTest {
         verify(service).save(eq(1L),any());
     }
     @Test void invalidDocumentsDoNotReachService()throws Exception {
-        mvc.perform(put("/api/v1/explore/anime/1/local-graph").with(csrf()).contentType("application/json").content("{\"version\":0,\"schemaVersion\":2,\"workUid\":\"x\",\"nodes\":[],\"edges\":[]}")).andExpect(status().isBadRequest());
+        mvc.perform(put("/api/v1/explore/anime/1/local-graph").with(csrf()).contentType("application/json").content("{\"version\":0,\"schemaVersion\":3,\"workUid\":\"x\",\"nodes\":[],\"edges\":[]}")).andExpect(status().isBadRequest());
         verify(service,never()).save(anyLong(),any());
     }
 }

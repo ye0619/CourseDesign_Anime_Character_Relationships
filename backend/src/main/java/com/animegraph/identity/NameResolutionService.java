@@ -11,6 +11,23 @@ import org.springframework.stereotype.Service;
 /** Resolves display policy without mutating source documents or provider IDs. */
 @Service
 public class NameResolutionService {
+    public record LocalName(String id,String text,String locale,String kind,String source,String reviewStatus) {}
+    public static void validateLocal(List<LocalName> names,String preferred) {
+        if(names==null||names.isEmpty()||names.size()>30)throw localBad("请填写1至30个有效名称");
+        var ids=new HashSet<String>();var texts=new HashSet<String>();
+        for(var n:names) {
+            if(n==null||n.id()==null||!n.id().matches("[A-Za-z0-9_-]{1,80}")||!ids.add(n.id())||n.text()==null||n.text().isBlank()||n.text().length()>200||n.locale()==null||!n.locale().matches("[a-zA-Z]{2,8}(-[a-zA-Z0-9]{1,8})*")||n.kind()==null||!Set.of("PRIMARY","ORIGINAL","ALIAS").contains(n.kind()))throw localBad("名称、语言、类型或编号无效");
+            if(!texts.add(n.locale().toLowerCase(Locale.ROOT)+"|"+n.text().strip()))throw localBad("同语言名称重复，请合并来源");
+        }
+        if(preferred!=null&&!preferred.isBlank()&&!ids.contains(preferred))throw localBad("指定显示名称不在名称集合中");
+    }
+    public static String localDisplay(List<LocalName> names,String preferred,List<String> originalLanguages) {
+        validateLocal(names,preferred);
+        if(preferred!=null&&!preferred.isBlank())return names.stream().filter(n->n.id().equals(preferred)).findFirst().orElseThrow().text().strip();
+        return names.stream().min(Comparator.comparingInt((LocalName n)->n.locale().toLowerCase(Locale.ROOT).startsWith("zh")?0:originalLanguages.contains(n.locale())?1:n.kind().equals("ORIGINAL")||n.kind().equals("PRIMARY")?2:3)).orElseThrow().text().strip();
+    }
+    private static com.animegraph.common.ApiException localBad(String message){return new com.animegraph.common.ApiException(org.springframework.http.HttpStatus.BAD_REQUEST,"NAME_INVALID",message);}
+
     public record NameAssertion(String name, String locale, String kind, String provider, String sourceUrl,
                                 String sourceRevision, Instant retrievedAt, String reviewStatus, String reviewedOn) {}
     public record ResolvedName(String displayName, String originalName, List<String> aliases,

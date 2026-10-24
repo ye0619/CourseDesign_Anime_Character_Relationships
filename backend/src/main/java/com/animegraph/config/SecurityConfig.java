@@ -43,7 +43,7 @@ public class SecurityConfig {
                                     java.util.Set.of("127.0.0.1","0:0:0:0:0:0:0:1","::1").contains(context.getRequest().getRemoteAddr())))
                         .requestMatchers(HttpMethod.POST,"/api/v1/explore/anime/*/metadata/jobs").permitAll()
                         .requestMatchers("/api/v1/viewer","/api/v1/viewer/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/v1/**").permitAll().requestMatchers("/error").permitAll().anyRequest().denyAll();
+                        .requestMatchers(HttpMethod.PUT,"/api/v1/character-edits/*").access((authentication,context) -> new org.springframework.security.authorization.AuthorizationDecision(java.util.Set.of("127.0.0.1","0:0:0:0:0:0:0:1","::1").contains(context.getRequest().getRemoteAddr()))).requestMatchers(HttpMethod.POST,"/api/v1/connections/searches").permitAll().requestMatchers(HttpMethod.DELETE,"/api/v1/connections/searches/*","/api/v1/connections/coverage/jobs/*").permitAll().requestMatchers(HttpMethod.POST,"/api/v1/connections/coverage/jobs").access((authentication,context) -> new org.springframework.security.authorization.AuthorizationDecision(java.util.Set.of("127.0.0.1","0:0:0:0:0:0:0:1","::1").contains(context.getRequest().getRemoteAddr()))).requestMatchers(HttpMethod.GET, "/api/v1/**").permitAll().requestMatchers("/error").permitAll().anyRequest().denyAll();
                 });
         if(legacyAdmin) http.formLogin(login -> login.loginProcessingUrl("/api/v1/auth/login")
                         .successHandler((request,response,auth) -> {

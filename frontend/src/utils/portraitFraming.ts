@@ -1,6 +1,6 @@
 import reviewed from '../data/reviewedPortraits.json'
 export type PortraitMode = 'auto' | 'full'
-export interface ImageDimensions { width: number; height: number }
+export interface ImageDimensions { width: number; height: number; contentFingerprint?: string }
 export interface HeadBox { x: number; y: number; width: number; height: number }
 export interface PortraitOverride {
   entityUid: string
@@ -41,7 +41,7 @@ function headFrame(box: HeadBox | undefined, image: ImageDimensions): PortraitFr
 export function portraitFrame(entityUid: string, url: string, image: ImageDimensions | null, mode: PortraitMode = 'auto', characterType?: number | null,
   overrides = portraitOverrides): PortraitFrame {
   const ratio = image && image.width > 0 && image.height > 0 ? image.width / image.height : 1
-  const override = image ? overrides.find(o => o.reviewed && o.entityUid === entityUid && o.imageFingerprint === imageFingerprint(url, image)) : undefined
+  const override = image ? overrides.find(o => o.reviewed && o.entityUid === entityUid && (o.imageFingerprint === imageFingerprint(url, image) || !!image.contentFingerprint && o.imageFingerprint === image.contentFingerprint)) : undefined
   const full = mode === 'full' || override?.mode === 'full' || (!override && (ratio > 1.65 || (characterType != null && characterType !== 1)))
   if (!full && image) {
     const frame = headFrame(override?.headBox, image)

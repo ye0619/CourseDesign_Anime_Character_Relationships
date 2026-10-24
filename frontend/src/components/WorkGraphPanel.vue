@@ -8,6 +8,7 @@ import type { LocalGraphDocument } from '../types/localGraph'
 import { mergeLocalGraph } from '../utils/localGraph'
 import CharacterGraphWorkspace from './CharacterGraphWorkspace.vue'
 import LocalGraphEditor from './LocalGraphEditor.vue'
+import CharacterEditPanel from './CharacterEditPanel.vue'
 const props = withDefaults(defineProps<{ uid: string; source: 'LOCAL' | 'ONLINE' | 'DEMO'; workTitle?: string }>(), { workTitle: '角色关系图谱' })
 const route = useRoute()
 const subjectId = computed(() => /^anime:bangumi:([1-9]\d*)$/.exec(props.uid)?.[1])
@@ -35,5 +36,5 @@ watch([() => props.uid, attempt], async (_value, _previous, onCleanup) => {
   loading.value=false
 }, { immediate: true })
 </script>
-<template><section class="work-graph-panel" aria-label="角色关系图谱"><p v-if="loading" class="feedback" role="status">正在读取角色与关系…</p><p v-if="error || localError" class="feedback error" role="alert">{{ error }} {{ localError }} <button :disabled="loading" @click="attempt++">重试</button></p><LocalGraphEditor v-if="subjectId && local && graph" :subject-id="subjectId" :document="local" :graph="graph" :selected-node-id="selectedNodeId" :selected-edge-id="selectedEdgeId" @saved="local=$event" @reload="attempt++"/><CharacterGraphWorkspace v-if="graph" :key="uid" :graph="graph" :initial-selected-id="focus" @node-selected="selectedNodeId=$event;selectedEdgeId=null" @edge-selected="selectedEdgeId=$event;selectedNodeId=null"/><footer><span>已加载 {{ graph?.nodes.length || 0 }} 个实体</span><button :disabled="loading" @click="attempt++">重新读取</button></footer></section></template>
+<template><section class="work-graph-panel" aria-label="角色关系图谱"><p v-if="loading" class="feedback" role="status">正在读取角色与关系…</p><p v-if="error || localError" class="feedback error" role="alert">{{ error }} {{ localError }} <button :disabled="loading" @click="attempt++">重试</button></p><LocalGraphEditor v-if="subjectId && local && graph" :subject-id="subjectId" :document="local" :graph="graph" :selected-node-id="selectedNodeId" :selected-edge-id="selectedEdgeId" @saved="local=$event" @reload="attempt++"/><CharacterEditPanel v-if="graph && selectedNodeId && graph.nodes.find(n=>n.id===selectedNodeId)?.dataSource!=='LOCAL'" :key="selectedNodeId" :node="graph.nodes.find(n=>n.id===selectedNodeId)!" :work-uid="uid" @saved="attempt++"/><CharacterGraphWorkspace v-if="graph" :key="uid" :graph="graph" :initial-selected-id="focus" @node-selected="selectedNodeId=$event;selectedEdgeId=null" @edge-selected="selectedEdgeId=$event;selectedNodeId=null"/><footer><span>已加载 {{ graph?.nodes.length || 0 }} 个实体</span><button :disabled="loading" @click="attempt++">重新读取</button></footer></section></template>
 <style scoped>.work-graph-panel{min-width:0}.work-graph-panel footer{display:flex;align-items:center;gap:16px;padding:14px 20px;font-size:12px;color:#718677;border-top:1px solid #e0e9e3}</style>

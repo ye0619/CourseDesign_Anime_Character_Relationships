@@ -106,9 +106,8 @@ try{
     $classpath=$classes+[IO.Path]::PathSeparator+(Join-Path $neoHome 'lib/*')
     $graphFile=Join-Path $backup 'graph.json'
     Run-Graph -Arguments @('export',$graphFile) -Name 'graph-export'
-    Copy-Item -LiteralPath (Join-Path $root 'data/curated/local-library.v1.json') -Destination (Join-Path $backup 'local-library.v1.json')
-    Copy-Item -LiteralPath (Join-Path $root 'data/curated/local-library.archive.v1.json') -Destination (Join-Path $backup 'local-library.archive.v1.json')
-    $files=@('mysql.sql','graph.json','local-library.v1.json','local-library.archive.v1.json')|ForEach-Object {
+    Copy-Item -LiteralPath (Join-Path $root 'backend/src/main/resources/maintenance/legacy-evidence-scope.json') -Destination (Join-Path $backup 'legacy-evidence-scope.json')
+    $files=@('mysql.sql','graph.json','legacy-evidence-scope.json')|ForEach-Object {
         [ordered]@{path=$_;bytes=(Get-Item -LiteralPath (Join-Path $backup $_)).Length;sha256=(Get-FileHash -LiteralPath (Join-Path $backup $_) -Algorithm SHA256).Hash.ToLowerInvariant()}
     }
     Write-Json (Join-Path $backup 'private-backup-manifest.json') ([ordered]@{schemaVersion=1;createdAt=[DateTime]::UtcNow.ToString('o');applicationStopped=$true;files=@($files);mysqlTables=$before;policy='Private full logical backup; contains account-scoped data and must never enter a public delivery package.'})

@@ -49,4 +49,11 @@ class ProfileDetailsTest {
         assertEquals(List.of("company"),input.studios().stream().map(ReportCredits.Studio::uid).toList());assertTrue(input.performances().isEmpty());
         assertFalse(ReportCredits.animationProduction("制作委员会"));assertFalse(ReportCredits.animationProduction("制作"));
     }
+    @Test void fallbackKeepsCurrentScopedNamesAndCompanyUsesExplicitChineseThenRecency() {
+        var current=input(1,List.of(new ReportCredits.Performance("p","声优","","c","来源中文角色","")),List.of(new ReportCredits.Studio("s","来源中文公司","","动画制作","https://bgm.tv/subject/1/persons","current",0,Instant.now())));
+        var fallback=input(1,List.of(new ReportCredits.Performance("p","Actor","","c","OldName","")),List.of(new ReportCredits.Studio("s","OldStudio","","动画制作","https://bgm.tv/subject/1/persons","old",1,Instant.EPOCH)));
+        var merged=ReportCredits.merge(current,fallback);assertEquals(1,merged.performances().size());assertEquals("来源中文角色",merged.performances().getFirst().characterName());
+        var company=ProfileDetails.companies(List.of(RecommendationEngineTest.work(1,2,8,List.of())),Map.of(1L,merged)).getFirst();assertEquals("来源中文公司",company.name());assertEquals(1,company.completed());assertEquals(2,company.credits().size());
+    }
+
 }

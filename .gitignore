@@ -61,24 +61,20 @@ venv/
 Thumbs.db
 Desktop.ini
 
-# Local development plans, dated requirements and work records.
+# Disposable local plans and dated prompts; canonical docs remain versioned.
 /plans/
 /修改计划*.md
 /[0-9]*.[0-9]*.txt
-/docs/*计划*.md
-/docs/*实施记录*.md
-/docs/*进度*.md
-/docs/*路线*.md
-/docs/*验收*.md
-/docs/*问题与决策记录*.md
-/docs/*需求基线*.md
-/docs/*版本记录*.md
-/docs/*测试报告*.md
-/docs/*工作量与证据*.md
-/docs/*升级*.md
-/docs/Codex*.md
-/docs/screenshots/
-/data/samples/
+
+# Runtime evidence stays local; retain the fixed public test/experiment inputs.
+/data/samples/*
+!/data/samples/identity-title-candidates-2026-10-22.json
+!/data/samples/10.21-portrait-head-audit.json
+!/data/samples/external-coverage-baseline-2026-10-22.json
+!/data/samples/moegirl-info-2026-10-22.json
+!/data/samples/moegirl-rights-2026-10-22.json
+!/data/samples/10.21-recommendation-evaluation.json
+!/data/samples/reviewed-evidence-example.json
 
 # Local AI tooling; not part of the application source.
 /.agents/

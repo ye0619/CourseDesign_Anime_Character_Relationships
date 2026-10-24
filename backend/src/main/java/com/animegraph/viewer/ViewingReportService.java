@@ -40,6 +40,7 @@ public class ViewingReportService {
     private final SubjectSnapshotService snapshots;
     private final ObjectMapper json;
     private final LocalReportCredits local;
+    @org.springframework.beans.factory.annotation.Autowired(required=false) private com.animegraph.explore.SavedRawCredits raw;
     private final Map<String,Active> tasks=new ConcurrentHashMap<>();
     private final ThreadPoolExecutor worker=new ThreadPoolExecutor(1,1,0,TimeUnit.SECONDS,new ArrayBlockingQueue<>(8),
             operation->{var thread=new Thread(operation,"viewer-report");thread.setDaemon(true);return thread;});
@@ -127,6 +128,7 @@ public class ViewingReportService {
             var inputs=new HashMap<Long,ReportCredits.Work>();
             snapshots.readMany(completed.stream().map(ViewerModels.Collection::subjectId).toList())
                     .forEach((subject,snapshot)->inputs.put(subject,ReportCredits.fromSnapshot(snapshot)));
+            if(raw!=null)for(var work:completed){var snapshot=raw.snapshot(work.subjectId());if(snapshot!=null){var input=ReportCredits.fromSnapshot(snapshot);inputs.merge(work.subjectId(),input,(existing,fallback)->ReportCredits.merge(existing,fallback));}}
             local.read(completed.stream().map(ViewerModels.Collection::subjectId).toList()).forEach((subject,credits)->inputs.merge(subject,credits,ReportCredits::merge));
             var report=ViewingReportAnalyzer.analyze(completed,inputs);
             synchronized(task){

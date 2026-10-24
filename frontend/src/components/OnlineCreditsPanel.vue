@@ -5,6 +5,7 @@ import { useSubjectCredits } from '../composables/useSubjectCredits'
 import { creditLanguage, creditNode } from '../utils/subjectCredits'
 import { matchesEntityName } from '../utils/entityNames'
 import CharacterPortrait from './CharacterPortrait.vue'
+import CharacterEditPanel from './CharacterEditPanel.vue'
 import EntityNames from './EntityNames.vue'
 const props = withDefaults(defineProps<{ subjectId: string; kind?: CreditKind; source?: 'LOCAL' | 'ONLINE'; uid?: string }>(), { source: 'ONLINE' })
 const selectedRole = shallowRef('')
@@ -39,7 +40,7 @@ const personType = (type: number | null) => type === 1 ? '自然人' : type === 
           <strong>{{ merged.characters.get(credit.characterUid)?.label || credit.characterUid }}</strong><span class="badge">{{ credit.sourceRelationLabel }}</span>
           <dl><dt>语种</dt><dd>{{ creditLanguage(credit.language) }}<small v-if="credit.languageSource === 'relation'">（来源配音分类）</small></dd><dt>版本</dt><dd>{{ credit.version || '来源未提供' }}</dd><dt>集数</dt><dd>{{ credit.episodeScope || '来源未提供' }}</dd></dl>
           <p v-if="credit.description" class="note">{{ credit.description }}</p>
-          <details><summary>饰演证据与角色名称</summary><small>依据本作品角色名册中的演员—角色关联，来源分类：{{ credit.sourceRelationLabel }}。</small><EntityNames v-if="merged.characters.get(credit.characterUid)" :node="creditNode(merged.characters.get(credit.characterUid)!)"/></details>
+          <CharacterEditPanel v-if="merged.characters.get(credit.characterUid)" :node="creditNode(merged.characters.get(credit.characterUid)!)" :work-uid="'anime:bangumi:'+subjectId" @saved="refresh"/><RouterLink :to="{path:'/connections',query:{from:credit.characterUid,fromSubject:subjectId}}">以此角色探索联系</RouterLink><details><summary>饰演证据与角色名称</summary><small>依据本作品角色名册中的演员—角色关联，来源分类：{{ credit.sourceRelationLabel }}。</small><EntityNames v-if="merged.characters.get(credit.characterUid)" :node="creditNode(merged.characters.get(credit.characterUid)!)"/></details>
         </li></ul>
         <ul v-else class="positions"><li v-for="(position, index) in item.positions" :key="index"><strong>{{ position.label }}</strong> · 集数 {{ position.episodeScope || '来源未提供' }}<p v-if="position.description">{{ position.description }}</p></li><li v-if="!item.positions.length">来源未提供可解析的职务。</li></ul>
         <EntityNames :node="item.node"/>

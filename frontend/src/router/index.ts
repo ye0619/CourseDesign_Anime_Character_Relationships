@@ -19,6 +19,7 @@ export const router = createRouter({
     { path: '/community', component: () => import('../views/CommunityPage.vue') },
     { path: '/universes', component: () => import('../views/UniversePage.vue') },
     { path: '/universes/:uid', component: () => import('../views/UniverseDetailPage.vue') },
+    { path: '/connections', component: () => import('../views/CharacterConnectionPage.vue') },
     { path: '/compare', component: () => import('../views/ComparePage.vue') },
     { path: '/analysis', component: () => import('../views/AnalysisPage.vue') },
     { path: '/maintenance/identities', component: () => import('../views/IdentityMaintenancePage.vue') },

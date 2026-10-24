@@ -39,6 +39,7 @@ export interface ReportVoice {
 }
 export interface ReportCompany {
   uid: string; name: string; imageUrl: string; completed: number; allCount: number; scores: ReportScores
+  credits?: { subjectId:number; role:string; sourceUrl:string; revision:string }[]
   statuses: Record<string, number>; representatives: ViewingRecord[]; works: ViewingRecord[]
 }
 export interface ReportGroup { id: string; label: string; count: number; works: ViewingRecord[] }

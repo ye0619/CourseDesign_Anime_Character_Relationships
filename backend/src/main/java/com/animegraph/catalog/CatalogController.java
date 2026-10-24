@@ -19,6 +19,6 @@ public class CatalogController {
     public Object detail(@PathVariable String collection,@PathVariable String uid) {return ApiResponse.ok(names.project(catalog.detail(kind(collection),uid)));}
     @GetMapping("/{collection:anime|people|characters}/{uid}/{section:staff|characters|cast|works}")
     public Object related(@PathVariable String collection,@PathVariable String uid,@PathVariable String section,@RequestParam(defaultValue="1") int page,@RequestParam(defaultValue="20") int pageSize) {
-        return ApiResponse.ok(catalog.related(kind(collection),uid,section,page,pageSize));
+        return ApiResponse.ok(names.project(catalog.related(kind(collection),uid,section,page,pageSize),"items.entity","items.character"));
     }
 }

@@ -12,14 +12,14 @@ const assertions = computed(() => {
     seen.add(key); return true
   })
 })
-const labels: Record<NameAssertion['kind'], string> = { ORIGINAL: '来源原名', SOURCE_CHINESE: '来源中文名', ALIAS: '来源别名', REVIEWED_ALIAS: '已核验别名', PROJECT_PREFERRED: '项目首选名' }
+const labels: Record<NameAssertion['kind'], string> = { PRIMARY:'主名', ORIGINAL: '来源原名', SOURCE_CHINESE: '来源中文名', ALIAS: '来源别名', REVIEWED_ALIAS: '已核验别名', PROJECT_PREFERRED: '项目首选名' }
 const sourceLink = (item:NameAssertion) => reviewedNameSourceLink(item.provider,item.sourceUrl)
 </script>
 <template>
   <details v-if="assertions.length || node.aliases?.length" class="entity-names"><summary>名称、别名与来源</summary>
     <p v-if="preferred">当前名称采用已审核的项目显示习惯，来源原值与别名保留供核对。</p>
     <p v-if="node.aliases?.length">别名：{{ node.aliases.join(' / ') }}</p>
-    <dl><template v-for="(item, index) in assertions" :key="`${item.provider}-${index}`"><dt>{{ labels[item.kind] }}</dt><dd>{{ item.name }} <a v-if="sourceLink(item)" :href="sourceLink(item)" target="_blank" rel="noopener noreferrer">核对来源</a><small v-if="item.sourceRevision">{{ item.provider }} · 来源修订 {{ item.sourceRevision }}</small><small v-if="item.licenseLabel">{{ item.licenseLabel }}</small><small v-if="item.evidenceText">核验依据：{{ item.evidenceText }}</small><small v-if="item.identityVersion!==undefined">身份版本 {{ item.identityVersion }}</small><small v-if="item.reviewedOn">核验日期 {{ item.reviewedOn }}</small><small v-else-if="item.retrievedAt">读取于 {{ new Date(item.retrievedAt).toLocaleString('zh-CN') }}</small></dd></template></dl>
+    <dl><template v-for="(item, index) in assertions" :key="`${item.provider}-${index}`"><dt>{{ item.provider==='LOCAL'?'本地人工名称':labels[item.kind] }} · {{ item.locale }}</dt><dd>{{ item.name }} <a v-if="sourceLink(item)" :href="sourceLink(item)" target="_blank" rel="noopener noreferrer">核对来源</a><small v-if="item.sourceRevision">{{ item.provider }} · 来源修订 {{ item.sourceRevision }}</small><small v-if="item.licenseLabel">{{ item.licenseLabel }}</small><small v-if="item.evidenceText">核验依据：{{ item.evidenceText }}</small><small v-if="item.identityVersion!==undefined">身份版本 {{ item.identityVersion }}</small><small v-if="item.reviewedOn">核验日期 {{ item.reviewedOn }}</small><small v-else-if="item.retrievedAt">读取于 {{ new Date(item.retrievedAt).toLocaleString('zh-CN') }}</small></dd></template></dl>
     <small v-if="node.namePolicyVersion">显示规则版本 {{ node.namePolicyVersion }}</small>
   </details>
 </template>

@@ -1,7 +1,0 @@
-import {readFileSync,writeFileSync} from 'node:fs'
-import {createRequire} from 'node:module'
-const require=createRequire(new URL('../frontend/package.json',import.meta.url)),{parse,stringify}=require('yaml')
-const file=new URL('../docs/接口契约.yaml',import.meta.url),api=parse(readFileSync(file,'utf8'))
-api.paths['/anime/{uid}'].delete={operationId:'delete_local_work',summary:'备份并删除本地作品与作品范围关系；共享实体、本地图谱保留',description:'Loopback and CSRF required. Blocks active saves/imports. Graph backup and graph removal commit atomically. Backup includes current/previous SQL archive; SQL removal follows, failure can be retried. Bangumi online metadata and viewer collections remain available.',security:[],'x-stage':'S18','x-implemented':true,parameters:[{name:'uid',in:'path',required:true,schema:{type:'string',pattern:'^anime:[a-z][a-z0-9_-]{0,29}:[A-Za-z0-9_.-]{1,120}$'}}],responses:{'200':{description:'本地资料已删除并保存备份',content:{'application/json':{schema:{type:'object',properties:{code:{type:'string'},message:{type:'string'},requestId:{type:'string'},data:{type:'object',required:['uid','deleted','backupId','deletedRelationships'],properties:{uid:{type:'string'},deleted:{type:'boolean'},backupId:{type:'string'},deletedRelationships:{type:'integer'}}}}}}}},'400':{description:'作品编号无效'},'403':{description:'缺少CSRF令牌或非本机请求'},'404':{description:'本地作品不存在'},'409':{description:'正在保存或导入'},'503':{description:'数据库或备份不可用，未确认完成'}}}
-api.info.version='0.21.0'
-writeFileSync(file,stringify(api,{lineWidth:120}))

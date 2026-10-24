@@ -25,6 +25,11 @@ export interface CharacterNode {
   organizationType?: string
   nameCnSource?: string | null
   aliases?: string[]
+  sourceOriginal?: CharacterNode
+  localModified?: boolean
+  localEditVersion?: number
+  portraitSettings?: Record<string,import('./characterEdit').CharacterCrop>
+  portraitSubjectUid?: string
   namePolicyVersion?: string
   nameAssertions?: NameAssertion[]
 }
@@ -32,12 +37,12 @@ export interface CharacterNode {
 export interface NameAssertion {
   name: string
   locale: string
-  kind: 'ORIGINAL' | 'SOURCE_CHINESE' | 'ALIAS' | 'REVIEWED_ALIAS' | 'PROJECT_PREFERRED'
-  provider: 'BANGUMI' | 'PROJECT_POLICY' | 'MOEGIRL' | 'ACDB' | 'WIKIDATA' | 'PROJECT'
+  kind: 'PRIMARY' | 'ORIGINAL' | 'SOURCE_CHINESE' | 'ALIAS' | 'REVIEWED_ALIAS' | 'PROJECT_PREFERRED'
+  provider: 'BANGUMI' | 'PROJECT_POLICY' | 'MOEGIRL' | 'ACDB' | 'WIKIDATA' | 'PROJECT' | 'LOCAL'
   sourceUrl: string
   sourceRevision: string | null
   retrievedAt: string | null
-  reviewStatus: 'SOURCE' | 'REVIEWED'
+  reviewStatus: 'SOURCE' | 'REVIEWED' | 'MANUAL'
   evidenceText?: string
   licenseLabel?: string
   identityVersion?: number

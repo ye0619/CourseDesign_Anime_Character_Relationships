@@ -10,8 +10,9 @@ public final class ProfileDetails {
     public record Scores(int ratedCount,Double averageRating,Map<Integer,Long> distribution) {}
     public record Role(long subjectId,String title,int personalRating,String characterUid,String characterName,String imageUrl) {}
     public record Voice(String uid,String name,String imageUrl,int workCount,int characterCount,Scores scores,List<Role> roles) {}
+    public record CompanyCredit(long subjectId,String role,String sourceUrl,String revision) {}
     public record Company(String uid,String name,String imageUrl,int completed,int allCount,Scores scores,
-                          Map<Integer,Long> statuses,List<Collection> representatives,List<Collection> works) {}
+                          Map<Integer,Long> statuses,List<Collection> representatives,List<Collection> works,List<CompanyCredit> credits) {}
     public record Group(String id,String label,int count,List<Collection> works) {}
     public record Behavior(int status,String label,int count,double share,Scores scores,int tagged,int companyCovered,
                            List<Group> tags,List<Group> formats,List<Group> companies,List<Collection> works) {}
@@ -47,7 +48,7 @@ public final class ProfileDetails {
         for(var work:unique(works)) {
             var input=inputs.get(work.subjectId());if(input==null)continue;
             for(var studio:input.studios()) {
-                studios.put(studio.uid(),studio);byStudio.computeIfAbsent(studio.uid(),key->new TreeMap<>()).put(work.subjectId(),work);
+                studios.merge(studio.uid(),studio,(old,next)->{int a=old.namePriority()==null?2:old.namePriority(),b=next.namePriority()==null?2:next.namePriority();if(a!=b)return a<b?old:next;return old.retrievedAt()==null?next:next.retrievedAt()!=null&&next.retrievedAt().isAfter(old.retrievedAt())?next:old;});byStudio.computeIfAbsent(studio.uid(),key->new TreeMap<>()).put(work.subjectId(),work);
             }
         }
         return byStudio.entrySet().stream().map(entry->{
@@ -56,7 +57,7 @@ public final class ProfileDetails {
             var statuses=new TreeMap<Integer,Long>();for(int i=1;i<=5;i++)statuses.put(i,0L);
             all.forEach(work->statuses.merge(work.status(),1L,Long::sum));
             return new Company(studio.uid(),studio.name(),studio.imageUrl(),completed.size(),all.size(),scores(completed),statuses,
-                    completed.stream().filter(work->work.personalRating()>=8).sorted(Comparator.comparingInt(Collection::personalRating).reversed().thenComparingLong(Collection::subjectId)).limit(6).toList(),all);
+                    completed.stream().filter(work->work.personalRating()>=8).sorted(Comparator.comparingInt(Collection::personalRating).reversed().thenComparingLong(Collection::subjectId)).limit(6).toList(),all,all.stream().flatMap(work->inputs.get(work.subjectId()).studios().stream().filter(s->s.uid().equals(studio.uid())).map(s->new CompanyCredit(work.subjectId(),s.role(),s.sourceUrl(),s.revision()))).distinct().toList());
         }).sorted(Comparator.comparingInt(Company::completed).reversed().thenComparing(Company::uid)).toList();
     }
     static List<Behavior> behaviors(List<Collection> works,Map<Long,ReportCredits.Work> inputs) {

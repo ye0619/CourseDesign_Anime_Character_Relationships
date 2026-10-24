@@ -1,8 +1,10 @@
 openapi: 3.1.0
 info:
   title: 映间 AnimeGraph API
-  version: 0.21.0
+  version: 0.22.0
   description: 动画角色关系探索与Bangumi观看画像。统一作品页面，本地优先、缺失补全；普通用户无需注册。保存仅本机并要求CSRF。历史精选产品已移除。 本地图谱独立持久化、备份恢复和画像v4扩展。
+    10.24-2：独立角色联系探索、实例共享角色修改、多语言工作区格式2、内容指纹取景和画像v5。 10.24-2：独立角色联系探索、实例共享角色修改、多语言工作区格式2、内容指纹取景和画像v5。
+    10.24-2：独立角色联系探索、实例共享角色修改、多语言工作区格式2、内容指纹取景和画像v5。
 servers:
   - url: /api/v1
 paths:
@@ -2938,11 +2940,12 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: &a1
+                  message:
                     type: string
                   data:
                     $ref: "#/components/schemas/ViewerState"
-                  requestId: *a1
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -2978,10 +2981,12 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: *a1
+                  message:
+                    type: string
                   data:
                     $ref: "#/components/schemas/ViewerState"
-                  requestId: *a1
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -3039,10 +3044,12 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: *a1
+                  message:
+                    type: string
                   data:
                     type: "null"
-                  requestId: *a1
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -3078,10 +3085,12 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: *a1
+                  message:
+                    type: string
                   data:
                     $ref: "#/components/schemas/ViewerState"
-                  requestId: *a1
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -3117,10 +3126,12 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: *a1
+                  message:
+                    type: string
                   data:
                     $ref: "#/components/schemas/ViewerCollectionPage"
-                  requestId: *a1
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -3263,10 +3274,12 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: *a1
+                  message:
+                    type: string
                   data:
                     $ref: "#/components/schemas/PreferenceReport"
-                  requestId: *a1
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -3393,11 +3406,12 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: &a2
+                  message:
                     type: string
                   data:
                     $ref: "#/components/schemas/ExploreResult"
-                  requestId: *a2
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -3469,8 +3483,7 @@ paths:
       x-implemented: true
       security: []
       parameters:
-        - &a4
-          name: id
+        - name: id
           in: path
           required: true
           schema:
@@ -3503,11 +3516,12 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: &a3
+                  message:
                     type: string
                   data:
                     $ref: "#/components/schemas/OnlineNetwork"
-                  requestId: *a3
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -3530,7 +3544,13 @@ paths:
       x-implemented: true
       security: []
       parameters:
-        - *a4
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 2147483647
       responses:
         "200":
           description: 匿名在线只读查询，不依赖本地图库；局部结果与缓存状态见meta
@@ -3542,10 +3562,12 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: *a3
+                  message:
+                    type: string
                   data:
                     $ref: "#/components/schemas/OnlineCharacterRelations"
-                  requestId: *a3
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -3606,11 +3628,12 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: &a5
+                  message:
                     type: string
                   data:
                     $ref: "#/components/schemas/CreditPage"
-                  requestId: *a5
+                  requestId:
+                    type: string
                 additionalProperties: false
         "400":
           $ref: "#/components/responses/Error"
@@ -3652,11 +3675,12 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: &a6
+                  message:
                     type: string
                   data:
                     $ref: "#/components/schemas/MetadataSnapshot"
-                  requestId: *a6
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -3708,11 +3732,12 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: &a7
+                  message:
                     type: string
                   data:
                     $ref: "#/components/schemas/MetadataSnapshot"
-                  requestId: *a7
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -3767,11 +3792,12 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: &a8
+                  message:
                     type: string
                   data:
                     $ref: "#/components/schemas/OnlineComparison"
-                  requestId: *a8
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -3816,11 +3842,12 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: &a9
+                  message:
                     type: string
                   data:
                     $ref: "#/components/schemas/ViewingReportResult"
-                  requestId: *a9
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -3870,11 +3897,12 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: &a10
+                  message:
                     type: string
                   data:
                     $ref: "#/components/schemas/ViewingReportResult"
-                  requestId: *a10
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -3921,11 +3949,12 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: &a11
+                  message:
                     type: string
                   data:
                     $ref: "#/components/schemas/ViewingReportResult"
-                  requestId: *a11
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -3987,11 +4016,12 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: &a12
+                  message:
                     type: string
                   data:
                     $ref: "#/components/schemas/RecommendationResult"
-                  requestId: *a12
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -4036,11 +4066,12 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: &a13
+                  message:
                     type: string
                   data:
                     type: "null"
-                  requestId: *a13
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -4087,11 +4118,12 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: &a14
+                  message:
                     type: string
                   data:
                     $ref: "#/components/schemas/CandidateState"
-                  requestId: *a14
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -4132,11 +4164,12 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: &a15
+                  message:
                     type: string
                   data:
                     $ref: "#/components/schemas/CommunityOverview"
-                  requestId: *a15
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -4176,13 +4209,14 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: &a16
+                  message:
                     type: string
                   data:
                     type: array
                     items:
                       $ref: "#/components/schemas/Universe"
-                  requestId: *a16
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -4214,7 +4248,7 @@ paths:
         - name: uid
           in: path
           required: true
-          schema: &a17
+          schema:
             type: string
       responses:
         "200":
@@ -4227,10 +4261,12 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: *a17
+                  message:
+                    type: string
                   data:
                     $ref: "#/components/schemas/Universe"
-                  requestId: *a17
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -4262,7 +4298,7 @@ paths:
         - name: uid
           in: path
           required: true
-          schema: &a18
+          schema:
             type: string
         - name: subjects
           in: query
@@ -4278,10 +4314,12 @@ paths:
             default: false
         - name: relation
           in: query
-          schema: *a18
+          schema:
+            type: string
         - name: faction
           in: query
-          schema: *a18
+          schema:
+            type: string
         - name: strict
           in: query
           schema:
@@ -4298,10 +4336,12 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: *a18
+                  message:
+                    type: string
                   data:
                     $ref: "#/components/schemas/UniverseNetwork"
-                  requestId: *a18
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -4333,7 +4373,7 @@ paths:
         - name: uid
           in: path
           required: true
-          schema: &a19
+          schema:
             type: string
         - name: subjects
           in: query
@@ -4349,10 +4389,12 @@ paths:
             default: false
         - name: relation
           in: query
-          schema: *a19
+          schema:
+            type: string
         - name: faction
           in: query
-          schema: *a19
+          schema:
+            type: string
         - name: strict
           in: query
           schema:
@@ -4369,10 +4411,12 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: *a19
+                  message:
+                    type: string
                   data:
                     $ref: "#/components/schemas/UniverseNetwork"
-                  requestId: *a19
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -4462,10 +4506,12 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: *a19
+                  message:
+                    type: string
                   data:
                     $ref: "#/components/schemas/UniverseAnalysis"
-                  requestId: *a19
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -4551,7 +4597,7 @@ paths:
         - name: uid
           in: path
           required: true
-          schema: &a20
+          schema:
             type: string
       responses:
         "200":
@@ -4564,12 +4610,14 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: *a20
+                  message:
+                    type: string
                   data:
                     type: array
                     items:
                       $ref: "#/components/schemas/ExternalIdentity"
-                  requestId: *a20
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -4746,13 +4794,14 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: &a21
+                  message:
                     type: string
                   data:
                     type: array
                     items:
                       $ref: "#/components/schemas/EvidenceImportBatch"
-                  requestId: *a21
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -4922,11 +4971,12 @@ paths:
       parameters:
         - name: provider
           in: query
-          schema: &a22
+          schema:
             type: string
         - name: status
           in: query
-          schema: *a22
+          schema:
+            type: string
         - name: beforeId
           in: query
           schema:
@@ -4956,12 +5006,14 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: *a22
+                  message:
+                    type: string
                   data:
                     type: array
                     items:
                       $ref: "#/components/schemas/ReviewedIdentity"
-                  requestId: *a22
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -5006,11 +5058,12 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: &a23
+                  message:
                     type: string
                   data:
                     $ref: "#/components/schemas/ReviewedIdentity"
-                  requestId: *a23
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -5068,11 +5121,12 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: &a24
+                  message:
                     type: string
                   data:
                     $ref: "#/components/schemas/IdentityReviewDetail"
-                  requestId: *a24
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -5124,11 +5178,12 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: &a25
+                  message:
                     type: string
                   data:
                     $ref: "#/components/schemas/ReviewedIdentity"
-                  requestId: *a25
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -5242,11 +5297,12 @@ paths:
                   code:
                     type: string
                     const: OK
-                  message: &a26
+                  message:
                     type: string
                   data:
                     $ref: "#/components/schemas/IdentityNamesDetail"
-                  requestId: *a26
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -5279,8 +5335,7 @@ paths:
       x-implemented: true
       security: []
       parameters:
-        - &a27
-          name: id
+        - name: id
           in: path
           required: true
           schema:
@@ -5325,7 +5380,13 @@ paths:
       x-implemented: true
       security: []
       parameters:
-        - *a27
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 2147483647
       responses:
         "200":
           description: 成功
@@ -5363,7 +5424,13 @@ paths:
       x-implemented: true
       security: []
       parameters:
-        - *a27
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 2147483647
         - name: refresh
           in: query
           required: false
@@ -5426,12 +5493,14 @@ paths:
               schema:
                 type: object
                 properties:
-                  code: &a28
+                  code:
                     type: string
-                  message: *a28
+                  message:
+                    type: string
                   data:
                     $ref: "#/components/schemas/LocalGraphDocument"
-                  requestId: *a28
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -5460,11 +5529,14 @@ paths:
               schema:
                 type: object
                 properties:
-                  code: *a28
-                  message: *a28
+                  code:
+                    type: string
+                  message:
+                    type: string
                   data:
                     $ref: "#/components/schemas/LocalGraphDocument"
-                  requestId: *a28
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -5511,13 +5583,16 @@ paths:
               schema:
                 type: object
                 properties:
-                  code: *a28
-                  message: *a28
+                  code:
+                    type: string
+                  message:
+                    type: string
                   data:
                     type: array
                     items:
                       $ref: "#/components/schemas/LocalGraphBackup"
-                  requestId: *a28
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
@@ -5552,17 +5627,568 @@ paths:
               schema:
                 type: object
                 properties:
-                  code: *a28
-                  message: *a28
+                  code:
+                    type: string
+                  message:
+                    type: string
                   data:
                     $ref: "#/components/schemas/LocalGraphDocument"
-                  requestId: *a28
+                  requestId:
+                    type: string
                 required:
                   - code
                   - message
                   - data
                   - requestId
                 additionalProperties: false
+  /connections/coverage:
+    get:
+      summary: 当前不可变探索版本与真实范围
+      operationId: get__connections_coverage
+      x-stage: S17
+      x-implemented: true
+      security: []
+      parameters: []
+      responses:
+        "200":
+          description: 成功
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    const: OK
+                  message:
+                    type: string
+                  data:
+                    $ref: "#/components/schemas/ConnectionCoverage"
+                  requestId:
+                    type: string
+                required:
+                  - code
+                  - data
+        "400":
+          description: 输入条件无效
+        "403":
+          description: 缺少同源CSRF或不满足回环写入约束
+        "404":
+          description: 任务不属于当前会话或已过期
+        "409":
+          description: 资料版本或修改版本冲突
+        "429":
+          description: 任务容量或并发上限
+  /connections/characters:
+    get:
+      summary: 只搜索范围内角色并保留作品背景
+      operationId: get__connections_characters
+      x-stage: S17
+      x-implemented: true
+      security: []
+      parameters:
+        - name: q
+          in: query
+          schema:
+            type: string
+            maxLength: 100
+        - name: subjectId
+          in: query
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: 成功
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    const: OK
+                  message:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/ConnectionCandidate"
+                  requestId:
+                    type: string
+                required:
+                  - code
+                  - data
+        "400":
+          description: 输入条件无效
+        "403":
+          description: 缺少同源CSRF或不满足回环写入约束
+        "404":
+          description: 任务不属于当前会话或已过期
+        "409":
+          description: 资料版本或修改版本冲突
+        "429":
+          description: 任务容量或并发上限
+  /connections/searches:
+    post:
+      summary: 创建有界角色联系任务；默认8步、10条，任务仅当前会话可读及取消
+      operationId: post__connections_searches
+      x-stage: S17
+      x-implemented: true
+      security: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ConnectionQuery"
+      responses:
+        "200":
+          description: 成功
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    const: OK
+                  message:
+                    type: string
+                  data:
+                    $ref: "#/components/schemas/ConnectionResult"
+                  requestId:
+                    type: string
+                required:
+                  - code
+                  - data
+        "400":
+          description: 输入条件无效
+        "403":
+          description: 缺少同源CSRF或不满足回环写入约束
+        "404":
+          description: 任务不属于当前会话或已过期
+        "409":
+          description: 资料版本或修改版本冲突
+        "429":
+          description: 任务容量或并发上限
+  /connections/searches/{id}:
+    get:
+      summary: 读取最短及更多路径阶段；任务15分钟过期
+      operationId: get__connections_searches__id_
+      x-stage: S17
+      x-implemented: true
+      security: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: 成功
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    const: OK
+                  message:
+                    type: string
+                  data:
+                    $ref: "#/components/schemas/ConnectionResult"
+                  requestId:
+                    type: string
+                required:
+                  - code
+                  - data
+        "400":
+          description: 输入条件无效
+        "403":
+          description: 缺少同源CSRF或不满足回环写入约束
+        "404":
+          description: 任务不属于当前会话或已过期
+        "409":
+          description: 资料版本或修改版本冲突
+        "429":
+          description: 任务容量或并发上限
+    delete:
+      summary: 取消当前会话任务，保留已有结果
+      operationId: delete__connections_searches__id_
+      x-stage: S17
+      x-implemented: true
+      security: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: 成功
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    const: OK
+                  message:
+                    type: string
+                  data:
+                    $ref: "#/components/schemas/ConnectionResult"
+                  requestId:
+                    type: string
+                required:
+                  - code
+                  - data
+        "400":
+          description: 输入条件无效
+        "403":
+          description: 缺少同源CSRF或不满足回环写入约束
+        "404":
+          description: 任务不属于当前会话或已过期
+        "409":
+          description: 资料版本或修改版本冲突
+        "429":
+          description: 任务容量或并发上限
+  /connections/coverage/jobs:
+    post:
+      summary: 从已有公开名册与本地索引构建范围；不发起网络抓取，仅回环写入
+      operationId: post__connections_coverage_jobs
+      x-stage: S17
+      x-implemented: true
+      security: []
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                subjectIds:
+                  type: array
+                  items:
+                    type: integer
+                    minimum: 1
+                  maxItems: 500
+              required: []
+      responses:
+        "200":
+          description: 成功
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    const: OK
+                  message:
+                    type: string
+                  data:
+                    $ref: "#/components/schemas/ConnectionBuild"
+                  requestId:
+                    type: string
+                required:
+                  - code
+                  - data
+        "400":
+          description: 输入条件无效
+        "403":
+          description: 缺少同源CSRF或不满足回环写入约束
+        "404":
+          description: 任务不属于当前会话或已过期
+        "409":
+          description: 资料版本或修改版本冲突
+        "429":
+          description: 任务容量或并发上限
+  /connections/coverage/jobs/{id}:
+    get:
+      summary: 读取当前会话的范围构建任务
+      operationId: get__connections_coverage_jobs__id_
+      x-stage: S17
+      x-implemented: true
+      security: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: 成功
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    const: OK
+                  message:
+                    type: string
+                  data:
+                    $ref: "#/components/schemas/ConnectionBuild"
+                  requestId:
+                    type: string
+                required:
+                  - code
+                  - data
+        "400":
+          description: 输入条件无效
+        "403":
+          description: 缺少同源CSRF或不满足回环写入约束
+        "404":
+          description: 任务不属于当前会话或已过期
+        "409":
+          description: 资料版本或修改版本冲突
+        "429":
+          description: 任务容量或并发上限
+    delete:
+      summary: 取消当前会话的范围构建任务
+      operationId: delete__connections_coverage_jobs__id_
+      x-stage: S17
+      x-implemented: true
+      security: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: 成功
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    const: OK
+                  message:
+                    type: string
+                  data:
+                    $ref: "#/components/schemas/ConnectionBuild"
+                  requestId:
+                    type: string
+                required:
+                  - code
+                  - data
+        "400":
+          description: 输入条件无效
+        "403":
+          description: 缺少同源CSRF或不满足回环写入约束
+        "404":
+          description: 任务不属于当前会话或已过期
+        "409":
+          description: 资料版本或修改版本冲突
+        "429":
+          description: 任务容量或并发上限
+  /character-edits/{uid}:
+    get:
+      summary: 读取实例共享的稀疏角色修改层，未覆盖与覆盖为空有区别
+      operationId: get__character_edits__uid_
+      x-stage: S17
+      x-implemented: true
+      security: []
+      parameters:
+        - name: uid
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: 成功
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    const: OK
+                  message:
+                    type: string
+                  data:
+                    $ref: "#/components/schemas/CharacterEdit"
+                  requestId:
+                    type: string
+                required:
+                  - code
+                  - data
+        "400":
+          description: 输入条件无效
+        "403":
+          description: 缺少同源CSRF或不满足回环写入约束
+        "404":
+          description: 任务不属于当前会话或已过期
+        "409":
+          description: 资料版本或修改版本冲突
+        "429":
+          description: 任务容量或并发上限
+    put:
+      summary: 保存或恢复来源角色修改；乐观锁、修改前备份、仅回环与CSRF
+      operationId: put__character_edits__uid_
+      x-stage: S17
+      x-implemented: true
+      security: []
+      parameters:
+        - name: uid
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CharacterEdit"
+      responses:
+        "200":
+          description: 成功
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    const: OK
+                  message:
+                    type: string
+                  data:
+                    $ref: "#/components/schemas/CharacterEdit"
+                  requestId:
+                    type: string
+                required:
+                  - code
+                  - data
+        "400":
+          description: 输入条件无效
+        "403":
+          description: 缺少同源CSRF或不满足回环写入约束
+        "404":
+          description: 任务不属于当前会话或已过期
+        "409":
+          description: 资料版本或修改版本冲突
+        "429":
+          description: 任务容量或并发上限
+  /character-edits/{uid}/backups:
+    get:
+      summary: 独立角色修改自动备份（最近20份）
+      operationId: get__character_edits__uid__backups
+      x-stage: S17
+      x-implemented: true
+      security: []
+      parameters:
+        - name: uid
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: 成功
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    const: OK
+                  message:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                        version:
+                          type: integer
+                        createdAt:
+                          type: string
+                      required:
+                        - id
+                        - version
+                        - createdAt
+                  requestId:
+                    type: string
+                required:
+                  - code
+                  - data
+        "400":
+          description: 输入条件无效
+        "403":
+          description: 缺少同源CSRF或不满足回环写入约束
+        "404":
+          description: 任务不属于当前会话或已过期
+        "409":
+          description: 资料版本或修改版本冲突
+        "429":
+          description: 任务容量或并发上限
+  /character-edits/{uid}/backups/{id}:
+    get:
+      summary: 载入角色修改备份；保存恢复时仍须当前版本
+      operationId: get__character_edits__uid__backups__id_
+      x-stage: S17
+      x-implemented: true
+      security: []
+      parameters:
+        - name: uid
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: 成功
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    const: OK
+                  message:
+                    type: string
+                  data:
+                    $ref: "#/components/schemas/CharacterEdit"
+                  requestId:
+                    type: string
+                required:
+                  - code
+                  - data
+        "400":
+          description: 输入条件无效
+        "403":
+          description: 缺少同源CSRF或不满足回环写入约束
+        "404":
+          description: 任务不属于当前会话或已过期
+        "409":
+          description: 资料版本或修改版本冲突
+        "429":
+          description: 任务容量或并发上限
 components:
   securitySchemes:
     session:
@@ -5677,16 +6303,20 @@ components:
         updatedAt:
           type: string
           format: date-time
-        onlineAvailable: &a29
+        onlineAvailable:
           type: boolean
-        localAvailable: *a29
-        localChecked: *a29
-        localUid: *a2
+        localAvailable:
+          type: boolean
+        localChecked:
+          type: boolean
+        localUid:
+          type: string
         score:
           type: number
-        rank: &a30
+        rank:
           type: integer
-        episodes: *a30
+        episodes:
+          type: integer
         subjectUrl:
           type: string
           format: uri
@@ -6692,11 +7322,13 @@ components:
     ViewerProfile:
       type: object
       properties:
-        id: &a32
+        id:
           type: integer
-        username: *a1
-        nickname: *a1
-        avatar: &a33
+        username:
+          type: string
+        nickname:
+          type: string
+        avatar:
           type:
             - string
             - "null"
@@ -6708,7 +7340,7 @@ components:
     ViewerState:
       type: object
       properties:
-        bound: &a31
+        bound:
           type: boolean
         profile:
           anyOf:
@@ -6722,8 +7354,10 @@ components:
             - PUBLIC
             - TOKEN
             - null
-        verified: *a31
-        requiresReauthorization: *a31
+        verified:
+          type: boolean
+        requiresReauthorization:
+          type: boolean
         syncStatus:
           type: string
           enum:
@@ -6732,11 +7366,20 @@ components:
             - SUCCEEDED
             - FAILED
             - INTERRUPTED
-        processed: *a32
-        remoteTotal: *a32
-        truncated: *a31
-        error: *a33
-        lastSyncedAt: *a33
+        processed:
+          type: integer
+        remoteTotal:
+          type: integer
+        truncated:
+          type: boolean
+        error:
+          type:
+            - string
+            - "null"
+        lastSyncedAt:
+          type:
+            - string
+            - "null"
       required:
         - bound
         - profile
@@ -6752,7 +7395,8 @@ components:
     ViewingRecord:
       type: object
       properties:
-        subjectId: *a32
+        subjectId:
+          type: integer
         status:
           type: integer
           minimum: 1
@@ -6761,21 +7405,32 @@ components:
           type: integer
           minimum: 0
           maximum: 10
-        title: *a1
-        originalName: *a1
-        imageUrl: *a33
-        releaseDate: *a1
-        episodes: *a32
-        watchedEpisodes: *a32
-        communityScore: &a35
+        title:
+          type: string
+        originalName:
+          type: string
+        imageUrl:
+          type:
+            - string
+            - "null"
+        releaseDate:
+          type: string
+        episodes:
+          type: integer
+        watchedEpisodes:
+          type: integer
+        communityScore:
           type: number
-        updatedAt: *a1
+        updatedAt:
+          type: string
         personalTags:
           type: array
-          items: *a1
+          items:
+            type: string
         communityTags:
           type: array
-          items: *a1
+          items:
+            type: string
       required:
         - subjectId
         - status
@@ -6797,22 +7452,27 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/ViewingRecord"
-        page: *a32
-        pageSize: *a32
-        total: *a32
+        page:
+          type: integer
+        pageSize:
+          type: integer
+        total:
+          type: integer
         facets:
           type: object
           properties:
             years:
               type: array
-              items: &a34
+              items:
                 type: string
             formats:
               type: array
-              items: *a34
+              items:
+                type: string
             tags:
               type: array
-              items: *a34
+              items:
+                type: string
               maxItems: 100
           required:
             - years
@@ -6827,17 +7487,22 @@ components:
     PreferenceBucket:
       type: object
       properties:
-        label: *a1
-        count: *a32
+        label:
+          type: string
+        count:
+          type: integer
       required:
         - label
         - count
     PreferenceTag:
       type: object
       properties:
-        name: *a1
-        count: *a32
-        ratedCount: *a32
+        name:
+          type: string
+        count:
+          type: integer
+        ratedCount:
+          type: integer
         averageRating:
           type:
             - number
@@ -6846,7 +7511,8 @@ components:
           type:
             - number
             - "null"
-        share: *a35
+        share:
+          type: number
       required:
         - name
         - count
@@ -6857,10 +7523,14 @@ components:
     PreferenceSummary:
       type: object
       properties:
-        total: *a32
-        completed: *a32
-        rated: *a32
-        unrated: *a32
+        total:
+          type: integer
+        completed:
+          type: integer
+        rated:
+          type: integer
+        unrated:
+          type: integer
         averageRating:
           type:
             - number
@@ -6869,10 +7539,14 @@ components:
           type:
             - number
             - "null"
-        highRated: *a32
-        dropped: *a32
-        tagged: *a32
-        tagCoverage: *a35
+        highRated:
+          type: integer
+        dropped:
+          type: integer
+        tagged:
+          type: integer
+        tagCoverage:
+          type: number
       required:
         - total
         - completed
@@ -6915,7 +7589,8 @@ components:
             $ref: "#/components/schemas/ViewingRecord"
         insights:
           type: array
-          items: *a1
+          items:
+            type: string
         tagSource:
           type: string
           enum:
@@ -6923,16 +7598,19 @@ components:
             - PERSONAL
         methodology:
           type: array
-          items: *a1
+          items:
+            type: string
         quality:
           type: object
           properties:
             ratingCoverage:
               type: number
-            missingTags: &a36
+            missingTags:
               type: integer
-            missingYear: *a36
-            missingFormat: *a36
+            missingYear:
+              type: integer
+            missingFormat:
+              type: integer
           required:
             - ratingCoverage
             - missingTags
@@ -6943,7 +7621,8 @@ components:
           enum:
             - FREQUENCY
             - RATING
-        totalTags: *a36
+        totalTags:
+          type: integer
       required:
         - summary
         - statuses
@@ -6979,9 +7658,12 @@ components:
             - string
             - "null"
           format: date-time
-        cached: *a29
-        stale: *a29
-        notice: *a2
+        cached:
+          type: boolean
+        stale:
+          type: boolean
+        notice:
+          type: string
       required:
         - onlineStatus
         - localStatus
@@ -7040,6 +7722,7 @@ components:
             - ALIAS
             - REVIEWED_ALIAS
             - PROJECT_PREFERRED
+            - PRIMARY
         provider:
           type: string
           enum:
@@ -7049,6 +7732,7 @@ components:
             - ACDB
             - WIKIDATA
             - PROJECT
+            - LOCAL
         sourceUrl:
           type: string
         sourceRevision:
@@ -7065,6 +7749,7 @@ components:
           enum:
             - SOURCE
             - REVIEWED
+            - MANUAL
         reviewedOn:
           type:
             - string
@@ -7091,14 +7776,21 @@ components:
     OnlineNetworkNode:
       type: object
       properties:
-        id: *a3
-        label: *a3
-        originalName: *a3
-        imageUrl: *a3
-        role: *a3
-        group: *a3
-        description: *a3
-        characterType: &a38
+        id:
+          type: string
+        label:
+          type: string
+        originalName:
+          type: string
+        imageUrl:
+          type: string
+        role:
+          type: string
+        group:
+          type: string
+        description:
+          type: string
+        characterType:
           type: integer
         category:
           type: string
@@ -7108,8 +7800,10 @@ components:
             - POSITION
         roles:
           type: array
-          items: *a3
-        sourceUrl: *a3
+          items:
+            type: string
+        sourceUrl:
+          type: string
         aliases:
           type: array
           maxItems: 64
@@ -7143,19 +7837,30 @@ components:
     OnlineNetworkEdge:
       type: object
       properties:
-        id: *a3
-        source: *a3
-        target: *a3
-        relationType: *a3
-        label: *a3
-        directed: &a37
+        id:
+          type: string
+        source:
+          type: string
+        target:
+          type: string
+        relationType:
+          type: string
+        label:
+          type: string
+        directed:
           type: boolean
-        spoiler: *a37
-        ended: *a37
-        description: *a3
-        evidence: *a3
-        sourceName: *a3
-        sourceUrl: *a3
+        spoiler:
+          type: boolean
+        ended:
+          type: boolean
+        description:
+          type: string
+        evidence:
+          type: string
+        sourceName:
+          type: string
+        sourceUrl:
+          type: string
       required:
         - id
         - source
@@ -7176,10 +7881,14 @@ components:
         fetchedAt:
           type: string
           format: date-time
-        cached: *a37
-        stale: *a37
-        truncated: *a37
-        notice: *a3
+        cached:
+          type: boolean
+        stale:
+          type: boolean
+        truncated:
+          type: boolean
+        notice:
+          type: string
       required:
         - fetchedAt
         - cached
@@ -7189,7 +7898,8 @@ components:
     OnlineNetwork:
       type: object
       properties:
-        subjectId: *a38
+        subjectId:
+          type: integer
         kind:
           type: string
           enum:
@@ -7230,7 +7940,8 @@ components:
     OnlineCharacterRelations:
       type: object
       properties:
-        characterId: *a3
+        characterId:
+          type: string
         nodes:
           type: array
           items:
@@ -7263,14 +7974,16 @@ components:
         - namePolicyVersion
         - sourceUrl
       properties:
-        id: &a39
+        id:
           type: string
-        label: *a39
+        label:
+          type: string
         originalName:
           type:
             - string
             - "null"
-        imageUrl: *a39
+        imageUrl:
+          type: string
         category:
           type: string
           enum:
@@ -7282,12 +7995,14 @@ components:
             - "null"
         aliases:
           type: array
-          items: *a39
+          items:
+            type: string
         nameAssertions:
           type: array
           items:
             $ref: "#/components/schemas/NameAssertion"
-        namePolicyVersion: *a39
+        namePolicyVersion:
+          type: string
         sourceUrl:
           type: string
           format: uri
@@ -7300,9 +8015,10 @@ components:
         - episodeScope
         - description
       properties:
-        code: &a40
+        code:
           type: string
-        label: *a40
+        label:
+          type: string
         episodeScope:
           type:
             - string
@@ -7342,16 +8058,20 @@ components:
         - description
         - sourceField
       properties:
-        id: &a41
+        id:
           type: string
-        subjectUid: *a41
-        personUid: *a41
-        characterUid: *a41
+        subjectUid:
+          type: string
+        personUid:
+          type: string
+        characterUid:
+          type: string
         sourceRelation:
           type:
             - integer
             - "null"
-        sourceRelationLabel: *a41
+        sourceRelationLabel:
+          type: string
         performanceType:
           type: string
           enum:
@@ -7382,7 +8102,8 @@ components:
           type:
             - string
             - "null"
-        sourceField: *a41
+        sourceField:
+          type: string
       additionalProperties: false
     CreditCoverage:
       type: object
@@ -7400,24 +8121,31 @@ components:
         - capped
         - completeness
       properties:
-        page: &a42
+        page:
           type: integer
         pageSize:
           type: integer
           const: 60
-        total: *a42
-        returnedRows: *a42
-        parsedRows: *a42
-        omittedRows: *a42
-        omittedCredits: *a42
-        unknownCastRows: *a42
+        total:
+          type: integer
+        returnedRows:
+          type: integer
+        parsedRows:
+          type: integer
+        omittedRows:
+          type: integer
+        omittedCredits:
+          type: integer
+        unknownCastRows:
+          type: integer
         nextPage:
           type:
             - integer
             - "null"
-        exhausted: &a43
+        exhausted:
           type: boolean
-        capped: *a43
+        capped:
+          type: boolean
         completeness:
           type: string
           enum:
@@ -7442,18 +8170,21 @@ components:
         sourceUrl:
           type: string
           format: uri
-        sourceField: &a44
+        sourceField:
           type: string
-        adapterVersion: *a44
+        adapterVersion:
+          type: string
         fetchedAt:
           type:
             - string
             - "null"
           format: date-time
-        cached: &a45
+        cached:
           type: boolean
-        stale: *a45
-        namePolicyVersion: *a44
+        stale:
+          type: boolean
+        namePolicyVersion:
+          type: string
       additionalProperties: false
     CreditPage:
       type: object
@@ -7468,7 +8199,7 @@ components:
         - source
         - snapshotVersion
       properties:
-        subjectUid: &a46
+        subjectUid:
           type: string
         kind:
           type: string
@@ -7495,7 +8226,8 @@ components:
           $ref: "#/components/schemas/CreditCoverage"
         source:
           $ref: "#/components/schemas/CreditSource"
-        snapshotVersion: *a46
+        snapshotVersion:
+          type: string
         nameNotice:
           type: string
           description: 审核别名读取失败时保留原来源资料，并明确提示不完整
@@ -7509,9 +8241,10 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/CreditPage"
-        total: &a47
+        total:
           type: integer
-        loadedRows: *a47
+        loadedRows:
+          type: integer
         complete:
           type: boolean
         nextPage:
@@ -7637,9 +8370,10 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/OnlineCompareItem"
-        complete: &a48
+        complete:
           type: boolean
-        truncated: *a48
+        truncated:
+          type: boolean
         notice:
           type: string
       required:
@@ -7662,13 +8396,14 @@ components:
             $ref: "#/components/schemas/OnlineCompareGroup"
         sharedTags:
           type: array
-          items: &a49
+          items:
             type: string
         tagSimilarity:
           type:
             - number
             - "null"
-        methodology: *a49
+        methodology:
+          type: string
       required:
         - a
         - b
@@ -7680,17 +8415,20 @@ components:
     ViewingPersonStat:
       type: object
       properties:
-        uid: &a50
+        uid:
           type: string
-        name: *a50
-        role: *a50
+        name:
+          type: string
+        role:
+          type: string
         providerType:
           type:
             - integer
             - "null"
-        workCount: &a51
+        workCount:
           type: integer
-        ratedCount: *a51
+        ratedCount:
+          type: integer
         averageRating:
           type:
             - number
@@ -7723,23 +8461,27 @@ components:
     ViewingPersonnelReport:
       type: object
       properties:
-        version: &a53
+        version:
           type: string
         generatedAt:
           type: string
           format: date-time
-        completed: &a52
+        completed:
           type: integer
-        rated: *a52
-        metadataConsidered: *a52
-        metadataCovered: *a52
+        rated:
+          type: integer
+        metadataConsidered:
+          type: integer
+        metadataCovered:
+          type: integer
         personnel:
           type: array
           items:
             $ref: "#/components/schemas/ViewingPersonStat"
         methodology:
           type: array
-          items: *a53
+          items:
+            type: string
         overall:
           anyOf:
             - type: array
@@ -7803,9 +8545,10 @@ components:
             - COMPLETE
             - FAILED
             - CANCELLED
-        processed: &a54
+        processed:
           type: integer
-        total: *a54
+        total:
+          type: integer
         error:
           type:
             - string
@@ -7837,7 +8580,7 @@ components:
     CandidateState:
       type: object
       properties:
-        status: &a55
+        status:
           type: string
         collected:
           type: integer
@@ -7849,7 +8592,8 @@ components:
           type:
             - string
             - "null"
-        samplingRule: *a55
+        samplingRule:
+          type: string
       required:
         - status
         - collected
@@ -7875,11 +8619,14 @@ components:
       properties:
         entity:
           $ref: "#/components/schemas/Entity"
-        score: &a56
+        score:
           type: number
-        contentScore: *a56
-        communityScore: *a56
-        diversityScore: *a56
+        contentScore:
+          type: number
+        communityScore:
+          type: number
+        diversityScore:
+          type: number
         reasons:
           type: array
           items:
@@ -7895,19 +8642,22 @@ components:
     RecommendationRun:
       type: object
       properties:
-        modelVersion: &a57
+        modelVersion:
           type: string
-        mode: *a57
-        positiveWorks: &a58
+        mode:
+          type: string
+        positiveWorks:
           type: integer
-        candidateCount: *a58
+        candidateCount:
+          type: integer
         items:
           type: array
           items:
             $ref: "#/components/schemas/RecommendationItem"
         methodology:
           type: array
-          items: *a57
+          items:
+            type: string
       required:
         - modelVersion
         - mode
@@ -7951,12 +8701,14 @@ components:
     WorldSubject:
       type: object
       properties:
-        id: &a59
+        id:
           type: integer
-        title: &a60
+        title:
           type: string
-        order: *a59
-        sourceUrl: *a60
+        order:
+          type: integer
+        sourceUrl:
+          type: string
       required:
         - id
         - title
@@ -7966,11 +8718,14 @@ components:
     Universe:
       type: object
       properties:
-        uid: &a61
+        uid:
           type: string
-        title: *a61
-        summary: *a61
-        seriesUid: *a61
+        title:
+          type: string
+        summary:
+          type: string
+        seriesUid:
+          type: string
         subjects:
           type: array
           items:
@@ -8006,18 +8761,24 @@ components:
     UniverseNode:
       type: object
       properties:
-        id: &a62
+        id:
           type: string
-        label: *a62
-        imageUrl: *a62
-        characterType: &a63
+        label:
+          type: string
+        imageUrl:
+          type: string
+        characterType:
           type: integer
         subjects:
           type: array
-          items: *a63
-        role: *a62
-        group: *a62
-        description: *a62
+          items:
+            type: integer
+        role:
+          type: string
+        group:
+          type: string
+        description:
+          type: string
         aliases:
           type: array
           items:
@@ -8041,17 +8802,24 @@ components:
     RelationEvidence:
       type: object
       properties:
-        uid: &a64
+        uid:
           type: string
         active:
           type: boolean
-        provider: *a64
-        sourceUrl: *a64
-        sourceName: *a64
-        sourceRevision: *a64
-        description: *a64
-        attribution: *a64
-        retrievedAt: *a64
+        provider:
+          type: string
+        sourceUrl:
+          type: string
+        sourceName:
+          type: string
+        sourceRevision:
+          type: string
+        description:
+          type: string
+        attribution:
+          type: string
+        retrievedAt:
+          type: string
         licenseLabel:
           type: string
         sourceField:
@@ -8074,10 +8842,11 @@ components:
     UniverseEdge:
       type: object
       properties:
-        uid: &a65
+        uid:
           type: string
-        id: *a65
-        active: &a66
+        id:
+          type: string
+        active:
           type: boolean
         scopeType:
           type: string
@@ -8085,17 +8854,28 @@ components:
             - GLOBAL
             - SUBJECT_EXPLICIT
             - EPISODE_EXPLICIT
-        relationType: *a65
-        label: *a65
-        directed: *a66
-        ended: *a66
-        spoiler: *a66
-        source: *a65
-        target: *a65
-        evidence: *a65
-        sourceName: *a65
-        sourceUrl: *a65
-        description: *a65
+        relationType:
+          type: string
+        label:
+          type: string
+        directed:
+          type: boolean
+        ended:
+          type: boolean
+        spoiler:
+          type: boolean
+        source:
+          type: string
+        target:
+          type: string
+        evidence:
+          type: string
+        sourceName:
+          type: string
+        sourceUrl:
+          type: string
+        description:
+          type: string
         evidences:
           type: array
           items:
@@ -8137,9 +8917,10 @@ components:
             $ref: "#/components/schemas/UniverseEdge"
         truncated:
           type: boolean
-        notice: &a67
+        notice:
           type: string
-        version: *a67
+        version:
+          type: string
         task:
           anyOf:
             - $ref: "#/components/schemas/UniverseTask"
@@ -8159,19 +8940,23 @@ components:
     UniverseAnalysis:
       type: object
       properties:
-        version: &a69
+        version:
           type: string
-        nodeCount: &a68
+        nodeCount:
           type: integer
-        edgeCount: *a68
+        edgeCount:
+          type: integer
         ranking:
           type: array
           items:
             type: object
             properties:
-              uid: *a69
-              label: *a69
-              degree: *a68
+              uid:
+                type: string
+              label:
+                type: string
+              degree:
+                type: integer
             required:
               - uid
               - label
@@ -8179,15 +8964,19 @@ components:
             additionalProperties: false
         relationTypes:
           type: object
-          additionalProperties: *a68
+          additionalProperties:
+            type: integer
         factions:
           type: array
           items:
             type: object
             properties:
-              uid: *a69
-              label: *a69
-              count: *a68
+              uid:
+                type: string
+              label:
+                type: string
+              count:
+                type: integer
             required:
               - uid
               - label
@@ -8195,8 +8984,10 @@ components:
             additionalProperties: false
         path:
           type: array
-          items: *a69
-        methodology: *a69
+          items:
+            type: string
+        methodology:
+          type: string
       required:
         - version
         - nodeCount
@@ -8210,24 +9001,30 @@ components:
     ExternalIdentity:
       type: object
       properties:
-        provider: &a70
+        provider:
           type: string
-        provider_id: *a70
-        entity_type: *a70
-        canonical_uid: *a70
+        provider_id:
+          type: string
+        entity_type:
+          type: string
+        canonical_uid:
+          type: string
         status:
           type: string
           enum:
             - CANDIDATE
             - REVIEWED
             - REVOKED
-        source_url: *a70
+        source_url:
+          type: string
         source_revision:
           type:
             - string
             - "null"
-        match_method: *a70
-        license_label: *a70
+        match_method:
+          type: string
+        license_label:
+          type: string
       required:
         - provider
         - provider_id
@@ -8244,32 +9041,38 @@ components:
       properties:
         state:
           $ref: "#/components/schemas/CandidateState"
-        size: &a71
+        size:
           type: integer
         tags:
           type: object
-          additionalProperties: *a71
+          additionalProperties:
+            type: integer
         formats:
           type: object
-          additionalProperties: *a71
+          additionalProperties:
+            type: integer
         years:
           type: object
-          additionalProperties: *a71
+          additionalProperties:
+            type: integer
         subjects:
           type: array
           items:
             type: object
             properties:
-              id: &a72
+              id:
                 type: string
-              name: *a72
-              fetchedAt: *a72
+              name:
+                type: string
+              fetchedAt:
+                type: string
             required:
               - id
               - name
               - fetchedAt
             additionalProperties: false
-        notice: *a72
+        notice:
+          type: string
       required:
         - state
         - size
@@ -8282,14 +9085,20 @@ components:
     EvidenceImportChange:
       type: object
       properties:
-        assertionUid: &a73
+        assertionUid:
           type: string
-        evidenceUid: *a73
-        source: *a73
-        sourceLabel: *a73
-        target: *a73
-        targetLabel: *a73
-        relation: *a73
+        evidenceUid:
+          type: string
+        source:
+          type: string
+        sourceLabel:
+          type: string
+        target:
+          type: string
+        targetLabel:
+          type: string
+        relation:
+          type: string
         scope:
           type: string
           enum:
@@ -8302,9 +9111,12 @@ components:
         sourceUrl:
           type: string
           format: uri
-        sourceRevision: *a73
-        sourceField: *a73
-        rawRelation: *a73
+        sourceRevision:
+          type: string
+        sourceField:
+          type: string
+        rawRelation:
+          type: string
         action:
           type: string
           enum:
@@ -8333,13 +9145,18 @@ components:
         previewId:
           type: string
           format: uuid
-        batchId: &a74
+        batchId:
           type: string
-        packageHash: *a74
-        baseHash: *a74
-        provider: *a74
-        sourceVersion: *a74
-        licenseLabel: *a74
+        packageHash:
+          type: string
+        baseHash:
+          type: string
+        provider:
+          type: string
+        sourceVersion:
+          type: string
+        licenseLabel:
+          type: string
         expiresAt:
           type: string
           format: date-time
@@ -8347,7 +9164,8 @@ components:
           type: boolean
         blockers:
           type: array
-          items: *a74
+          items:
+            type: string
         changes:
           type: array
           items:
@@ -8368,23 +9186,28 @@ components:
     EvidenceImportBatch:
       type: object
       properties:
-        uid: &a75
+        uid:
           type: string
-        packageHash: *a75
-        worldUid: *a75
+        packageHash:
+          type: string
+        worldUid:
+          type: string
         status:
           type: string
           enum:
             - APPLIED
             - DISABLED
-        createdBy: &a76
+        createdBy:
           type: integer
         createdAt:
           type: string
           format: date-time
-        provider: *a75
-        sourceVersion: *a75
-        evidenceCount: *a76
+        provider:
+          type: string
+        sourceVersion:
+          type: string
+        evidenceCount:
+          type: integer
         disabledAt:
           type:
             - string
@@ -8434,10 +9257,12 @@ components:
     EvidenceImportInputFact:
       type: object
       properties:
-        source: &a77
+        source:
           type: string
-        target: *a77
-        relationType: *a77
+        target:
+          type: string
+        relationType:
+          type: string
         ended:
           type: boolean
         spoiler:
@@ -8655,9 +9480,9 @@ components:
           type:
             - string
             - "null"
-        matchMethod: &a79
+        matchMethod:
           type: string
-        id: &a78
+        id:
           type: integer
         status:
           type: string
@@ -8666,8 +9491,10 @@ components:
             - REVIEWED
             - REJECTED
             - REVOKED
-        version: *a78
-        reviewReason: *a79
+        version:
+          type: integer
+        reviewReason:
+          type: string
         reviewedBy:
           type:
             - integer
@@ -8738,11 +9565,12 @@ components:
     IdentityEvent:
       type: object
       properties:
-        id: &a80
+        id:
           type: integer
         action:
           type: string
-        actorId: *a80
+        actorId:
+          type: integer
         reason:
           type: string
           minLength: 1
@@ -8844,23 +9672,30 @@ components:
           type: string
           minLength: 1
           maxLength: 1000
-        identityId: &a81
+        identityId:
           type: integer
-        ordinal: *a81
-        searchKey: &a82
+        ordinal:
+          type: integer
+        searchKey:
           type: string
-        canonicalUid: *a82
+        canonicalUid:
+          type: string
         sourceUrl:
           type: string
           format: uri
-        sourceRevision: *a82
-        licenseLabel: *a82
-        reviewVersion: *a81
+        sourceRevision:
+          type: string
+        licenseLabel:
+          type: string
+        reviewVersion:
+          type: integer
         reviewedAt:
           type: string
           format: date-time
-        provider: *a82
-        providerId: *a82
+        provider:
+          type: string
+        providerId:
+          type: string
       required:
         - name
         - locale
@@ -9065,7 +9900,7 @@ components:
     ProfileScores:
       type: object
       properties:
-        ratedCount: &a83
+        ratedCount:
           type: integer
         averageRating:
           type:
@@ -9073,7 +9908,8 @@ components:
             - "null"
         distribution:
           type: object
-          additionalProperties: *a83
+          additionalProperties:
+            type: integer
       required:
         - ratedCount
         - averageRating
@@ -9082,11 +9918,16 @@ components:
     ProfileVoiceRole:
       type: object
       properties:
-        subjectId: *a83
-        title: *a28
-        personalRating: *a83
-        characterUid: *a28
-        characterName: *a28
+        subjectId:
+          type: integer
+        title:
+          type: string
+        personalRating:
+          type: integer
+        characterUid:
+          type: string
+        characterName:
+          type: string
         imageUrl:
           type:
             - string
@@ -9102,14 +9943,18 @@ components:
     ProfileVoice:
       type: object
       properties:
-        uid: *a28
-        name: *a28
+        uid:
+          type: string
+        name:
+          type: string
         imageUrl:
           type:
             - string
             - "null"
-        workCount: *a83
-        characterCount: *a83
+        workCount:
+          type: integer
+        characterCount:
+          type: integer
         scores:
           $ref: "#/components/schemas/ProfileScores"
         roles:
@@ -9128,24 +9973,50 @@ components:
     ProfileCompany:
       type: object
       properties:
-        uid: *a28
-        name: *a28
+        uid:
+          type: string
+        name:
+          type: string
         imageUrl:
           type:
             - string
             - "null"
-        completed: *a83
-        allCount: *a83
+        completed:
+          type: integer
+        allCount:
+          type: integer
         scores:
           $ref: "#/components/schemas/ProfileScores"
         statuses:
           type: object
-          additionalProperties: *a83
-        representatives: &a84
+          additionalProperties:
+            type: integer
+        representatives:
           type: array
           items:
             $ref: "#/components/schemas/ViewingRecord"
-        works: *a84
+        works:
+          type: array
+          items:
+            $ref: "#/components/schemas/ViewingRecord"
+        credits:
+          type: array
+          items:
+            type: object
+            properties:
+              subjectId:
+                type: integer
+              role:
+                type: string
+              sourceUrl:
+                type: string
+              revision:
+                type: string
+            required:
+              - subjectId
+              - role
+              - sourceUrl
+              - revision
       required:
         - uid
         - name
@@ -9160,10 +10031,16 @@ components:
     ProfileGroup:
       type: object
       properties:
-        id: *a28
-        label: *a28
-        count: *a83
-        works: *a84
+        id:
+          type: string
+        label:
+          type: string
+        count:
+          type: integer
+        works:
+          type: array
+          items:
+            $ref: "#/components/schemas/ViewingRecord"
       required:
         - id
         - label
@@ -9173,15 +10050,20 @@ components:
     ProfileBehavior:
       type: object
       properties:
-        status: *a83
-        label: *a28
-        count: *a83
+        status:
+          type: integer
+        label:
+          type: string
+        count:
+          type: integer
         share:
           type: number
         scores:
           $ref: "#/components/schemas/ProfileScores"
-        tagged: *a83
-        companyCovered: *a83
+        tagged:
+          type: integer
+        companyCovered:
+          type: integer
         tags:
           type: array
           items:
@@ -9194,7 +10076,10 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/ProfileGroup"
-        works: *a84
+        works:
+          type: array
+          items:
+            $ref: "#/components/schemas/ViewingRecord"
       required:
         - status
         - label
@@ -9222,7 +10107,7 @@ components:
         name:
           type: string
           minLength: 1
-          maxLength: 100
+          maxLength: 200
         imageUrl:
           type:
             - string
@@ -9255,6 +10140,20 @@ components:
             - string
             - "null"
           maxLength: 60
+        names:
+          type: array
+          items:
+            $ref: "#/components/schemas/LocalMultilingualName"
+          maxItems: 30
+        preferredNameId:
+          type:
+            - string
+            - "null"
+        portraits:
+          type: object
+          maxProperties: 2
+          additionalProperties:
+            $ref: "#/components/schemas/CharacterCrop"
       required:
         - id
         - kind
@@ -9272,8 +10171,10 @@ components:
         id:
           type: string
           pattern: ^local:link:[0-9a-f-]{36}$
-        source: *a28
-        target: *a28
+        source:
+          type: string
+        target:
+          type: string
         relationType:
           type: string
           description: Existing relation code; custom labels use OTHER, organization membership uses MEMBER.
@@ -9291,9 +10192,10 @@ components:
             - string
             - "null"
           maxLength: 2000
-        spoiler: &a85
+        spoiler:
           type: boolean
-        directed: *a85
+        directed:
+          type: boolean
         notes:
           type:
             - string
@@ -9319,7 +10221,10 @@ components:
           minimum: 0
         schemaVersion:
           type: integer
-          const: 1
+          enum:
+            - 1
+            - 2
+          description: 旧格式1保持可读；多语言与取景使用格式2。已有格式2工作区拒绝格式1写入，导入旧备份须显式转换。
         workUid:
           type: string
           pattern: ^anime:bangumi:[1-9][0-9]*$
@@ -9347,7 +10252,8 @@ components:
     LocalGraphBackup:
       type: object
       properties:
-        id: *a28
+        id:
+          type: string
         createdAt:
           type: string
           format: date-time
@@ -9355,3 +10261,552 @@ components:
         - id
         - createdAt
       additionalProperties: false
+    ConnectionEndpoint:
+      type: object
+      properties:
+        characterUid:
+          type: string
+          pattern: ^(character:bangumi:[1-9][0-9]*|local:entity:[a-f0-9-]+)$
+        subjectId:
+          type: integer
+          minimum: 1
+      required:
+        - characterUid
+        - subjectId
+    ConnectionQuery:
+      type: object
+      properties:
+        from:
+          $ref: "#/components/schemas/ConnectionEndpoint"
+        to:
+          $ref: "#/components/schemas/ConnectionEndpoint"
+        maxHops:
+          type: integer
+          minimum: 2
+          maximum: 12
+          default: 8
+        limit:
+          type: integer
+          minimum: 1
+          maximum: 50
+          default: 10
+        spoilers:
+          type: boolean
+          default: false
+        storyDirection:
+          type: string
+          enum:
+            - CONNECTIVITY
+            - STRICT
+          default: CONNECTIVITY
+        language:
+          type:
+            - string
+            - "null"
+        includeUnknownLanguage:
+          type: boolean
+          default: false
+        version:
+          type:
+            - string
+            - "null"
+        includeManualRelations:
+          type: boolean
+          default: false
+        requireStoryRelation:
+          type: boolean
+          default: false
+        graphRevision:
+          type:
+            - string
+            - "null"
+        includeEnded:
+          type: boolean
+      required:
+        - from
+        - to
+    ConnectionEvidence:
+      type: object
+      properties:
+        provider:
+          type: string
+        externalId:
+          type: string
+        url:
+          type:
+            - string
+            - "null"
+        sourceField:
+          type: string
+        revision:
+          type:
+            - string
+            - "null"
+        retrievedAt:
+          type:
+            - string
+            - "null"
+        reviewStatus:
+          type: string
+          enum:
+            - SOURCE
+            - MANUAL
+        text:
+          type:
+            - string
+            - "null"
+      required:
+        - provider
+        - externalId
+        - url
+        - sourceField
+        - revision
+        - retrievedAt
+        - reviewStatus
+        - text
+    ConnectionFact:
+      type: object
+      properties:
+        uid:
+          type: string
+        kind:
+          type: string
+          enum:
+            - VOICE
+            - STORY
+        source:
+          type: string
+        target:
+          type: string
+        subjectId:
+          type: integer
+        semantic:
+          type: string
+        directed:
+          type: boolean
+        spoiler:
+          type: boolean
+        ended:
+          type: boolean
+        manual:
+          type: boolean
+        language:
+          type:
+            - string
+            - "null"
+        version:
+          type:
+            - string
+            - "null"
+        episodeScope:
+          type:
+            - string
+            - "null"
+        scope:
+          type: string
+        evidence:
+          type: array
+          items:
+            $ref: "#/components/schemas/ConnectionEvidence"
+      required:
+        - uid
+        - kind
+        - source
+        - target
+        - subjectId
+        - semantic
+        - directed
+        - spoiler
+        - ended
+        - manual
+        - language
+        - version
+        - episodeScope
+        - scope
+        - evidence
+    ConnectionSubject:
+      type: object
+      properties:
+        subjectId:
+          type: integer
+        title:
+          type: string
+        castStatus:
+          type: string
+        storyStatus:
+          type: string
+        characters:
+          type: integer
+        voiceFacts:
+          type: integer
+        storyFacts:
+          type: integer
+      required:
+        - subjectId
+        - title
+        - castStatus
+        - storyStatus
+        - characters
+        - voiceFacts
+        - storyFacts
+    ConnectionPathNode:
+      type: object
+      properties:
+        uid:
+          type: string
+        kind:
+          type: string
+          enum:
+            - CHARACTER
+            - VOICE_ACTOR
+        name:
+          type: string
+        imageUrl:
+          type:
+            - string
+            - "null"
+        subjectId:
+          type:
+            - integer
+            - "null"
+      required:
+        - uid
+        - kind
+        - name
+        - imageUrl
+        - subjectId
+    ConnectionStep:
+      type: object
+      properties:
+        fact:
+          $ref: "#/components/schemas/ConnectionFact"
+        traversalSource:
+          type: string
+        traversalTarget:
+          type: string
+        reversed:
+          type: boolean
+      required:
+        - fact
+        - traversalSource
+        - traversalTarget
+        - reversed
+    ConnectionPath:
+      type: object
+      properties:
+        signature:
+          type: string
+        nodes:
+          type: array
+          items:
+            $ref: "#/components/schemas/ConnectionPathNode"
+        edges:
+          type: array
+          items:
+            $ref: "#/components/schemas/ConnectionStep"
+        hopCount:
+          type: integer
+        voiceEdgeCount:
+          type: integer
+        storyEdgeCount:
+          type: integer
+        crossWorkCount:
+          type: integer
+      required:
+        - signature
+        - nodes
+        - edges
+        - hopCount
+        - voiceEdgeCount
+        - storyEdgeCount
+        - crossWorkCount
+    ConnectionResult:
+      type: object
+      properties:
+        queryId:
+          type: string
+        status:
+          type: string
+          enum:
+            - RUNNING
+            - COMPLETE
+            - CANCELLED
+            - FAILED
+        shortestPhase:
+          type: string
+        morePhase:
+          type: string
+        query:
+          $ref: "#/components/schemas/ConnectionQuery"
+        graphRevision:
+          type: string
+        paths:
+          type: array
+          items:
+            $ref: "#/components/schemas/ConnectionPath"
+        returnedPaths:
+          type: integer
+        foundPathCount:
+          type: integer
+        exactPathCount:
+          type:
+            - integer
+            - "null"
+        searchExhausted:
+          type: boolean
+        shortestProven:
+          type: boolean
+        truncated:
+          type: boolean
+        stopReason:
+          type: string
+          enum:
+            - RUNNING
+            - EXHAUSTED
+            - RESULT_LIMIT
+            - TIME_BUDGET
+            - STATE_BUDGET
+            - EDGE_BUDGET
+            - CANCELLED
+            - INTERNAL_ERROR
+        states:
+          type: integer
+        edgeChecks:
+          type: integer
+        elapsedMillis:
+          type: integer
+        scope:
+          type: array
+          items:
+            $ref: "#/components/schemas/ConnectionSubject"
+      required:
+        - queryId
+        - status
+        - shortestPhase
+        - morePhase
+        - query
+        - graphRevision
+        - paths
+        - returnedPaths
+        - foundPathCount
+        - exactPathCount
+        - searchExhausted
+        - shortestProven
+        - truncated
+        - stopReason
+        - states
+        - edgeChecks
+        - elapsedMillis
+        - scope
+    ConnectionCandidate:
+      type: object
+      properties:
+        characterUid:
+          type: string
+        subjectId:
+          type: integer
+        name:
+          type: string
+        imageUrl:
+          type:
+            - string
+            - "null"
+        workTitle:
+          type: string
+        names:
+          type: array
+          items:
+            type: string
+        hasVoice:
+          type: boolean
+        matchedName:
+          type: string
+        portraitSettings:
+          type: object
+          additionalProperties:
+            $ref: "#/components/schemas/CharacterCrop"
+      required:
+        - characterUid
+        - subjectId
+        - name
+        - imageUrl
+        - workTitle
+        - names
+        - hasVoice
+        - matchedName
+    ConnectionCoverage:
+      type: object
+      properties:
+        status:
+          type: string
+        graphRevision:
+          type: string
+        builtAt:
+          type: string
+        subjects:
+          type: array
+          items:
+            $ref: "#/components/schemas/ConnectionSubject"
+        characters:
+          type: integer
+        voiceActors:
+          type: integer
+        voiceFacts:
+          type: integer
+        storyFacts:
+          type: integer
+      required:
+        - status
+        - subjects
+        - characters
+        - voiceActors
+        - voiceFacts
+        - storyFacts
+    ConnectionBuild:
+      type: object
+      properties:
+        id:
+          type: string
+        status:
+          type: string
+          enum:
+            - PENDING
+            - RUNNING
+            - COMPLETE
+            - PARTIAL
+            - FAILED
+            - CANCELLED
+        processed:
+          type: integer
+        total:
+          type: integer
+        error:
+          type:
+            - string
+            - "null"
+        revision:
+          type:
+            - string
+            - "null"
+      required:
+        - id
+        - status
+        - processed
+        - total
+        - error
+        - revision
+    LocalMultilingualName:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 80
+        text:
+          type: string
+          minLength: 1
+          maxLength: 200
+        locale:
+          type: string
+          pattern: ^[a-zA-Z]{2,8}(-[a-zA-Z0-9]{1,8})*$
+        kind:
+          type: string
+          enum:
+            - PRIMARY
+            - ORIGINAL
+            - ALIAS
+        source:
+          type: string
+        reviewStatus:
+          type: string
+      required:
+        - id
+        - text
+        - locale
+        - kind
+        - source
+        - reviewStatus
+    CharacterCrop:
+      type: object
+      properties:
+        mode:
+          type: string
+          enum:
+            - portrait
+            - full
+        focalX:
+          type: number
+          minimum: 0
+          maximum: 1
+        focalY:
+          type: number
+          minimum: 0
+          maximum: 1
+        scale:
+          type: number
+          minimum: 1
+          maximum: 3
+        imageFingerprint:
+          type: string
+          pattern: ^sha256:[a-f0-9]{64}$
+        imageUrl:
+          type: string
+          maxLength: 720000
+          description: 可选作品专用头像，优先于实体通用头像；仍须内容指纹匹配
+      required:
+        - mode
+        - focalX
+        - focalY
+        - scale
+        - imageFingerprint
+    CharacterEdit:
+      type: object
+      properties:
+        uid:
+          type: string
+        version:
+          type: integer
+          minimum: 0
+        schemaVersion:
+          type: integer
+          const: 1
+        sourceVersion:
+          type: string
+          maxLength: 200
+        fields:
+          type: object
+          additionalProperties: false
+          properties:
+            names:
+              type: array
+              items:
+                $ref: "#/components/schemas/LocalMultilingualName"
+              minItems: 1
+              maxItems: 30
+            preferredNameId:
+              type:
+                - string
+                - "null"
+            imageUrl:
+              type: string
+              maxLength: 720000
+            gender:
+              type: string
+              maxLength: 40
+            description:
+              type: string
+              maxLength: 4000
+            notes:
+              type: string
+              maxLength: 2000
+        portraits:
+          type: object
+          maxProperties: 100
+          additionalProperties:
+            $ref: "#/components/schemas/CharacterCrop"
+      required:
+        - uid
+        - version
+        - schemaVersion
+        - sourceVersion
+        - fields
+        - portraits

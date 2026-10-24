@@ -10,7 +10,7 @@ $mavenArguments=@('-B','-ntp','test')
 if($DatabaseIntegration){
     Import-ProjectEnvironment -Root $root
     if($env:NEO4J_URI -notmatch '^bolt://(?:127\.0\.0\.1|localhost):[0-9]+/?$' -or $env:MYSQL_URL -notmatch '^jdbc:mysql://(?:127\.0\.0\.1|localhost):[0-9]+/'){throw 'Database integration is restricted to explicitly configured local databases.'}
-    $mavenArguments+=@('-Devidence.integration=true','-Didentity.integration=true','-Dreport.integration=true','-Dlocalgraph.integration=true',("-Dreport.acceptance.path="+(Join-Path $root '.local/local-report-acceptance.json')))
+    $mavenArguments+=@('-Devidence.integration=true','-Didentity.integration=true','-Dreport.integration=true','-Dlocalgraph.integration=true','-Dconnections.integration=true',('-Dconnections.acceptance.path='+(Join-Path $root '.local/iteration-1024-2/performance.json')),("-Dreport.acceptance.path="+(Join-Path $root '.local/local-report-acceptance.json')))
 }
 foreach($script in Get-ChildItem -LiteralPath $PSScriptRoot -Filter '*.ps1') {
     $parseErrors=$null;$tokens=$null
@@ -27,6 +27,8 @@ Push-Location (Join-Path $root 'frontend')
 try {
     & npm.cmd run check:contract
     if ($LASTEXITCODE -ne 0) { throw 'API contract validation failed.' }
+    & node (Join-Path $PSScriptRoot 'Check-Documentation.mjs')
+    if ($LASTEXITCODE -ne 0) { throw 'Documentation validation failed.' }
     & node (Join-Path $PSScriptRoot 'Check-Deployment.mjs')
     if ($LASTEXITCODE -ne 0) { throw 'Static deployment validation failed.' }
     & node --test (Join-Path $PSScriptRoot 'Normalize-ExternalCoverage.test.mjs')

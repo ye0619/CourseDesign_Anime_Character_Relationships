@@ -20,6 +20,7 @@ export async function get<T>(path: string, signal?: AbortSignal): Promise<T> {
 export async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
   const response = await fetch(`/api/v1${path}`, {
     credentials: 'same-origin',
+    cache: 'no-store',
     ...options,
     headers: { Accept: 'application/json', ...options.headers },
   })

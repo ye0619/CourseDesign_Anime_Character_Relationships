@@ -22,13 +22,13 @@ public class LocalReportCredits {
               MATCH (p:Person {active:true})-[r:PARTICIPATED_IN {active:true}]->(a)
               WITH p,r ORDER BY r.uid LIMIT 5001
               RETURN collect({uid:p.uid,name:coalesce(p.nameCn,p.name),role:coalesce(r.roleName,r.roleCode),
-                              recordUid:r.uid,updatedAt:r.updatedAt}) AS staff }
+                              recordUid:r.uid,updatedAt:r.updatedAt,providerType:p.providerType,imageUrl:p.imageUrl,sourceUrl:r.sourceUrl}) AS staff }
             CALL { WITH a
               MATCH (p:Person {active:true})-[r:VOICED {active:true,scopeKnown:true}]->(c:Character {active:true})
               WHERE r.animeUid=a.uid AND EXISTS { MATCH (c)-[:APPEARS_IN {active:true}]->(a) }
               WITH p,r,c ORDER BY r.uid LIMIT 5001
               RETURN collect({uid:p.uid,name:coalesce(p.nameCn,p.name),role:'配音',
-                              recordUid:r.uid,updatedAt:r.updatedAt,personImage:p.imageUrl,
+                              recordUid:r.uid,updatedAt:r.updatedAt,providerType:p.providerType,personImage:p.imageUrl,
                               characterUid:c.uid,characterName:coalesce(c.nameCn,c.name),characterImage:c.imageUrl}) AS cast }
             RETURN a.uid AS uid,a.updatedAt AS updatedAt,staff,cast
             LIMIT 5000
@@ -40,8 +40,8 @@ public class LocalReportCredits {
             var participation = new ArrayList<ReportCredits.Participation>();
             for (var records : List.of(staff,cast)) for (var item : records.stream().limit(5000).toList()) {
                 String role = Objects.toString(item.get("role"), "");
-                if (!role.isBlank()) participation.add(new ReportCredits.Participation(
-                        String.valueOf(item.get("uid")), String.valueOf(item.get("name")), 1, role));
+                if (!role.isBlank() && (item.get("providerType")==null||item.get("providerType") instanceof Number n&&n.intValue()==1)) participation.add(new ReportCredits.Participation(
+                        String.valueOf(item.get("uid")), String.valueOf(item.get("name")), item.get("providerType")==null?null:1, role));
             }
             // The graph has no trusted source-pagination audit. Presence and recent writes cannot prove completeness/freshness.
             result.put(id, new ReportCredits.Work(id, "NEO4J_LOCAL",
@@ -49,7 +49,7 @@ public class LocalReportCredits {
                     section(staff.size()), section(cast.size()), List.copyOf(participation),
                     cast.stream().filter(item->item.get("characterUid")!=null).map(item->new ReportCredits.Performance(
                         String.valueOf(item.get("uid")),Objects.toString(item.get("name"),"声优"),Objects.toString(item.get("personImage"),""),
-                        String.valueOf(item.get("characterUid")),Objects.toString(item.get("characterName"),"未命名角色"),Objects.toString(item.get("characterImage"),""))).distinct().toList(),List.of()));
+                        String.valueOf(item.get("characterUid")),Objects.toString(item.get("characterName"),"未命名角色"),Objects.toString(item.get("characterImage"),""))).distinct().toList(),staff.stream().filter(item->item.get("providerType") instanceof Number n&&n.intValue()==2&&ReportCredits.animationProduction(Objects.toString(item.get("role"),""))).map(item->new ReportCredits.Studio(String.valueOf(item.get("uid")),Objects.toString(item.get("name"),"未知机构"),Objects.toString(item.get("imageUrl"),""),Objects.toString(item.get("role"),""),Objects.toString(item.get("sourceUrl"),""),version(row))).distinct().toList()));
         }
         return result;
     }

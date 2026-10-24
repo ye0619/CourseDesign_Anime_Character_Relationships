@@ -21,12 +21,12 @@ function New-Entity($id,$kind,$name) { @{id=$id;kind=$kind;name=$name;imageUrl='
 function New-Link($source,$target,$type,$label,$directed) { @{id=('local:link:'+ [Guid]::NewGuid().ToString());source=$source;target=$target;relationType=$type;label=$label;description='功能验收，不代表原作剧情';evidence='自动化功能验收，结束后恢复原状态';spoiler=$false;directed=$directed;notes='temporary acceptance'} }
 $records=@{startedAt=[DateTime]::UtcNow.ToString('o');subjectId=$SubjectId;passed=$false}
 try {
-    $next=@{version=$before.version;schemaVersion=1;workUid=$before.workUid;nodes=@($before.nodes)+@((New-Entity $character 'CHARACTER' "验收临时角色-$suffix"),(New-Entity $second 'CHARACTER' "验收第二角色-$suffix"),(New-Entity $organization 'ORGANIZATION' "验收临时组织-$suffix"));edges=@($before.edges)+@((New-Link $character $organization 'MEMBER' '队长' $true),(New-Link $second $organization 'MEMBER' '成员' $true),(New-Link $character $second 'OTHER' '验收自定义' $false),(New-Link $character $official 'OTHER' '验收官方连接' $true))}
+    $next=@{version=$before.version;schemaVersion=$before.schemaVersion;workUid=$before.workUid;nodes=@($before.nodes)+@((New-Entity $character 'CHARACTER' "验收临时角色-$suffix"),(New-Entity $second 'CHARACTER' "验收第二角色-$suffix"),(New-Entity $organization 'ORGANIZATION' "验收临时组织-$suffix"));edges=@($before.edges)+@((New-Link $character $organization 'MEMBER' '队长' $true),(New-Link $second $organization 'MEMBER' '成员' $true),(New-Link $character $second 'OTHER' '验收自定义' $false),(New-Link $character $official 'OTHER' '验收官方连接' $true))}
     $saved=Write-Local $next
     $read=Read-Local
     if(@($read.nodes).Count -ne @($before.nodes).Count+3 -or @($read.edges).Count -ne @($before.edges).Count+4){throw 'Local records were not persisted'}
     $records.crudCreated=$true;$records.multipleMembers=$true;$records.mixedOfficialEndpoint=$true
-    $bad=@{version=$saved.version;schemaVersion=1;workUid=$saved.workUid;nodes=$saved.nodes;edges=@($saved.edges)+@((New-Link $character $official 'OTHER' '验收官方连接' $true))}
+    $bad=@{version=$saved.version;schemaVersion=$before.schemaVersion;workUid=$saved.workUid;nodes=$saved.nodes;edges=@($saved.edges)+@((New-Link $character $official 'OTHER' '验收官方连接' $true))}
     $rejected=Invoke-WebRequest $endpoint -WebSession $session -Headers $headers -Method Put -ContentType 'application/json' -Body ($bad|ConvertTo-Json -Depth 20 -Compress) -SkipHttpErrorCheck
     if([int]$rejected.StatusCode -ne 400){throw 'Identical duplicate relationship was accepted'}
     $records.duplicateRejected=$true
@@ -42,7 +42,7 @@ try {
         $records.officialRefreshRetained=$true;$records.refreshStatus=$state.status
     }
     $current=Read-Local
-    $deleted=Write-Local @{version=$current.version;schemaVersion=1;workUid=$current.workUid;nodes=$before.nodes;edges=$before.edges}
+    $deleted=Write-Local @{version=$current.version;schemaVersion=$before.schemaVersion;workUid=$current.workUid;nodes=$before.nodes;edges=$before.edges}
     $backups=(Invoke-RestMethod "$endpoint/backups" -WebSession $session).data
     $latest=@($backups)[0]
     $restore=(Invoke-RestMethod "$endpoint/backups/$($latest.id)" -WebSession $session).data
@@ -53,7 +53,7 @@ try {
     $records.backupRestore=$true;$records.passed=$true
 } finally {
     $current=Read-Local
-    [void](Write-Local @{version=$current.version;schemaVersion=1;workUid=$current.workUid;nodes=$before.nodes;edges=$before.edges})
+    [void](Write-Local @{version=$current.version;schemaVersion=$before.schemaVersion;workUid=$current.workUid;nodes=$before.nodes;edges=$before.edges})
     $records.originalLocalStateRestored=$true;$records.finishedAt=[DateTime]::UtcNow.ToString('o')
     $records|ConvertTo-Json -Depth 8|Set-Content (Join-Path $root '.local/local-graph-http-acceptance.json') -Encoding utf8
 }
