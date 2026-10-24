@@ -1,0 +1,44 @@
+<script setup lang="ts">
+import { onScopeDispose, ref, shallowRef, watch } from 'vue'
+import { useRoute,useRouter } from 'vue-router'
+import { get,mutate } from '../api/client'
+import CharacterEndpointSelect from '../components/CharacterEndpointSelect.vue'
+import ConnectionSearchOptions,{type SearchOptions} from '../components/ConnectionSearchOptions.vue'
+import ConnectionPathList from '../components/ConnectionPathList.vue'
+import ConnectionPathCanvas from '../components/ConnectionPathCanvas.vue'
+import ConnectionEvidencePanel from '../components/ConnectionEvidencePanel.vue'
+import { useConnectionSearch } from '../composables/useConnectionSearch'
+import type { ConnectionCandidate,ConnectionCoverage,ConnectionBuild } from '../types/connections'
+const route=useRoute(),router=useRouter()
+const from=shallowRef<ConnectionCandidate|null>(null),to=shallowRef<ConnectionCandidate|null>(null),coverage=shallowRef<ConnectionCoverage>(),error=shallowRef('')
+function routeOptions():SearchOptions {const bounded=(value:unknown,min:number,max:number,fallback:number)=>{const number=Number(value);return Number.isInteger(number)&&number>=min&&number<=max?number:fallback};return {maxHops:bounded(route.query.maxHops,2,12,8),limit:bounded(route.query.limit,1,50,10),spoilers:route.query.spoilers==='true',storyDirection:route.query.storyDirection==='STRICT'?'STRICT':'CONNECTIVITY',language:typeof route.query.language==='string'?route.query.language:null,includeUnknownLanguage:route.query.includeUnknownLanguage==='true',version:typeof route.query.version==='string'?route.query.version:null,includeManualRelations:route.query.includeManualRelations==='true',requireStoryRelation:route.query.requireStoryRelation==='true',includeEnded:route.query.includeEnded!=='false'}}
+const options=ref<SearchOptions>(routeOptions())
+const pathIndex=shallowRef(0),stepIndex=shallowRef(0),build=shallowRef<ConnectionBuild>(),subjectIds=shallowRef('')
+const {result,running,error:searchError,start,cancel,reset}=useConnectionSearch()
+let disposed=false,buildTimer:ReturnType<typeof setTimeout>|undefined
+async function loadCoverage(){try{coverage.value=await get<ConnectionCoverage>('/connections/coverage')}catch(cause){error.value=cause instanceof Error?cause.message:'探索范围读取失败'}}
+async function pollBuild(id:string){try{const next=await get<ConnectionBuild>(`/connections/coverage/jobs/${id}`);if(disposed)return;build.value=next;if(['PENDING','RUNNING'].includes(next.status))buildTimer=setTimeout(()=>void pollBuild(id),700);else await loadCoverage()}catch(cause){if(!disposed)error.value=cause instanceof Error?cause.message:'构建状态读取失败'}}
+async function rebuild(){error.value='';try{const ids=subjectIds.value.trim()?subjectIds.value.split(/[，,\s]+/).map(Number):[];if(ids.some(n=>!Number.isSafeInteger(n)||n<1))throw new Error('请填写有效作品编号，用逗号分隔');const next=await mutate<ConnectionBuild>('/connections/coverage/jobs','POST',{subjectIds:ids});if(disposed)return;build.value=next;void pollBuild(next.id)}catch(cause){error.value=cause instanceof Error?cause.message:'构建失败'}}
+async function cancelBuild(){if(build.value){build.value=await mutate<ConnectionBuild>(`/connections/coverage/jobs/${build.value.id}`,'DELETE');clearTimeout(buildTimer)}}
+async function search(){if(!from.value||!to.value)return;pathIndex.value=0;stepIndex.value=0;await router.replace({path:'/connections',query:{from:from.value.characterUid,fromSubject:String(from.value.subjectId),to:to.value.characterUid,toSubject:String(to.value.subjectId),maxHops:String(options.value.maxHops),limit:String(options.value.limit),spoilers:String(options.value.spoilers),storyDirection:options.value.storyDirection,...(options.value.language?{language:options.value.language}:{}),...(options.value.version?{version:options.value.version}:{}),includeUnknownLanguage:String(options.value.includeUnknownLanguage),includeManualRelations:String(options.value.includeManualRelations),requireStoryRelation:String(options.value.requireStoryRelation),includeEnded:String(options.value.includeEnded)}});await start({...options.value,from:{characterUid:from.value.characterUid,subjectId:from.value.subjectId},to:{characterUid:to.value.characterUid,subjectId:to.value.subjectId},graphRevision:coverage.value?.graphRevision})}
+watch([from,to,()=>JSON.stringify(options.value)],()=>{reset();pathIndex.value=0})
+watch(()=>[route.query.from,route.query.fromSubject,route.query.to,route.query.toSubject],()=>{
+ if(from.value&&(from.value.characterUid!==route.query.from||String(from.value.subjectId)!==route.query.fromSubject))from.value=null
+ if(to.value&&(to.value.characterUid!==route.query.to||String(to.value.subjectId)!==route.query.toSubject))to.value=null
+})
+watch(()=>[route.query.maxHops,route.query.limit,route.query.spoilers,route.query.storyDirection,route.query.language,route.query.version,route.query.includeUnknownLanguage,route.query.includeManualRelations,route.query.requireStoryRelation,route.query.includeEnded],()=>{options.value=routeOptions()})
+watch(pathIndex,()=>stepIndex.value=0)
+void loadCoverage()
+onScopeDispose(()=>{disposed=true;clearTimeout(buildTimer)})
+</script>
+<template><section class="connections-intro"><h1>角色联系探索</h1><p>从一个角色出发，沿着声音与剧情，走到另一部作品。</p><p class="scope-note">路径只经过角色和声优。共同公司、标签与共同出场不会构成捷径。</p></section>
+<p v-if="error||searchError" class="feedback error" role="alert">{{ searchError||error }}</p>
+<details class="coverage-panel" :open="!coverage?.graphRevision"><summary>探索范围 · {{ coverage?.subjects.length||0 }} 部作品 · {{ coverage?.characters||0 }} 个角色 · {{ coverage?.voiceActors||0 }} 位声优</summary><p>从已保存的公开名册和关系索引构建，查询不会抓取互联网。先在作品页保存资料，再更新探索范围。新版本构建失败时保留上一版本。</p>
+<p v-if="coverage?.graphRevision">{{ coverage.voiceFacts }} 条配音事实，{{ coverage.storyFacts }} 条剧情事实。构建于 {{ new Date(coverage.builtAt!).toLocaleString('zh-CN') }}。版本 {{ coverage.graphRevision }}。</p>
+<label>限定作品编号（留空使用全部已有公开资料，本次最多500部）<input v-model="subjectIds" placeholder="例如 373267, 328609"></label><div class="actions"><button :disabled="build?.status==='RUNNING'||build?.status==='PENDING'" @click="rebuild">更新探索范围</button><button v-if="build&&['PENDING','RUNNING'].includes(build.status)" @click="cancelBuild">取消构建</button></div><p v-if="build" role="status">{{ ({PENDING:'等待构建',RUNNING:'正在构建',COMPLETE:'范围已更新',FAILED:'构建失败',CANCELLED:'已取消'} as Record<string,string>)[build.status] }} · 已处理 {{ build.processed }} 部 {{ build.error }}</p>
+<div v-if="coverage?.subjects.length" class="table-scroll"><table><caption>本次收录作品与资料覆盖；配音完整性针对已读取来源，剧情“已记录”不代表全部剧情</caption><thead><tr><th>作品</th><th>角色</th><th>配音事实</th><th>配音覆盖</th><th>剧情事实</th></tr></thead><tbody><tr v-for="s in coverage.subjects" :key="s.subjectId"><td><RouterLink :to="'/explore/anime/'+s.subjectId">{{ s.title }}</RouterLink></td><td>{{ s.characters }}</td><td>{{ s.voiceFacts }}</td><td>{{ s.castStatus==='COMPLETE'?'来源分页完整':s.castStatus==='NOT_FETCHED'?'未获取':'部分' }}</td><td>{{ s.storyFacts }}（{{ s.storyStatus==='VERIFIED'?'来源已记录':'待补充或核验' }}）</td></tr></tbody></table></div></details>
+<div class="endpoint-grid"><CharacterEndpointSelect v-model="from" label="起点角色" :subject-id="Number(route.query.fromSubject)||undefined" :initial-uid="String(route.query.from||'')" :revision="coverage?.graphRevision"/><CharacterEndpointSelect v-model="to" label="终点角色" :subject-id="Number(route.query.toSubject)||undefined" :initial-uid="String(route.query.to||'')" :revision="coverage?.graphRevision"/></div>
+<ConnectionSearchOptions v-model="options"/><div class="actions"><button class="primary" :disabled="!from||!to||running" @click="search">查找联系</button><button v-if="running" @click="cancel">取消查询</button></div><p v-if="running" role="status">正在寻找联系，首先返回最短结果…</p>
+<template v-if="result"><ConnectionPathList v-model="pathIndex" :result="result"/><template v-if="result.paths[pathIndex]"><ConnectionPathCanvas :key="result.paths[pathIndex]!.signature" :path="result.paths[pathIndex]!" :scope="result.scope" @select-step="stepIndex=$event"/><ConnectionEvidencePanel :path="result.paths[pathIndex]!" :scope="result.scope" :selected-step="stepIndex"/></template></template>
+</template>
+<style scoped>.connections-intro{padding:35px 0 24px}.connections-intro h1{font-size:32px;font-weight:550}.connections-intro p{font-size:14px;line-height:1.9;max-width:70ch}.scope-note{color:var(--muted,#748b7c);font-size:12px!important}.endpoint-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.coverage-panel{padding:16px 20px;background:var(--panel,#eef4ef);border:1px solid #d9e4dc;border-radius:10px;margin-bottom:24px;font-size:12px;line-height:1.9}.coverage-panel summary{cursor:pointer;min-height:34px;padding:5px 0}.coverage-panel label{font-size:12px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}@media(max-width:650px){.endpoint-grid{grid-template-columns:1fr}.connections-intro h1{font-size:27px}}@media(prefers-color-scheme:dark){.coverage-panel{background:#24392d;color:#d7e6dd}}</style>

@@ -1,0 +1,261 @@
+{
+  "checkedAt": "2026-10-22T04:08:48.440Z",
+  "samplingRule": "First 10 characters in the existing project network source order, frozen before querying external character coverage.",
+  "works": [
+    {
+      "id": 328609,
+      "title": "孤独摇滚！",
+      "baselineUrl": "http://127.0.0.1:8080/api/v1/explore/anime/328609/network",
+      "baselineVersion": {
+        "fetchedAt": "2026-10-22T04:07:58.187235500Z",
+        "cached": true,
+        "stale": false,
+        "truncated": false,
+        "notice": "角色与制作人员分开展示；关系来自 Bangumi 在线资料，不依赖本地档案。"
+      },
+      "rosterCount": 33,
+      "samples": [
+        {
+          "sampleOrder": 1,
+          "canonicalUid": "character:bangumi:87968",
+          "label": "后藤一里",
+          "originalName": "後藤ひとり",
+          "sourceUrl": "https://bgm.tv/character/87968"
+        },
+        {
+          "sampleOrder": 2,
+          "canonicalUid": "character:bangumi:87973",
+          "label": "伊地知虹夏",
+          "originalName": "伊地知虹夏",
+          "sourceUrl": "https://bgm.tv/character/87973"
+        },
+        {
+          "sampleOrder": 3,
+          "canonicalUid": "character:bangumi:87974",
+          "label": "山田凉",
+          "originalName": "山田リョウ",
+          "sourceUrl": "https://bgm.tv/character/87974"
+        },
+        {
+          "sampleOrder": 4,
+          "canonicalUid": "character:bangumi:87975",
+          "label": "喜多郁代",
+          "originalName": "喜多郁代",
+          "sourceUrl": "https://bgm.tv/character/87975"
+        },
+        {
+          "sampleOrder": 5,
+          "canonicalUid": "character:bangumi:120116",
+          "label": "广井菊里",
+          "originalName": "廣井きくり",
+          "sourceUrl": "https://bgm.tv/character/120116"
+        },
+        {
+          "sampleOrder": 6,
+          "canonicalUid": "character:bangumi:120117",
+          "label": "后藤直树",
+          "originalName": "後藤直樹",
+          "sourceUrl": "https://bgm.tv/character/120117"
+        },
+        {
+          "sampleOrder": 7,
+          "canonicalUid": "character:bangumi:120118",
+          "label": "后藤美智代",
+          "originalName": "後藤美智代",
+          "sourceUrl": "https://bgm.tv/character/120118"
+        },
+        {
+          "sampleOrder": 8,
+          "canonicalUid": "character:bangumi:120119",
+          "label": "后藤二里",
+          "originalName": "後藤ふたり",
+          "sourceUrl": "https://bgm.tv/character/120119"
+        },
+        {
+          "sampleOrder": 9,
+          "canonicalUid": "character:bangumi:120120",
+          "label": "吉米亨",
+          "originalName": "ジミヘン",
+          "sourceUrl": "https://bgm.tv/character/120120"
+        },
+        {
+          "sampleOrder": 10,
+          "canonicalUid": "character:bangumi:119632",
+          "label": "伊地知星歌",
+          "originalName": "伊地知星歌",
+          "sourceUrl": "https://bgm.tv/character/119632"
+        }
+      ]
+    },
+    {
+      "id": 214265,
+      "title": "少女☆歌剧 Revue Starlight",
+      "baselineUrl": "http://127.0.0.1:8080/api/v1/explore/anime/214265/network",
+      "baselineVersion": {
+        "fetchedAt": "2026-10-22T04:07:58.774315900Z",
+        "cached": true,
+        "stale": false,
+        "truncated": false,
+        "notice": "角色与制作人员分开展示；关系来自 Bangumi 在线资料，不依赖本地档案。"
+      },
+      "rosterCount": 14,
+      "samples": [
+        {
+          "sampleOrder": 1,
+          "canonicalUid": "character:bangumi:64720",
+          "label": "花柳香子",
+          "originalName": "花柳香子",
+          "sourceUrl": "https://bgm.tv/character/64720"
+        },
+        {
+          "sampleOrder": 2,
+          "canonicalUid": "character:bangumi:64718",
+          "label": "西条克洛迪娜",
+          "originalName": "西條クロディーヌ",
+          "sourceUrl": "https://bgm.tv/character/64718"
+        },
+        {
+          "sampleOrder": 3,
+          "canonicalUid": "character:bangumi:64717",
+          "label": "大场奈奈",
+          "originalName": "大場なな",
+          "sourceUrl": "https://bgm.tv/character/64717"
+        },
+        {
+          "sampleOrder": 4,
+          "canonicalUid": "character:bangumi:64716",
+          "label": "露崎真昼",
+          "originalName": "露崎まひる",
+          "sourceUrl": "https://bgm.tv/character/64716"
+        },
+        {
+          "sampleOrder": 5,
+          "canonicalUid": "character:bangumi:64715",
+          "label": "星见纯那",
+          "originalName": "星見純那",
+          "sourceUrl": "https://bgm.tv/character/64715"
+        },
+        {
+          "sampleOrder": 6,
+          "canonicalUid": "character:bangumi:64714",
+          "label": "天堂真矢",
+          "originalName": "天堂真矢",
+          "sourceUrl": "https://bgm.tv/character/64714"
+        },
+        {
+          "sampleOrder": 7,
+          "canonicalUid": "character:bangumi:64713",
+          "label": "神乐光",
+          "originalName": "神楽ひかり",
+          "sourceUrl": "https://bgm.tv/character/64713"
+        },
+        {
+          "sampleOrder": 8,
+          "canonicalUid": "character:bangumi:64712",
+          "label": "爱城华恋",
+          "originalName": "愛城華恋",
+          "sourceUrl": "https://bgm.tv/character/64712"
+        },
+        {
+          "sampleOrder": 9,
+          "canonicalUid": "character:bangumi:64719",
+          "label": "石动双叶",
+          "originalName": "石動双葉",
+          "sourceUrl": "https://bgm.tv/character/64719"
+        },
+        {
+          "sampleOrder": 10,
+          "canonicalUid": "character:bangumi:137797",
+          "label": "真井雾子",
+          "originalName": "眞井霧子",
+          "sourceUrl": "https://bgm.tv/character/137797"
+        }
+      ]
+    },
+    {
+      "id": 400602,
+      "title": "葬送的芙莉莲",
+      "baselineUrl": "http://127.0.0.1:8080/api/v1/explore/anime/400602/network",
+      "baselineVersion": {
+        "fetchedAt": "2026-10-22T04:07:59.212495900Z",
+        "cached": true,
+        "stale": false,
+        "truncated": false,
+        "notice": "角色与制作人员分开展示；关系来自 Bangumi 在线资料，不依赖本地档案。"
+      },
+      "rosterCount": 91,
+      "samples": [
+        {
+          "sampleOrder": 1,
+          "canonicalUid": "character:bangumi:86246",
+          "label": "芙莉莲",
+          "originalName": "フリーレン",
+          "sourceUrl": "https://bgm.tv/character/86246"
+        },
+        {
+          "sampleOrder": 2,
+          "canonicalUid": "character:bangumi:86247",
+          "label": "菲伦",
+          "originalName": "フェルン",
+          "sourceUrl": "https://bgm.tv/character/86247"
+        },
+        {
+          "sampleOrder": 3,
+          "canonicalUid": "character:bangumi:89182",
+          "label": "修塔尔克",
+          "originalName": "シュタルク",
+          "sourceUrl": "https://bgm.tv/character/89182"
+        },
+        {
+          "sampleOrder": 4,
+          "canonicalUid": "character:bangumi:88208",
+          "label": "辛美尔",
+          "originalName": "ヒンメル",
+          "sourceUrl": "https://bgm.tv/character/88208"
+        },
+        {
+          "sampleOrder": 5,
+          "canonicalUid": "character:bangumi:89183",
+          "label": "海塔",
+          "originalName": "ハイター",
+          "sourceUrl": "https://bgm.tv/character/89183"
+        },
+        {
+          "sampleOrder": 6,
+          "canonicalUid": "character:bangumi:89184",
+          "label": "艾森",
+          "originalName": "アイゼン",
+          "sourceUrl": "https://bgm.tv/character/89184"
+        },
+        {
+          "sampleOrder": 7,
+          "canonicalUid": "character:bangumi:89185",
+          "label": "赞因",
+          "originalName": "ザイン",
+          "sourceUrl": "https://bgm.tv/character/89185"
+        },
+        {
+          "sampleOrder": 8,
+          "canonicalUid": "character:bangumi:89180",
+          "label": "伏拉梅",
+          "originalName": "フランメ",
+          "sourceUrl": "https://bgm.tv/character/89180"
+        },
+        {
+          "sampleOrder": 9,
+          "canonicalUid": "character:bangumi:137369",
+          "label": "古瓦尔",
+          "originalName": "クヴァール",
+          "sourceUrl": "https://bgm.tv/character/137369"
+        },
+        {
+          "sampleOrder": 10,
+          "canonicalUid": "character:bangumi:89181",
+          "label": "阿乌拉",
+          "originalName": "アウラ",
+          "sourceUrl": "https://bgm.tv/character/89181"
+        }
+      ]
+    }
+  ]
+}

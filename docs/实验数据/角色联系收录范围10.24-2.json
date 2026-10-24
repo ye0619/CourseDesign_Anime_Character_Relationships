@@ -1,0 +1,1039 @@
+{
+  "schemaVersion": 1,
+  "graphRevision": "6453e764-2685-477a-955f-c2ca7d753e50",
+  "builtAt": "2026-10-24T12:26:44.392042500Z",
+  "sourcePolicy": "Saved public Bangumi p1/v0 responses plus official Archive and explicitly optional local declarations. No Internet traversal during search. Source-traceable does not imply independent story fact review.",
+  "characters": 1392,
+  "voiceActors": 1098,
+  "voiceFacts": 2369,
+  "storyFacts": 1466,
+  "subjects": [
+    {
+      "subjectId": 12,
+      "title": "人形电脑天使心",
+      "castStatus": "COMPLETE",
+      "storyStatus": "VERIFIED",
+      "characters": 15,
+      "voiceFacts": 15,
+      "storyFacts": 26,
+      "sourceUrls": [
+        "https://bgm.tv/subject/12/characters",
+        "https://bgm.tv/subject/12/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-12.json",
+          "sha256": "e7f2216508cb863fbedcc3da7e075e1983ac67c0b4e0e7d66ff810d6fd4bc4e2"
+        },
+        {
+          "name": "v0-subjects-12-characters.json",
+          "sha256": "fe61af3004b195baa4814fd5ecde26647aaba6c3ee1a401ac1d3ebef3f43727b"
+        },
+        {
+          "name": "v0-subjects-12-persons.json",
+          "sha256": "5ee75569071a031bbfc0c80d63a3d58940f14d10c82f059334b98c3a8f5667bd"
+        }
+      ]
+    },
+    {
+      "subjectId": 253,
+      "title": "星际牛仔",
+      "castStatus": "PARTIAL",
+      "storyStatus": "VERIFIED",
+      "characters": 92,
+      "voiceFacts": 94,
+      "storyFacts": 17,
+      "sourceUrls": [
+        "https://bgm.tv/subject/253/characters",
+        "https://bgm.tv/subject/253/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-253.json",
+          "sha256": "c4ab9d506eda587f3471d4b878f15601596659050198b4077b5ee482aa2734af"
+        },
+        {
+          "name": "v0-subjects-253-characters.json",
+          "sha256": "eaa614fd79ff1be274ea89caf7402edee509809c1597bec79c828dcb6ce62093"
+        },
+        {
+          "name": "v0-subjects-253-persons.json",
+          "sha256": "9b574cd41506492856c1f780685df04ffb61e8d4ba4f02eb525e1c0747b849f7"
+        }
+      ]
+    },
+    {
+      "subjectId": 265,
+      "title": "新世纪福音战士",
+      "castStatus": "COMPLETE",
+      "storyStatus": "VERIFIED",
+      "characters": 41,
+      "voiceFacts": 54,
+      "storyFacts": 32,
+      "sourceUrls": [
+        "https://bgm.tv/subject/265/characters",
+        "https://bgm.tv/subject/265/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-265.json",
+          "sha256": "fe6dd3bab83303b07c4b4ac681d5a3ab5913e1dcc0128daf192e20bd0335862d"
+        },
+        {
+          "name": "v0-subjects-265-characters.json",
+          "sha256": "5e7d87a4424809b6dd435b0156beb9a1d75e1625e0c4e7e26813525a5ad86fb2"
+        },
+        {
+          "name": "v0-subjects-265-persons.json",
+          "sha256": "1f1d9f2e01b2049cbc6099cbc20da464637da45d55226e643f024be38e7ef282"
+        }
+      ]
+    },
+    {
+      "subjectId": 302,
+      "title": "龙猫",
+      "castStatus": "COMPLETE",
+      "storyStatus": "VERIFIED",
+      "characters": 12,
+      "voiceFacts": 17,
+      "storyFacts": 7,
+      "sourceUrls": [
+        "https://bgm.tv/subject/302/characters",
+        "https://bgm.tv/subject/302/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-302.json",
+          "sha256": "96d4645f1eb1e88daf617a41fd910bf9faa33c4db54cc2aae53ec6d0e86c64de"
+        },
+        {
+          "name": "v0-subjects-302-characters.json",
+          "sha256": "5cfa2fd90be4f675d762159be7f3024ebdbcc13d1d17b55f26c9bfc3a2b6e6ae"
+        },
+        {
+          "name": "v0-subjects-302-persons.json",
+          "sha256": "b9e077fbe5eadc3df2fd7a0c7459a70a4f6a7929d05957c09392401f5ea90ba8"
+        }
+      ]
+    },
+    {
+      "subjectId": 876,
+      "title": "CLANNAD 〜AFTER STORY〜",
+      "castStatus": "COMPLETE",
+      "storyStatus": "VERIFIED",
+      "characters": 30,
+      "voiceFacts": 29,
+      "storyFacts": 23,
+      "sourceUrls": [
+        "https://bgm.tv/subject/876/characters",
+        "https://bgm.tv/subject/876/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-876.json",
+          "sha256": "3272180bb56218b606633e49a56de98c8c55e6c1d2847dbf15bbe64401097209"
+        },
+        {
+          "name": "v0-subjects-876-characters.json",
+          "sha256": "e012365868ad47afd4a03bea4bd530287a81f19bf267edef8dd31c94ba4da9c6"
+        },
+        {
+          "name": "v0-subjects-876-persons.json",
+          "sha256": "a933cd9070d228668bad1ea666db1242e8d823411d25850bada3ac6c9f8ff23c"
+        }
+      ]
+    },
+    {
+      "subjectId": 899,
+      "title": "名侦探柯南",
+      "castStatus": "PARTIAL",
+      "storyStatus": "VERIFIED",
+      "characters": 262,
+      "voiceFacts": 637,
+      "storyFacts": 369,
+      "sourceUrls": [
+        "https://bgm.tv/subject/899/characters",
+        "https://bgm.tv/subject/899/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-899.json",
+          "sha256": "042771a1b3bcffb7fe5defeb7c4386c36354406d14706b4513dff60827a98e84"
+        },
+        {
+          "name": "v0-subjects-899-characters.json",
+          "sha256": "5f97af512afac46a419b6a12c83e3958f7659df84ddc9b85b11447af2bb9c348"
+        },
+        {
+          "name": "v0-subjects-899-persons.json",
+          "sha256": "302a87fd12278732299d6fa392b6cbc1ba3890a947478231d192084f8e456173"
+        }
+      ]
+    },
+    {
+      "subjectId": 1424,
+      "title": "轻音少女",
+      "castStatus": "COMPLETE",
+      "storyStatus": "VERIFIED",
+      "characters": 33,
+      "voiceFacts": 48,
+      "storyFacts": 24,
+      "sourceUrls": [
+        "https://bgm.tv/subject/1424/characters",
+        "https://bgm.tv/subject/1424/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-1424.json",
+          "sha256": "4bbcedf4caf85ebd40db9bd145d8d5a2c63a44aa7a3df55edc62f6eb826d8662"
+        },
+        {
+          "name": "v0-subjects-1424-characters.json",
+          "sha256": "5778e4beded0cc6ae8264e93952e655ed155f927962ec5fdb7c170828de84520"
+        },
+        {
+          "name": "v0-subjects-1424-persons.json",
+          "sha256": "c7616ca24812ce02e2d34018799e26d1969255afa6d384ecdb221e5e4544f0d7"
+        }
+      ]
+    },
+    {
+      "subjectId": 1609,
+      "title": "游戏王5D's",
+      "castStatus": "PARTIAL",
+      "storyStatus": "VERIFIED",
+      "characters": 39,
+      "voiceFacts": 97,
+      "storyFacts": 59,
+      "sourceUrls": [
+        "https://bgm.tv/subject/1609/characters",
+        "https://bgm.tv/subject/1609/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-1609.json",
+          "sha256": "287574fab08e9d91ec65fcbfac1d20d1240077d722e60c86c8f4bb89d40849b8"
+        },
+        {
+          "name": "v0-subjects-1609-characters.json",
+          "sha256": "81c859e051a0712f62719e0ccb76709754801b5b8871c0e7e7c86654d190519d"
+        },
+        {
+          "name": "v0-subjects-1609-persons.json",
+          "sha256": "058dfeb90f258ea16bd7d379aa57808bc60b6ec65f547ecc394ab82aa93f6b09"
+        }
+      ]
+    },
+    {
+      "subjectId": 2734,
+      "title": "星空清理者",
+      "castStatus": "COMPLETE",
+      "storyStatus": "VERIFIED",
+      "characters": 14,
+      "voiceFacts": 13,
+      "storyFacts": 1,
+      "sourceUrls": [
+        "https://bgm.tv/subject/2734/characters",
+        "https://bgm.tv/subject/2734/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-2734.json",
+          "sha256": "80159318d170b4bd1fef9c47888203ee293fa996681a9a5134c979ccda8ffbda"
+        },
+        {
+          "name": "v0-subjects-2734-characters.json",
+          "sha256": "fc8ae5ee6bfff56bc8225fa89c677fe470d4f206308c223ca841169f7895565b"
+        },
+        {
+          "name": "v0-subjects-2734-persons.json",
+          "sha256": "dda12dc8846c0df642472743dbe4e997b90ed58d3c9f71f9f7dc151ae1f16d00"
+        }
+      ]
+    },
+    {
+      "subjectId": 3774,
+      "title": "轻音少女 第二季",
+      "castStatus": "COMPLETE",
+      "storyStatus": "VERIFIED",
+      "characters": 60,
+      "voiceFacts": 71,
+      "storyFacts": 32,
+      "sourceUrls": [
+        "https://bgm.tv/subject/3774/characters",
+        "https://bgm.tv/subject/3774/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-3774.json",
+          "sha256": "8f39af47e6beb754d2589ff87cdf655648c88ecc243b130aff7d1d0c97bba515"
+        },
+        {
+          "name": "v0-subjects-3774-characters.json",
+          "sha256": "adb6689f1dc90816af1706132c245ef16606a45335496f2165d648cfbbf5cfe0"
+        },
+        {
+          "name": "v0-subjects-3774-persons.json",
+          "sha256": "0e4ea256c453e63b549f20f0bda3dc4934265c5dbd1ca9f1197228f75f3bbf28"
+        }
+      ]
+    },
+    {
+      "subjectId": 9717,
+      "title": "魔法少女小圆",
+      "castStatus": "COMPLETE",
+      "storyStatus": "VERIFIED",
+      "characters": 28,
+      "voiceFacts": 20,
+      "storyFacts": 45,
+      "sourceUrls": [
+        "https://bgm.tv/subject/9717/characters",
+        "https://bgm.tv/subject/9717/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-9717.json",
+          "sha256": "01d3fc2baf5cbe6ae13d99bd21b90efc39d27eb7cb140fb6ecd811b3522b7e30"
+        },
+        {
+          "name": "v0-subjects-9717-characters.json",
+          "sha256": "97a1cde1a93fb5a959f37c48ee90c8f254f48f43fad4f21a3f3775f8d0c87e63"
+        },
+        {
+          "name": "v0-subjects-9717-persons.json",
+          "sha256": "fa18ab421529078ca5a1946be85cb286dba8e04cc64253281b9ce806b54ec441"
+        }
+      ]
+    },
+    {
+      "subjectId": 10380,
+      "title": "命运石之门",
+      "castStatus": "COMPLETE",
+      "storyStatus": "VERIFIED",
+      "characters": 18,
+      "voiceFacts": 17,
+      "storyFacts": 17,
+      "sourceUrls": [
+        "https://bgm.tv/subject/10380/characters",
+        "https://bgm.tv/subject/10380/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-10380.json",
+          "sha256": "0050189235969402b531cf1acab518ea07e58862dbb844d2be9e2f342fc04514"
+        },
+        {
+          "name": "v0-subjects-10380-characters.json",
+          "sha256": "a8cbc4895707aa2d1f14e948a86dd75c95b3217e01d14d43e023ac65f390569f"
+        },
+        {
+          "name": "v0-subjects-10380-persons.json",
+          "sha256": "ab9243973866907cba709f65fe7a10af954ff67967f75a0be6b2052d1011851e"
+        }
+      ]
+    },
+    {
+      "subjectId": 10440,
+      "title": "我们仍未知道那天所看见的花的名字。",
+      "castStatus": "COMPLETE",
+      "storyStatus": "VERIFIED",
+      "characters": 8,
+      "voiceFacts": 11,
+      "storyFacts": 26,
+      "sourceUrls": [
+        "https://bgm.tv/subject/10440/characters",
+        "https://bgm.tv/subject/10440/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-10440.json",
+          "sha256": "2c6b6f6857c2f85bfaacae357113db2b367e83d00ec2d7e5ed702746ef22431c"
+        },
+        {
+          "name": "v0-subjects-10440-characters.json",
+          "sha256": "387e245279d7634654158a1f6d5d39cd430a54c05f9f4e02b98a3477592074f4"
+        },
+        {
+          "name": "v0-subjects-10440-persons.json",
+          "sha256": "072f9e6d178dc1cf7277bee98ce278e4b40f1b8a139a878cf005cb2708f7e91a"
+        }
+      ]
+    },
+    {
+      "subjectId": 12426,
+      "title": "轻音少女 剧场版",
+      "castStatus": "COMPLETE",
+      "storyStatus": "VERIFIED",
+      "characters": 53,
+      "voiceFacts": 25,
+      "storyFacts": 31,
+      "sourceUrls": [
+        "https://bgm.tv/subject/12426/characters",
+        "https://bgm.tv/subject/12426/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-12426.json",
+          "sha256": "d71b818422568b10ea50abb742ff8f20cf95fcfa9857c2587430dc34256fe31c"
+        },
+        {
+          "name": "v0-subjects-12426-characters.json",
+          "sha256": "8278a4d5cf6574f33b332d27943ab6640b5326e8432025655f582a2bdded45ab"
+        },
+        {
+          "name": "v0-subjects-12426-persons.json",
+          "sha256": "802fad22dd4e4ace6156dee640573dc579a629c856324502c211c76fb97cecf7"
+        }
+      ]
+    },
+    {
+      "subjectId": 24790,
+      "title": "男子高中生的日常",
+      "castStatus": "COMPLETE",
+      "storyStatus": "VERIFIED",
+      "characters": 30,
+      "voiceFacts": 30,
+      "storyFacts": 3,
+      "sourceUrls": [
+        "https://bgm.tv/subject/24790/characters",
+        "https://bgm.tv/subject/24790/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-24790.json",
+          "sha256": "001cde3336bf6591b2cabfd3d234a4941045fe01b9d923f278166c2bb43053d4"
+        },
+        {
+          "name": "v0-subjects-24790-characters.json",
+          "sha256": "ddca8f323623a4814b9fe5cc2ab37b143c98742d32daa52fc30066e2d7d490d9"
+        },
+        {
+          "name": "v0-subjects-24790-persons.json",
+          "sha256": "ec9011474ea1d04f458f099cb3ac59d4f4ee5edcbacca089e7df6e293f888972"
+        }
+      ]
+    },
+    {
+      "subjectId": 44693,
+      "title": "剧场版 魔法少女小圆 [新篇] 叛逆的物语",
+      "castStatus": "COMPLETE",
+      "storyStatus": "VERIFIED",
+      "characters": 19,
+      "voiceFacts": 21,
+      "storyFacts": 29,
+      "sourceUrls": [
+        "https://bgm.tv/subject/44693/characters",
+        "https://bgm.tv/subject/44693/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-44693.json",
+          "sha256": "29014cf2af5321cea38235617f640ef1e4cf8204da109ffec2d7aec95d508049"
+        },
+        {
+          "name": "v0-subjects-44693-characters.json",
+          "sha256": "66fc2d84e63fd81773abc830bf6a0c7153fabf911ecc7186e2e05d775feb7850"
+        },
+        {
+          "name": "v0-subjects-44693-persons.json",
+          "sha256": "51fd4b079fb68571003c268adf690438ebd58c9a2e68ae6ec6178487d35c52ee"
+        }
+      ]
+    },
+    {
+      "subjectId": 55770,
+      "title": "进击的巨人",
+      "castStatus": "COMPLETE",
+      "storyStatus": "VERIFIED",
+      "characters": 45,
+      "voiceFacts": 45,
+      "storyFacts": 50,
+      "sourceUrls": [
+        "https://bgm.tv/subject/55770/characters",
+        "https://bgm.tv/subject/55770/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-55770.json",
+          "sha256": "d664f0da4e04655d0a2f257c59bc9a8e24adc48b8143f6cecc61424b1ae2ba4b"
+        },
+        {
+          "name": "v0-subjects-55770-characters.json",
+          "sha256": "10626aa6c0a2c9b329a03d282764e54d6969cf74432caf52bbfa800c9b49479e"
+        },
+        {
+          "name": "v0-subjects-55770-persons.json",
+          "sha256": "e925fd2e8c56232968e8ecf9712c932b3ee896199a5b80324be2065113083187"
+        }
+      ]
+    },
+    {
+      "subjectId": 115908,
+      "title": "吹响吧！上低音号",
+      "castStatus": "COMPLETE",
+      "storyStatus": "VERIFIED",
+      "characters": 70,
+      "voiceFacts": 40,
+      "storyFacts": 46,
+      "sourceUrls": [
+        "https://bgm.tv/subject/115908/characters",
+        "https://bgm.tv/subject/115908/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-115908.json",
+          "sha256": "d2168e5b3aecfe2f072555f699f5e2e3fa9615527124325a39c140c85e7ac679"
+        },
+        {
+          "name": "v0-subjects-115908-characters.json",
+          "sha256": "751ae5f269c06fada02af912469efa06cf74af7ac0d4a2e995707411f8f8305f"
+        },
+        {
+          "name": "v0-subjects-115908-persons.json",
+          "sha256": "0779f2328974f8f64c09cdaae3d0add550cc132eb21b59075cce330786d2ecd3"
+        }
+      ]
+    },
+    {
+      "subjectId": 118335,
+      "title": "进击的巨人 第二季",
+      "castStatus": "COMPLETE",
+      "storyStatus": "VERIFIED",
+      "characters": 41,
+      "voiceFacts": 42,
+      "storyFacts": 44,
+      "sourceUrls": [
+        "https://bgm.tv/subject/118335/characters",
+        "https://bgm.tv/subject/118335/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-118335.json",
+          "sha256": "6c853a0261b6449a089a8eb88c57f1a2c734fe39d30f9222c4e0b7abe47908a2"
+        },
+        {
+          "name": "v0-subjects-118335-characters.json",
+          "sha256": "7d617f2c730c2e90344fcc41506b3ee2260af80079a8a51a2303f94f3ea36e63"
+        },
+        {
+          "name": "v0-subjects-118335-persons.json",
+          "sha256": "daae20180d22ef864e4b6b34700d484a8715440211cbdb748bdfc040261ed92d"
+        }
+      ]
+    },
+    {
+      "subjectId": 129807,
+      "title": "命运石之门 0",
+      "castStatus": "COMPLETE",
+      "storyStatus": "VERIFIED",
+      "characters": 20,
+      "voiceFacts": 18,
+      "storyFacts": 21,
+      "sourceUrls": [
+        "https://bgm.tv/subject/129807/characters",
+        "https://bgm.tv/subject/129807/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-129807.json",
+          "sha256": "f1b3fc533c48b5bedbfcf23a55034529be8ca09ca21d258b0cc559b450afb44d"
+        },
+        {
+          "name": "v0-subjects-129807-characters.json",
+          "sha256": "280537984e22d71c314e5a7d60ddb703eb3ab2754064a8c58c3398c3b5153e5d"
+        },
+        {
+          "name": "v0-subjects-129807-persons.json",
+          "sha256": "f39c9078f79be609b025d95966d80d6a562613a288329c8d2b25e3c1575b26f4"
+        }
+      ]
+    },
+    {
+      "subjectId": 152091,
+      "title": "吹响吧！上低音号 第二季",
+      "castStatus": "COMPLETE",
+      "storyStatus": "VERIFIED",
+      "characters": 74,
+      "voiceFacts": 31,
+      "storyFacts": 55,
+      "sourceUrls": [
+        "https://bgm.tv/subject/152091/characters",
+        "https://bgm.tv/subject/152091/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-152091.json",
+          "sha256": "c38f97849cc604c609ec1b1c75e5f3ce2f5d22c0b3c86ac51b4b798e4aad5f7d"
+        },
+        {
+          "name": "v0-subjects-152091-characters.json",
+          "sha256": "70894d5088f91ef8fcea30b54110a8f242618afb2e724ad91a0c2cbdebb3d94f"
+        },
+        {
+          "name": "v0-subjects-152091-persons.json",
+          "sha256": "9949e869142c2776289aa354f5951889f79ed5d2ac85837d03ad9943040a3ad3"
+        }
+      ]
+    },
+    {
+      "subjectId": 160209,
+      "title": "你的名字。",
+      "castStatus": "PARTIAL",
+      "storyStatus": "VERIFIED",
+      "characters": 15,
+      "voiceFacts": 71,
+      "storyFacts": 27,
+      "sourceUrls": [
+        "https://bgm.tv/subject/160209/characters",
+        "https://bgm.tv/subject/160209/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-160209.json",
+          "sha256": "7c6c50821afedb403b7a343761e232b5ff7bdf3352d502089ebf98113173bb5a"
+        },
+        {
+          "name": "v0-subjects-160209-characters.json",
+          "sha256": "f75f3a64672e6c3eaafb1aef00807e35306bce7dbb23c225025c60b890193cb1"
+        },
+        {
+          "name": "v0-subjects-160209-persons.json",
+          "sha256": "3d5b0e60c5a57e63bc3f18a457efdbf8c061cac4573de77d91c663cf74bd1a93"
+        }
+      ]
+    },
+    {
+      "subjectId": 183878,
+      "title": "紫罗兰永恒花园",
+      "castStatus": "COMPLETE",
+      "storyStatus": "EMPTY",
+      "characters": 50,
+      "voiceFacts": 53,
+      "storyFacts": 0,
+      "sourceUrls": [
+        "https://bgm.tv/subject/183878/characters",
+        "https://bgm.tv/subject/183878/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-183878.json",
+          "sha256": "a14a40118c2575f94d4699863efaa00f3588fc0bdb38f8dcf53aea71f94e430d"
+        },
+        {
+          "name": "v0-subjects-183878-characters.json",
+          "sha256": "93b09527d91f7b155384f6d6d1d6cc7d359e041d97e58621453cab484cd71095"
+        },
+        {
+          "name": "v0-subjects-183878-persons.json",
+          "sha256": "a1b5924621ee8726fe0984ead70432bd8dc514b7fd49f2266b8db707b7db3abe"
+        }
+      ]
+    },
+    {
+      "subjectId": 214265,
+      "title": "作品 214265",
+      "castStatus": "COMPLETE",
+      "storyStatus": "VERIFIED",
+      "characters": 14,
+      "voiceFacts": 14,
+      "storyFacts": 40,
+      "sourceUrls": [
+        "https://bgm.tv/subject/214265/characters",
+        "https://bgm.tv/subject/214265/persons"
+      ],
+      "savedPublicFiles": []
+    },
+    {
+      "subjectId": 216371,
+      "title": "莉兹与青鸟",
+      "castStatus": "PARTIAL",
+      "storyStatus": "VERIFIED",
+      "characters": 85,
+      "voiceFacts": 20,
+      "storyFacts": 31,
+      "sourceUrls": [
+        "https://bgm.tv/subject/216371/characters",
+        "https://bgm.tv/subject/216371/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-216371.json",
+          "sha256": "70e3ad6bf25aef17ebee6a9dfed12587cf0f518927e9bab92531bc95adab7af9"
+        },
+        {
+          "name": "v0-subjects-216371-characters.json",
+          "sha256": "88c1a736d35e660d9010a6dc98a8650231048fc8a6570c9e693fc1b52974d338"
+        },
+        {
+          "name": "v0-subjects-216371-persons.json",
+          "sha256": "bc8fb05c4714807f56675cd5b120527dab19286d246081dc184e4925c0e463ab"
+        }
+      ]
+    },
+    {
+      "subjectId": 217300,
+      "title": "进击的巨人 第三季",
+      "castStatus": "COMPLETE",
+      "storyStatus": "VERIFIED",
+      "characters": 26,
+      "voiceFacts": 27,
+      "storyFacts": 41,
+      "sourceUrls": [
+        "https://bgm.tv/subject/217300/characters",
+        "https://bgm.tv/subject/217300/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-217300.json",
+          "sha256": "27e20daa8effce3a30223055c195df368f545d6d779ca6b99021712365df7696"
+        },
+        {
+          "name": "v0-subjects-217300-characters.json",
+          "sha256": "b80de2062f87ab63854cbae9b288772a43fe7cc56cf7897c7e8e907887a7e2d3"
+        },
+        {
+          "name": "v0-subjects-217300-persons.json",
+          "sha256": "cf3778479a090bf1fcd7765f51d12106b9e9d6b83e2f21217b2188bf42957430"
+        }
+      ]
+    },
+    {
+      "subjectId": 219200,
+      "title": "擅长捉弄的高木同学",
+      "castStatus": "COMPLETE",
+      "storyStatus": "VERIFIED",
+      "characters": 14,
+      "voiceFacts": 13,
+      "storyFacts": 2,
+      "sourceUrls": [
+        "https://bgm.tv/subject/219200/characters",
+        "https://bgm.tv/subject/219200/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-219200.json",
+          "sha256": "3c66cebe828000f80bd30e0e5f5028348fa6dc2c5e1c4ee21859681dc2e9665f"
+        },
+        {
+          "name": "v0-subjects-219200-characters.json",
+          "sha256": "4cbdaada0995dde9556e8c49862e58fcf2ffbe3989958b8eba75b2abcbc1eb17"
+        },
+        {
+          "name": "v0-subjects-219200-persons.json",
+          "sha256": "0c32925e93b83d662eba859953e5043f588f7de8356a74cf922fee0c8d6619f3"
+        }
+      ]
+    },
+    {
+      "subjectId": 242216,
+      "title": "剧场版 紫罗兰永恒花园",
+      "castStatus": "COMPLETE",
+      "storyStatus": "EMPTY",
+      "characters": 14,
+      "voiceFacts": 13,
+      "storyFacts": 0,
+      "sourceUrls": [
+        "https://bgm.tv/subject/242216/characters",
+        "https://bgm.tv/subject/242216/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-242216.json",
+          "sha256": "56cf815f1a76524cd0cfbcaf33035903d8cf5a97ffd713ce492a91eb3243692f"
+        },
+        {
+          "name": "v0-subjects-242216-characters.json",
+          "sha256": "cfed74982fbcde584d4453dbfead321e39c380106f6fd6cb54acbbb84316faa7"
+        },
+        {
+          "name": "v0-subjects-242216-persons.json",
+          "sha256": "c653bda28c8eda2569fa03754b0634629a438b219bfdd5a550490dc046afda0d"
+        }
+      ]
+    },
+    {
+      "subjectId": 273843,
+      "title": "动物狂想曲",
+      "castStatus": "COMPLETE",
+      "storyStatus": "VERIFIED",
+      "characters": 55,
+      "voiceFacts": 56,
+      "storyFacts": 15,
+      "sourceUrls": [
+        "https://bgm.tv/subject/273843/characters",
+        "https://bgm.tv/subject/273843/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-273843.json",
+          "sha256": "4d26f92376882a6f983e36861830943441a5dea3e2e46b0a044178d63dcd146e"
+        },
+        {
+          "name": "v0-subjects-273843-characters.json",
+          "sha256": "43297f0b3e86f19f09517f1457c408b353a334397f4b3e1d5a41107b990f7428"
+        },
+        {
+          "name": "v0-subjects-273843-persons.json",
+          "sha256": "e067574d311a317e14925a1bc3af00ac2b62fc420210c7320a97c6eff8561d94"
+        }
+      ]
+    },
+    {
+      "subjectId": 302286,
+      "title": "死神 千年血战篇",
+      "castStatus": "COMPLETE",
+      "storyStatus": "VERIFIED",
+      "characters": 101,
+      "voiceFacts": 106,
+      "storyFacts": 102,
+      "sourceUrls": [
+        "https://bgm.tv/subject/302286/characters",
+        "https://bgm.tv/subject/302286/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-302286.json",
+          "sha256": "51645bde2045e7512cc6992c781fac592f968eba4edfdedf25223e8a8e52fcf5"
+        },
+        {
+          "name": "v0-subjects-302286-characters.json",
+          "sha256": "cfdc89ceab9cfd80bd37b4fb3c4e7504498dcb5a8ff242d9cca3eedfee3d04eb"
+        },
+        {
+          "name": "v0-subjects-302286-persons.json",
+          "sha256": "3d831aa9bbf57740f9ef963ad431a492c504200c0714fa88ba497c4475b4804a"
+        }
+      ]
+    },
+    {
+      "subjectId": 326868,
+      "title": "天才王子的赤字国家振兴术",
+      "castStatus": "COMPLETE",
+      "storyStatus": "EMPTY",
+      "characters": 15,
+      "voiceFacts": 15,
+      "storyFacts": 0,
+      "sourceUrls": [
+        "https://bgm.tv/subject/326868/characters",
+        "https://bgm.tv/subject/326868/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-326868.json",
+          "sha256": "956c4e6918d2605eb1b9ca897336dbb1bb9acbe49310166d7104b897ae225cad"
+        },
+        {
+          "name": "v0-subjects-326868-characters.json",
+          "sha256": "5783d42506e0e5ec2a141cda4f88ca20f6ed986aff6ddadac3d4e5fcf7f0d72b"
+        },
+        {
+          "name": "v0-subjects-326868-persons.json",
+          "sha256": "df579e69b7ed4972f621bf070a5a72800e18c8a517dded21343dd27148345ac3"
+        }
+      ]
+    },
+    {
+      "subjectId": 326895,
+      "title": "夏日重现",
+      "castStatus": "PARTIAL",
+      "storyStatus": "VERIFIED",
+      "characters": 22,
+      "voiceFacts": 20,
+      "storyFacts": 20,
+      "sourceUrls": [
+        "https://bgm.tv/subject/326895/characters",
+        "https://bgm.tv/subject/326895/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-326895.json",
+          "sha256": "6ed53c3330a2d02aa3a2b94c0c5602a0b77759fe8e420981b181a5e5ca633a2e"
+        },
+        {
+          "name": "v0-subjects-326895-characters.json",
+          "sha256": "ecac828b0bd9fdf7667c24d12bbb54294dcce557fe2b192906958c9c65bf2341"
+        },
+        {
+          "name": "v0-subjects-326895-persons.json",
+          "sha256": "e7644046f35d00a6405bb9cdd150780e31749339d232460068c88799ea83a902"
+        }
+      ]
+    },
+    {
+      "subjectId": 328609,
+      "title": "孤独摇滚！",
+      "castStatus": "COMPLETE",
+      "storyStatus": "VERIFIED",
+      "characters": 31,
+      "voiceFacts": 78,
+      "storyFacts": 40,
+      "sourceUrls": [
+        "https://bgm.tv/subject/328609/characters",
+        "https://bgm.tv/subject/328609/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-328609.json",
+          "sha256": "0e131bcfa637a439cf11778a949ae5c3a455feee9843c7a230b5927b2fbfcb6d"
+        },
+        {
+          "name": "v0-subjects-328609-characters.json",
+          "sha256": "289d9ca8b9ddd7088021f4bcc043b29211694c21b63894660108557a22924630"
+        },
+        {
+          "name": "v0-subjects-328609-persons.json",
+          "sha256": "9990d9dde8938bee90c8337071845edc4686d3295dbb43b0281a130ffe472be6"
+        }
+      ]
+    },
+    {
+      "subjectId": 330055,
+      "title": "史上最强的大魔王转生为村民A",
+      "castStatus": "COMPLETE",
+      "storyStatus": "VERIFIED",
+      "characters": 10,
+      "voiceFacts": 11,
+      "storyFacts": 1,
+      "sourceUrls": [
+        "https://bgm.tv/subject/330055/characters",
+        "https://bgm.tv/subject/330055/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-330055.json",
+          "sha256": "ef81ddf062e1e48133150c3fec46e7bbd53c64391236eefdcc4116587023a4c0"
+        },
+        {
+          "name": "v0-subjects-330055-characters.json",
+          "sha256": "cfafa3f5c78ce7f72610d7f71cf564257b13b6083d5d44af2d821ff3dbf449ce"
+        },
+        {
+          "name": "v0-subjects-330055-persons.json",
+          "sha256": "e5ad35eb021bff90ca87643ea1822f555fc6b98eba347a26d3ad9b542000f919"
+        }
+      ]
+    },
+    {
+      "subjectId": 373267,
+      "title": "间谍过家家 第2部分",
+      "castStatus": "COMPLETE",
+      "storyStatus": "VERIFIED",
+      "characters": 52,
+      "voiceFacts": 120,
+      "storyFacts": 46,
+      "sourceUrls": [
+        "https://bgm.tv/subject/373267/characters",
+        "https://bgm.tv/subject/373267/persons"
+      ],
+      "savedPublicFiles": []
+    },
+    {
+      "subjectId": 400602,
+      "title": "葬送的芙莉莲",
+      "castStatus": "PARTIAL",
+      "storyStatus": "VERIFIED",
+      "characters": 91,
+      "voiceFacts": 202,
+      "storyFacts": 19,
+      "sourceUrls": [
+        "https://bgm.tv/subject/400602/characters",
+        "https://bgm.tv/subject/400602/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-400602.json",
+          "sha256": "1d390cc90929fa4037f74a46c6e297dd04667409a40476ae46430ada91165461"
+        },
+        {
+          "name": "v0-subjects-400602-characters.json",
+          "sha256": "15fe8a1d31aebdc45a947b880c22f9b797fd058f69103377d38b87bf95e49a13"
+        },
+        {
+          "name": "v0-subjects-400602-persons.json",
+          "sha256": "1d1a5b57db8e4e51f6b354f40364d94d785795887c2c71c07b91ee75969f318f"
+        }
+      ]
+    },
+    {
+      "subjectId": 428735,
+      "title": "BanG Dream! It's MyGO!!!!!",
+      "castStatus": "PARTIAL",
+      "storyStatus": "VERIFIED",
+      "characters": 41,
+      "voiceFacts": 40,
+      "storyFacts": 77,
+      "sourceUrls": [
+        "https://bgm.tv/subject/428735/characters",
+        "https://bgm.tv/subject/428735/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-428735.json",
+          "sha256": "e324ef5a666aa89a62f2b794cf4422744660692af7495c0218b3a81b66028a44"
+        },
+        {
+          "name": "v0-subjects-428735-characters.json",
+          "sha256": "1a89f81df1b998d6a003c07485b7b4c1c85f2ff5edbc0b4f2a9e0084858b4ba5"
+        },
+        {
+          "name": "v0-subjects-428735-persons.json",
+          "sha256": "4c0b402672f5de894f25353c7f9cafda964e14a00933e6e0f2535100d169720f"
+        }
+      ]
+    },
+    {
+      "subjectId": 429644,
+      "title": "名侦探柯南：百万美元的五棱星",
+      "castStatus": "COMPLETE",
+      "storyStatus": "VERIFIED",
+      "characters": 33,
+      "voiceFacts": 99,
+      "storyFacts": 42,
+      "sourceUrls": [
+        "https://bgm.tv/subject/429644/characters",
+        "https://bgm.tv/subject/429644/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-429644.json",
+          "sha256": "8e6936495fb7a36ad45635ed4821dff9155925116bd3b2fedbb53326b1f2db20"
+        },
+        {
+          "name": "v0-subjects-429644-characters.json",
+          "sha256": "39a28e591575cf86c3aece4c4aad609631f210fd64582ae0000cc00e4d071572"
+        },
+        {
+          "name": "v0-subjects-429644-persons.json",
+          "sha256": "863a1f36c3705db6eeb39247b2e8e9a89362bae08def61119e926588b36e885a"
+        }
+      ]
+    },
+    {
+      "subjectId": 515759,
+      "title": "葬送的芙莉莲 第二季",
+      "castStatus": "COMPLETE",
+      "storyStatus": "VERIFIED",
+      "characters": 44,
+      "voiceFacts": 36,
+      "storyFacts": 6,
+      "sourceUrls": [
+        "https://bgm.tv/subject/515759/characters",
+        "https://bgm.tv/subject/515759/persons"
+      ],
+      "savedPublicFiles": [
+        {
+          "name": "v0-subjects-515759.json",
+          "sha256": "cb6042ec6e1d1a87cd19c2b0fd24cfd9077c7d28bac09a2dc21b96428585704b"
+        },
+        {
+          "name": "v0-subjects-515759-characters.json",
+          "sha256": "c9db7296931be8a056a6290fd2bfe66ef1a55fb37805dc419b84d06e3d12a413"
+        },
+        {
+          "name": "v0-subjects-515759-persons.json",
+          "sha256": "25fd1649d1ca2049bb4727359424750293cca2f1cbc45a373b5c40eff786a7f8"
+        }
+      ]
+    }
+  ]
+}

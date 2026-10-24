@@ -1,0 +1,1428 @@
+{
+  "sensitivity": [
+    {
+      "queries": [
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:64713",
+            "subjectId": 214265
+          },
+          "from": {
+            "characterUid": "character:bangumi:7062",
+            "subjectId": 899
+          },
+          "edgeChecks": 8,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 2,
+          "elapsedMillis": 1,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:71207",
+            "subjectId": 273843
+          },
+          "from": {
+            "characterUid": "character:bangumi:185260",
+            "subjectId": 160209
+          },
+          "edgeChecks": 2014,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 694,
+          "elapsedMillis": 8,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:17529",
+            "subjectId": 1424
+          },
+          "from": {
+            "characterUid": "character:bangumi:7949",
+            "subjectId": 302286
+          },
+          "edgeChecks": 6580,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:66724",
+            "subjectId": 217300
+          },
+          "from": {
+            "characterUid": "character:bangumi:43806",
+            "subjectId": 12426
+          },
+          "edgeChecks": 1995,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 28,
+          "elapsedMillis": 1,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:137776",
+            "subjectId": 899
+          },
+          "from": {
+            "characterUid": "character:bangumi:171994",
+            "subjectId": 253
+          },
+          "edgeChecks": 2880,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:137370",
+            "subjectId": 515759
+          },
+          "from": {
+            "characterUid": "character:bangumi:137331",
+            "subjectId": 400602
+          },
+          "edgeChecks": 5,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:19621",
+            "subjectId": 217300
+          },
+          "from": {
+            "characterUid": "character:bangumi:157588",
+            "subjectId": 400602
+          },
+          "edgeChecks": 8,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:122084",
+            "subjectId": 328609
+          },
+          "from": {
+            "characterUid": "character:bangumi:40712",
+            "subjectId": 9717
+          },
+          "edgeChecks": 638,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:1023",
+            "subjectId": 876
+          },
+          "from": {
+            "characterUid": "character:bangumi:61244",
+            "subjectId": 183878
+          },
+          "edgeChecks": 5,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:15285",
+            "subjectId": 24790
+          },
+          "from": {
+            "characterUid": "character:bangumi:201150",
+            "subjectId": 515759
+          },
+          "edgeChecks": 1870,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:195544",
+            "subjectId": 899
+          },
+          "from": {
+            "characterUid": "character:bangumi:42543",
+            "subjectId": 3774
+          },
+          "edgeChecks": 7,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:12399",
+            "subjectId": 10380
+          },
+          "from": {
+            "characterUid": "character:bangumi:195483",
+            "subjectId": 899
+          },
+          "edgeChecks": 11,
+          "stopReason": "EXHAUSTED"
+        }
+      ],
+      "endpointPairs": 12,
+      "interruptedPairs": 0,
+      "foundPairs": 0,
+      "condition": "VOICE_ONLY"
+    },
+    {
+      "queries": [
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:64713",
+            "subjectId": 214265
+          },
+          "from": {
+            "characterUid": "character:bangumi:7062",
+            "subjectId": 899
+          },
+          "edgeChecks": 112,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 59,
+          "elapsedMillis": 1,
+          "found": true,
+          "hops": [
+            5
+          ],
+          "to": {
+            "characterUid": "character:bangumi:71207",
+            "subjectId": 273843
+          },
+          "from": {
+            "characterUid": "character:bangumi:185260",
+            "subjectId": 160209
+          },
+          "edgeChecks": 4910,
+          "stopReason": "RESULT_LIMIT"
+        },
+        {
+          "states": 4827,
+          "elapsedMillis": 45,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:17529",
+            "subjectId": 1424
+          },
+          "from": {
+            "characterUid": "character:bangumi:7949",
+            "subjectId": 302286
+          },
+          "edgeChecks": 66360,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 1,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:66724",
+            "subjectId": 217300
+          },
+          "from": {
+            "characterUid": "character:bangumi:43806",
+            "subjectId": 12426
+          },
+          "edgeChecks": 5116,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 115,
+          "elapsedMillis": 1,
+          "found": true,
+          "hops": [
+            6
+          ],
+          "to": {
+            "characterUid": "character:bangumi:137776",
+            "subjectId": 899
+          },
+          "from": {
+            "characterUid": "character:bangumi:171994",
+            "subjectId": 253
+          },
+          "edgeChecks": 6019,
+          "stopReason": "RESULT_LIMIT"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:137370",
+            "subjectId": 515759
+          },
+          "from": {
+            "characterUid": "character:bangumi:137331",
+            "subjectId": 400602
+          },
+          "edgeChecks": 5,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 12,
+          "elapsedMillis": 1,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:19621",
+            "subjectId": 217300
+          },
+          "from": {
+            "characterUid": "character:bangumi:157588",
+            "subjectId": 400602
+          },
+          "edgeChecks": 5408,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 1,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:122084",
+            "subjectId": 328609
+          },
+          "from": {
+            "characterUid": "character:bangumi:40712",
+            "subjectId": 9717
+          },
+          "edgeChecks": 4606,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:1023",
+            "subjectId": 876
+          },
+          "from": {
+            "characterUid": "character:bangumi:61244",
+            "subjectId": 183878
+          },
+          "edgeChecks": 5,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 1,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:15285",
+            "subjectId": 24790
+          },
+          "from": {
+            "characterUid": "character:bangumi:201150",
+            "subjectId": 515759
+          },
+          "edgeChecks": 4836,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:195544",
+            "subjectId": 899
+          },
+          "from": {
+            "characterUid": "character:bangumi:42543",
+            "subjectId": 3774
+          },
+          "edgeChecks": 11,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:12399",
+            "subjectId": 10380
+          },
+          "from": {
+            "characterUid": "character:bangumi:195483",
+            "subjectId": 899
+          },
+          "edgeChecks": 3789,
+          "stopReason": "EXHAUSTED"
+        }
+      ],
+      "endpointPairs": 12,
+      "interruptedPairs": 0,
+      "foundPairs": 2,
+      "condition": "VOICE_AND_STORY"
+    },
+    {
+      "queries": [
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:64713",
+            "subjectId": 214265
+          },
+          "from": {
+            "characterUid": "character:bangumi:7062",
+            "subjectId": 899
+          },
+          "edgeChecks": 112,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 59,
+          "elapsedMillis": 1,
+          "found": true,
+          "hops": [
+            5
+          ],
+          "to": {
+            "characterUid": "character:bangumi:71207",
+            "subjectId": 273843
+          },
+          "from": {
+            "characterUid": "character:bangumi:185260",
+            "subjectId": 160209
+          },
+          "edgeChecks": 4910,
+          "stopReason": "RESULT_LIMIT"
+        },
+        {
+          "states": 8024,
+          "elapsedMillis": 77,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:17529",
+            "subjectId": 1424
+          },
+          "from": {
+            "characterUid": "character:bangumi:7949",
+            "subjectId": 302286
+          },
+          "edgeChecks": 96383,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 1,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:66724",
+            "subjectId": 217300
+          },
+          "from": {
+            "characterUid": "character:bangumi:43806",
+            "subjectId": 12426
+          },
+          "edgeChecks": 5116,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 215,
+          "elapsedMillis": 2,
+          "found": true,
+          "hops": [
+            6
+          ],
+          "to": {
+            "characterUid": "character:bangumi:137776",
+            "subjectId": 899
+          },
+          "from": {
+            "characterUid": "character:bangumi:171994",
+            "subjectId": 253
+          },
+          "edgeChecks": 6283,
+          "stopReason": "RESULT_LIMIT"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:137370",
+            "subjectId": 515759
+          },
+          "from": {
+            "characterUid": "character:bangumi:137331",
+            "subjectId": 400602
+          },
+          "edgeChecks": 5,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 11,
+          "elapsedMillis": 1,
+          "found": true,
+          "hops": [
+            8
+          ],
+          "to": {
+            "characterUid": "character:bangumi:19621",
+            "subjectId": 217300
+          },
+          "from": {
+            "characterUid": "character:bangumi:157588",
+            "subjectId": 400602
+          },
+          "edgeChecks": 5453,
+          "stopReason": "RESULT_LIMIT"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 1,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:122084",
+            "subjectId": 328609
+          },
+          "from": {
+            "characterUid": "character:bangumi:40712",
+            "subjectId": 9717
+          },
+          "edgeChecks": 4606,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:1023",
+            "subjectId": 876
+          },
+          "from": {
+            "characterUid": "character:bangumi:61244",
+            "subjectId": 183878
+          },
+          "edgeChecks": 5,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 1,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:15285",
+            "subjectId": 24790
+          },
+          "from": {
+            "characterUid": "character:bangumi:201150",
+            "subjectId": 515759
+          },
+          "edgeChecks": 4836,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:195544",
+            "subjectId": 899
+          },
+          "from": {
+            "characterUid": "character:bangumi:42543",
+            "subjectId": 3774
+          },
+          "edgeChecks": 11,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:12399",
+            "subjectId": 10380
+          },
+          "from": {
+            "characterUid": "character:bangumi:195483",
+            "subjectId": 899
+          },
+          "edgeChecks": 3789,
+          "stopReason": "EXHAUSTED"
+        }
+      ],
+      "endpointPairs": 12,
+      "interruptedPairs": 0,
+      "foundPairs": 3,
+      "condition": "WITH_SPOILERS"
+    },
+    {
+      "queries": [
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:64713",
+            "subjectId": 214265
+          },
+          "from": {
+            "characterUid": "character:bangumi:7062",
+            "subjectId": 899
+          },
+          "edgeChecks": 112,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:71207",
+            "subjectId": 273843
+          },
+          "from": {
+            "characterUid": "character:bangumi:185260",
+            "subjectId": 160209
+          },
+          "edgeChecks": 174,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 4,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:17529",
+            "subjectId": 1424
+          },
+          "from": {
+            "characterUid": "character:bangumi:7949",
+            "subjectId": 302286
+          },
+          "edgeChecks": 1754,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:66724",
+            "subjectId": 217300
+          },
+          "from": {
+            "characterUid": "character:bangumi:43806",
+            "subjectId": 12426
+          },
+          "edgeChecks": 271,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:137776",
+            "subjectId": 899
+          },
+          "from": {
+            "characterUid": "character:bangumi:171994",
+            "subjectId": 253
+          },
+          "edgeChecks": 1663,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:137370",
+            "subjectId": 515759
+          },
+          "from": {
+            "characterUid": "character:bangumi:137331",
+            "subjectId": 400602
+          },
+          "edgeChecks": 5,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:19621",
+            "subjectId": 217300
+          },
+          "from": {
+            "characterUid": "character:bangumi:157588",
+            "subjectId": 400602
+          },
+          "edgeChecks": 475,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:122084",
+            "subjectId": 328609
+          },
+          "from": {
+            "characterUid": "character:bangumi:40712",
+            "subjectId": 9717
+          },
+          "edgeChecks": 164,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:1023",
+            "subjectId": 876
+          },
+          "from": {
+            "characterUid": "character:bangumi:61244",
+            "subjectId": 183878
+          },
+          "edgeChecks": 5,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:15285",
+            "subjectId": 24790
+          },
+          "from": {
+            "characterUid": "character:bangumi:201150",
+            "subjectId": 515759
+          },
+          "edgeChecks": 283,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:195544",
+            "subjectId": 899
+          },
+          "from": {
+            "characterUid": "character:bangumi:42543",
+            "subjectId": 3774
+          },
+          "edgeChecks": 11,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "found": false,
+          "hops": [],
+          "to": {
+            "characterUid": "character:bangumi:12399",
+            "subjectId": 10380
+          },
+          "from": {
+            "characterUid": "character:bangumi:195483",
+            "subjectId": 899
+          },
+          "edgeChecks": 158,
+          "stopReason": "EXHAUSTED"
+        }
+      ],
+      "endpointPairs": 12,
+      "interruptedPairs": 0,
+      "foundPairs": 0,
+      "condition": "MAX_4_HOPS"
+    }
+  ],
+  "checkedAt": 1792845396.728642,
+  "scope": "Read-only actual projections; per-call adjacency construction included; no claim of 10000-node benchmark or independent story fact audit",
+  "revision": "6453e764-2685-477a-955f-c2ca7d753e50",
+  "runs": [
+    {
+      "works": 5,
+      "maxDegree": 13,
+      "queries": [
+        {
+          "states": 1,
+          "elapsedMillis": 18,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:171984",
+            "subjectId": 253
+          },
+          "from": {
+            "characterUid": "character:bangumi:5",
+            "subjectId": 876
+          },
+          "edgeChecks": 8,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 41,
+          "elapsedMillis": 3,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:1063",
+            "subjectId": 876
+          },
+          "from": {
+            "characterUid": "character:bangumi:171983",
+            "subjectId": 253
+          },
+          "edgeChecks": 302,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:42290",
+            "subjectId": 876
+          },
+          "from": {
+            "characterUid": "character:bangumi:32",
+            "subjectId": 12
+          },
+          "edgeChecks": 11,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:70027",
+            "subjectId": 302
+          },
+          "from": {
+            "characterUid": "character:bangumi:28115",
+            "subjectId": 253
+          },
+          "edgeChecks": 14,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:35245",
+            "subjectId": 302
+          },
+          "from": {
+            "characterUid": "character:bangumi:171986",
+            "subjectId": 253
+          },
+          "edgeChecks": 40,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:170332",
+            "subjectId": 253
+          },
+          "from": {
+            "characterUid": "character:bangumi:1020",
+            "subjectId": 876
+          },
+          "edgeChecks": 5,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:6",
+            "subjectId": 876
+          },
+          "from": {
+            "characterUid": "character:bangumi:89819",
+            "subjectId": 253
+          },
+          "edgeChecks": 178,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:61523",
+            "subjectId": 253
+          },
+          "from": {
+            "characterUid": "character:bangumi:4",
+            "subjectId": 876
+          },
+          "edgeChecks": 183,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:170324",
+            "subjectId": 253
+          },
+          "from": {
+            "characterUid": "character:bangumi:42380",
+            "subjectId": 265
+          },
+          "edgeChecks": 10,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:170325",
+            "subjectId": 253
+          },
+          "from": {
+            "characterUid": "character:bangumi:14217",
+            "subjectId": 876
+          },
+          "edgeChecks": 7,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:1020",
+            "subjectId": 876
+          },
+          "from": {
+            "characterUid": "character:bangumi:170334",
+            "subjectId": 253
+          },
+          "edgeChecks": 187,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 0,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:1023",
+            "subjectId": 876
+          },
+          "from": {
+            "characterUid": "character:bangumi:171989",
+            "subjectId": 253
+          },
+          "edgeChecks": 5,
+          "stopReason": "EXHAUSTED"
+        }
+      ],
+      "nodes": 344,
+      "facts": 314,
+      "p95Millis": 18
+    },
+    {
+      "works": 20,
+      "maxDegree": 65,
+      "queries": [
+        {
+          "states": 1,
+          "elapsedMillis": 2,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:14790",
+            "subjectId": 24790
+          },
+          "from": {
+            "characterUid": "character:bangumi:171985",
+            "subjectId": 253
+          },
+          "edgeChecks": 3,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 3,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:139100",
+            "subjectId": 1609
+          },
+          "from": {
+            "characterUid": "character:bangumi:28277",
+            "subjectId": 55770
+          },
+          "edgeChecks": 16,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 5,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:7041",
+            "subjectId": 899
+          },
+          "from": {
+            "characterUid": "character:bangumi:43814",
+            "subjectId": 12426
+          },
+          "edgeChecks": 3404,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 2,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:6849",
+            "subjectId": 1609
+          },
+          "from": {
+            "characterUid": "character:bangumi:43428",
+            "subjectId": 3774
+          },
+          "edgeChecks": 4,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 178,
+          "elapsedMillis": 13,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:33305",
+            "subjectId": 899
+          },
+          "from": {
+            "characterUid": "character:bangumi:170335",
+            "subjectId": 253
+          },
+          "edgeChecks": 5657,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 4,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:31828",
+            "subjectId": 115908
+          },
+          "from": {
+            "characterUid": "character:bangumi:43878",
+            "subjectId": 3774
+          },
+          "edgeChecks": 2190,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 2,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:12941",
+            "subjectId": 2734
+          },
+          "from": {
+            "characterUid": "character:bangumi:43808",
+            "subjectId": 1424
+          },
+          "edgeChecks": 5,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 2,
+          "elapsedMillis": 2,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:43809",
+            "subjectId": 3774
+          },
+          "from": {
+            "characterUid": "character:bangumi:127644",
+            "subjectId": 899
+          },
+          "edgeChecks": 1229,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 4,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:33",
+            "subjectId": 12
+          },
+          "from": {
+            "characterUid": "character:bangumi:172003",
+            "subjectId": 253
+          },
+          "edgeChecks": 3008,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 78,
+          "elapsedMillis": 7,
+          "paths": [
+            6
+          ],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:471",
+            "subjectId": 1424
+          },
+          "from": {
+            "characterUid": "character:bangumi:29285",
+            "subjectId": 115908
+          },
+          "edgeChecks": 2483,
+          "stopReason": "RESULT_LIMIT"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 2,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:161713",
+            "subjectId": 899
+          },
+          "from": {
+            "characterUid": "character:bangumi:29457",
+            "subjectId": 115908
+          },
+          "edgeChecks": 14,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 3,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:28274",
+            "subjectId": 118335
+          },
+          "from": {
+            "characterUid": "character:bangumi:604",
+            "subjectId": 12426
+          },
+          "edgeChecks": 2623,
+          "stopReason": "EXHAUSTED"
+        }
+      ],
+      "nodes": 1419,
+      "facts": 2246,
+      "p95Millis": 13
+    },
+    {
+      "works": 39,
+      "maxDegree": 105,
+      "queries": [
+        {
+          "states": 1,
+          "elapsedMillis": 5,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:64713",
+            "subjectId": 214265
+          },
+          "from": {
+            "characterUid": "character:bangumi:7062",
+            "subjectId": 899
+          },
+          "edgeChecks": 112,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 59,
+          "elapsedMillis": 8,
+          "paths": [
+            5
+          ],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:71207",
+            "subjectId": 273843
+          },
+          "from": {
+            "characterUid": "character:bangumi:185260",
+            "subjectId": 160209
+          },
+          "edgeChecks": 4910,
+          "stopReason": "RESULT_LIMIT"
+        },
+        {
+          "states": 4827,
+          "elapsedMillis": 118,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:17529",
+            "subjectId": 1424
+          },
+          "from": {
+            "characterUid": "character:bangumi:7949",
+            "subjectId": 302286
+          },
+          "edgeChecks": 66360,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 7,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:66724",
+            "subjectId": 217300
+          },
+          "from": {
+            "characterUid": "character:bangumi:43806",
+            "subjectId": 12426
+          },
+          "edgeChecks": 5116,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 115,
+          "elapsedMillis": 8,
+          "paths": [
+            6
+          ],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:137776",
+            "subjectId": 899
+          },
+          "from": {
+            "characterUid": "character:bangumi:171994",
+            "subjectId": 253
+          },
+          "edgeChecks": 6019,
+          "stopReason": "RESULT_LIMIT"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 3,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:137370",
+            "subjectId": 515759
+          },
+          "from": {
+            "characterUid": "character:bangumi:137331",
+            "subjectId": 400602
+          },
+          "edgeChecks": 5,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 12,
+          "elapsedMillis": 8,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:19621",
+            "subjectId": 217300
+          },
+          "from": {
+            "characterUid": "character:bangumi:157588",
+            "subjectId": 400602
+          },
+          "edgeChecks": 5408,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 6,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:122084",
+            "subjectId": 328609
+          },
+          "from": {
+            "characterUid": "character:bangumi:40712",
+            "subjectId": 9717
+          },
+          "edgeChecks": 4606,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 3,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:1023",
+            "subjectId": 876
+          },
+          "from": {
+            "characterUid": "character:bangumi:61244",
+            "subjectId": 183878
+          },
+          "edgeChecks": 5,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 3,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:15285",
+            "subjectId": 24790
+          },
+          "from": {
+            "characterUid": "character:bangumi:201150",
+            "subjectId": 515759
+          },
+          "edgeChecks": 4836,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 2,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:195544",
+            "subjectId": 899
+          },
+          "from": {
+            "characterUid": "character:bangumi:42543",
+            "subjectId": 3774
+          },
+          "edgeChecks": 11,
+          "stopReason": "EXHAUSTED"
+        },
+        {
+          "states": 1,
+          "elapsedMillis": 3,
+          "paths": [],
+          "shortestProven": true,
+          "to": {
+            "characterUid": "character:bangumi:12399",
+            "subjectId": 10380
+          },
+          "from": {
+            "characterUid": "character:bangumi:195483",
+            "subjectId": 899
+          },
+          "edgeChecks": 3789,
+          "stopReason": "EXHAUSTED"
+        }
+      ],
+      "nodes": 2356,
+      "facts": 3835,
+      "p95Millis": 118
+    }
+  ]
+}

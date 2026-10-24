@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "batchId": "moegirl-bocchi-membership-20261021",
+  "worldUid": "universe:project:bocchi",
+  "provider": "MOEGIRL",
+  "sourceVersion": "manual-review/2026-10-21",
+  "licenseLabel": "萌娘百科作者；CC BY-NC-SA 4.0；非商业、署名、相同方式共享",
+  "retrievedAt": "2026-10-21T05:10:17.753454700Z",
+  "facts": [{
+    "source": "character:bangumi:87968",
+    "target": "character:bangumi:125172",
+    "relationType": "MEMBER",
+    "ended": false,
+    "spoiler": false,
+    "scopeType": "GLOBAL",
+    "subjectIds": [],
+    "reviewStatus": "REVIEWED",
+    "sourceUrl": "https://zh.moegirl.org.cn/后藤一里",
+    "sourceRevision": "8606350",
+    "sourceField": "条目基本资料：所属团体",
+    "rawRelation": "结束乐队",
+    "sourceName": "萌娘百科（人工核验）",
+    "description": "所属团体资料，未明确限定动画当前季或集数。",
+    "attribution": "引自萌娘百科作者：后藤一里条目；人工摘录规范化，CC BY-NC-SA 4.0。",
+    "matchMethod": "MANUAL"
+  }]
+}

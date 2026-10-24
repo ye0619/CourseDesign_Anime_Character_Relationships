@@ -1,0 +1,69 @@
+{
+  "checkedAt": "2026-10-24T15:31:58.319Z",
+  "passed": true,
+  "backend": {
+    "total": 158,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 9,
+    "passed": 149
+  },
+  "frontend": {
+    "total": 104,
+    "passed": 104
+  },
+  "externalCoverageTests": 3,
+  "deliveryPackageTests": 3,
+  "apiContractVersion": "0.22.0",
+  "contractPaths": 91,
+  "contractOperations": 104,
+  "typecheck": true,
+  "frontendBuild": true,
+  "powerShellSyntax": true,
+  "documentation": true,
+  "deploymentStatic": true,
+  "conditionalDatabaseTests": {
+    "total": 8,
+    "passed": 0,
+    "skipped": 8,
+    "suites": [
+      {
+        "suite": "com.animegraph.connection.ConnectionIntegrationTest",
+        "total": 1,
+        "passed": 0,
+        "skipped": 1
+      },
+      {
+        "suite": "com.animegraph.graph.LocalWorkDeletionIntegrationTest",
+        "total": 1,
+        "passed": 0,
+        "skipped": 1
+      },
+      {
+        "suite": "com.animegraph.identity.EvidenceImportIntegrationTest",
+        "total": 2,
+        "passed": 0,
+        "skipped": 2
+      },
+      {
+        "suite": "com.animegraph.identity.IdentityReviewIntegrationTest",
+        "total": 1,
+        "passed": 0,
+        "skipped": 1
+      },
+      {
+        "suite": "com.animegraph.localgraph.LocalGraphIntegrationTest",
+        "total": 1,
+        "passed": 0,
+        "skipped": 1
+      },
+      {
+        "suite": "com.animegraph.viewer.LocalReportIntegrationTest",
+        "total": 2,
+        "passed": 0,
+        "skipped": 2
+      }
+    ]
+  },
+  "codeFingerprint": "36da148014fda9fd761aee4bc3e573f7826c7efdceea72e24e1dfe33eb8ce36c"
+}

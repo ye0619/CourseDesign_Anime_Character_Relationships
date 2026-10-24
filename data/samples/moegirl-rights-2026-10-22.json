@@ -1,0 +1,14 @@
+{
+  "url": "https://zh.moegirl.org.cn/api.php?action=query&format=json&meta=siteinfo&siprop=rightsinfo",
+  "checkedAt": "2026-10-22T04:09:49.630Z",
+  "httpStatus": 200,
+  "body": {
+    "batchcomplete": "",
+    "query": {
+      "rightsinfo": {
+        "url": "https://zh.moegirl.org.cn/%E8%90%8C%E5%A8%98%E7%99%BE%E7%A7%91:%E7%89%88%E6%9D%83%E4%BF%A1%E6%81%AF",
+        "text": "知识共享 署名-非商业性使用-相同方式共享 4.0 协议"
+      }
+    }
+  }
+}

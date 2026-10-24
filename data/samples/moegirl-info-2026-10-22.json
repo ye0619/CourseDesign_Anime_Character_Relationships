@@ -1,0 +1,366 @@
+{
+  "url": "https://zh.moegirl.org.cn/api.php?action=query&format=json&prop=info&titles=%E5%90%8E%E8%97%A4%E4%B8%80%E9%87%8C%7C%E4%BC%8A%E5%9C%B0%E7%9F%A5%E8%99%B9%E5%A4%8F%7C%E5%B1%B1%E7%94%B0%E5%87%89%7C%E5%96%9C%E5%A4%9A%E9%83%81%E4%BB%A3%7C%E5%B9%BF%E4%BA%95%E8%8F%8A%E9%87%8C%7C%E5%90%8E%E8%97%A4%E7%9B%B4%E6%A0%91%7C%E5%90%8E%E8%97%A4%E7%BE%8E%E6%99%BA%E4%BB%A3%7C%E5%90%8E%E8%97%A4%E4%BA%8C%E9%87%8C%7C%E5%90%89%E7%B1%B3%E4%BA%A8%7C%E4%BC%8A%E5%9C%B0%E7%9F%A5%E6%98%9F%E6%AD%8C%7C%E8%8A%B1%E6%9F%B3%E9%A6%99%E5%AD%90%7C%E8%A5%BF%E6%9D%A1%E5%85%8B%E6%B4%9B%E8%BF%AA%E5%A8%9C%7C%E5%A4%A7%E5%9C%BA%E5%A5%88%E5%A5%88%7C%E9%9C%B2%E5%B4%8E%E7%9C%9F%E6%98%BC%7C%E6%98%9F%E8%A7%81%E7%BA%AF%E9%82%A3%7C%E5%A4%A9%E5%A0%82%E7%9C%9F%E7%9F%A2%7C%E7%A5%9E%E4%B9%90%E5%85%89%7C%E7%88%B1%E5%9F%8E%E5%8D%8E%E6%81%8B%7C%E7%9F%B3%E5%8A%A8%E5%8F%8C%E5%8F%B6%7C%E7%9C%9F%E4%BA%95%E9%9B%BE%E5%AD%90%7C%E8%8A%99%E8%8E%89%E8%8E%B2%7C%E8%8F%B2%E4%BC%A6%7C%E4%BF%AE%E5%A1%94%E5%B0%94%E5%85%8B%7C%E8%BE%9B%E7%BE%8E%E5%B0%94%7C%E6%B5%B7%E5%A1%94%7C%E8%89%BE%E6%A3%AE%7C%E8%B5%9E%E5%9B%A0%7C%E4%BC%8F%E6%8B%89%E6%A2%85%7C%E5%8F%A4%E7%93%A6%E5%B0%94%7C%E9%98%BF%E4%B9%8C%E6%8B%89&redirects=1",
+  "checkedAt": "2026-10-22T04:09:49.259Z",
+  "httpStatus": 200,
+  "body": {
+    "batchcomplete": "",
+    "query": {
+      "redirects": [
+        {
+          "from": "修塔尔克",
+          "to": "休塔尔克"
+        }
+      ],
+      "pages": {
+        "292198": {
+          "pageid": 292198,
+          "ns": 0,
+          "title": "露崎真昼",
+          "contentmodel": "wikitext",
+          "pagelanguage": "zh",
+          "pagelanguagehtmlcode": "zh",
+          "pagelanguagedir": "ltr",
+          "touched": "2026-10-21T15:33:31Z",
+          "lastrevid": 8692985,
+          "length": 21747
+        },
+        "292216": {
+          "pageid": 292216,
+          "ns": 0,
+          "title": "爱城华恋",
+          "contentmodel": "wikitext",
+          "pagelanguage": "zh",
+          "pagelanguagehtmlcode": "zh",
+          "pagelanguagedir": "ltr",
+          "touched": "2026-10-21T15:33:31Z",
+          "lastrevid": 8640066,
+          "length": 31751
+        },
+        "292272": {
+          "pageid": 292272,
+          "ns": 0,
+          "title": "天堂真矢",
+          "contentmodel": "wikitext",
+          "pagelanguage": "zh",
+          "pagelanguagehtmlcode": "zh",
+          "pagelanguagedir": "ltr",
+          "touched": "2026-10-21T15:33:31Z",
+          "lastrevid": 8696211,
+          "length": 25796
+        },
+        "292274": {
+          "pageid": 292274,
+          "ns": 0,
+          "title": "神乐光",
+          "contentmodel": "wikitext",
+          "pagelanguage": "zh",
+          "pagelanguagehtmlcode": "zh",
+          "pagelanguagedir": "ltr",
+          "touched": "2026-10-21T15:33:31Z",
+          "lastrevid": 8640062,
+          "length": 26572
+        },
+        "292288": {
+          "pageid": 292288,
+          "ns": 0,
+          "title": "大场奈奈",
+          "contentmodel": "wikitext",
+          "pagelanguage": "zh",
+          "pagelanguagehtmlcode": "zh",
+          "pagelanguagedir": "ltr",
+          "touched": "2026-10-21T15:33:31Z",
+          "lastrevid": 8640077,
+          "length": 19161
+        },
+        "292316": {
+          "pageid": 292316,
+          "ns": 0,
+          "title": "星见纯那",
+          "contentmodel": "wikitext",
+          "pagelanguage": "zh",
+          "pagelanguagehtmlcode": "zh",
+          "pagelanguagedir": "ltr",
+          "touched": "2026-10-21T15:33:31Z",
+          "lastrevid": 8640391,
+          "length": 18684
+        },
+        "292342": {
+          "pageid": 292342,
+          "ns": 0,
+          "title": "西条克洛迪娜",
+          "contentmodel": "wikitext",
+          "pagelanguage": "zh",
+          "pagelanguagehtmlcode": "zh",
+          "pagelanguagedir": "ltr",
+          "touched": "2026-10-21T15:33:31Z",
+          "lastrevid": 8640085,
+          "length": 18389
+        },
+        "292416": {
+          "pageid": 292416,
+          "ns": 0,
+          "title": "石动双叶",
+          "contentmodel": "wikitext",
+          "pagelanguage": "zh",
+          "pagelanguagehtmlcode": "zh",
+          "pagelanguagedir": "ltr",
+          "touched": "2026-10-21T15:33:31Z",
+          "lastrevid": 8666812,
+          "length": 19002
+        },
+        "292424": {
+          "pageid": 292424,
+          "ns": 0,
+          "title": "花柳香子",
+          "contentmodel": "wikitext",
+          "pagelanguage": "zh",
+          "pagelanguagehtmlcode": "zh",
+          "pagelanguagedir": "ltr",
+          "touched": "2026-10-21T15:33:31Z",
+          "lastrevid": 8666813,
+          "length": 16719
+        },
+        "404558": {
+          "pageid": 404558,
+          "ns": 0,
+          "title": "后藤一里",
+          "contentmodel": "wikitext",
+          "pagelanguage": "zh",
+          "pagelanguagehtmlcode": "zh",
+          "pagelanguagedir": "ltr",
+          "touched": "2026-10-21T15:34:45Z",
+          "lastrevid": 8606350,
+          "length": 28354
+        },
+        "446079": {
+          "pageid": 446079,
+          "ns": 0,
+          "title": "辛美尔",
+          "contentmodel": "wikitext",
+          "pagelanguage": "zh",
+          "pagelanguagehtmlcode": "zh",
+          "pagelanguagedir": "ltr",
+          "touched": "2026-10-21T15:35:33Z",
+          "lastrevid": 8716485,
+          "length": 10768
+        },
+        "448787": {
+          "pageid": 448787,
+          "ns": 0,
+          "title": "芙莉莲",
+          "contentmodel": "wikitext",
+          "pagelanguage": "zh",
+          "pagelanguagehtmlcode": "zh",
+          "pagelanguagedir": "ltr",
+          "touched": "2026-10-21T15:35:40Z",
+          "lastrevid": 8695413,
+          "length": 30708
+        },
+        "451077": {
+          "pageid": 451077,
+          "ns": 0,
+          "title": "喜多郁代",
+          "contentmodel": "wikitext",
+          "pagelanguage": "zh",
+          "pagelanguagehtmlcode": "zh",
+          "pagelanguagedir": "ltr",
+          "touched": "2026-10-21T15:35:49Z",
+          "lastrevid": 8572077,
+          "length": 12644
+        },
+        "451088": {
+          "pageid": 451088,
+          "ns": 0,
+          "title": "伊地知虹夏",
+          "contentmodel": "wikitext",
+          "pagelanguage": "zh",
+          "pagelanguagehtmlcode": "zh",
+          "pagelanguagedir": "ltr",
+          "touched": "2026-10-21T15:35:49Z",
+          "lastrevid": 8334967,
+          "length": 10493
+        },
+        "451137": {
+          "pageid": 451137,
+          "ns": 0,
+          "title": "山田凉",
+          "contentmodel": "wikitext",
+          "pagelanguage": "zh",
+          "pagelanguagehtmlcode": "zh",
+          "pagelanguagedir": "ltr",
+          "touched": "2026-10-21T15:35:49Z",
+          "lastrevid": 8664320,
+          "length": 12331
+        },
+        "545803": {
+          "pageid": 545803,
+          "ns": 0,
+          "title": "伊地知星歌",
+          "contentmodel": "wikitext",
+          "pagelanguage": "zh",
+          "pagelanguagehtmlcode": "zh",
+          "pagelanguagedir": "ltr",
+          "touched": "2026-10-21T15:42:24Z",
+          "lastrevid": 8371904,
+          "length": 9624
+        },
+        "546501": {
+          "pageid": 546501,
+          "ns": 0,
+          "title": "广井菊里",
+          "contentmodel": "wikitext",
+          "pagelanguage": "zh",
+          "pagelanguagehtmlcode": "zh",
+          "pagelanguagedir": "ltr",
+          "touched": "2026-10-21T15:42:26Z",
+          "lastrevid": 8664321,
+          "length": 10238
+        },
+        "546719": {
+          "pageid": 546719,
+          "ns": 0,
+          "title": "后藤二里",
+          "contentmodel": "wikitext",
+          "pagelanguage": "zh",
+          "pagelanguagehtmlcode": "zh",
+          "pagelanguagedir": "ltr",
+          "touched": "2026-10-21T15:42:26Z",
+          "lastrevid": 8455750,
+          "length": 3775
+        },
+        "552320": {
+          "pageid": 552320,
+          "ns": 0,
+          "title": "后藤直树",
+          "contentmodel": "wikitext",
+          "pagelanguage": "zh",
+          "pagelanguagehtmlcode": "zh",
+          "pagelanguagedir": "ltr",
+          "touched": "2026-10-21T15:43:03Z",
+          "lastrevid": 8716272,
+          "length": 2190
+        },
+        "587305": {
+          "pageid": 587305,
+          "ns": 0,
+          "title": "菲伦",
+          "contentmodel": "wikitext",
+          "pagelanguage": "zh",
+          "pagelanguagehtmlcode": "zh",
+          "pagelanguagedir": "ltr",
+          "touched": "2026-10-21T15:45:36Z",
+          "lastrevid": 8716492,
+          "length": 10745
+        },
+        "587778": {
+          "pageid": 587778,
+          "ns": 0,
+          "title": "休塔尔克",
+          "contentmodel": "wikitext",
+          "pagelanguage": "zh",
+          "pagelanguagehtmlcode": "zh",
+          "pagelanguagedir": "ltr",
+          "touched": "2026-10-21T15:45:43Z",
+          "lastrevid": 8716487,
+          "length": 14438
+        },
+        "587898": {
+          "pageid": 587898,
+          "ns": 0,
+          "title": "古瓦尔",
+          "contentmodel": "wikitext",
+          "pagelanguage": "zh",
+          "pagelanguagehtmlcode": "zh",
+          "pagelanguagedir": "ltr",
+          "touched": "2026-10-21T15:45:43Z",
+          "lastrevid": 8333534,
+          "length": 4306
+        },
+        "587905": {
+          "pageid": 587905,
+          "ns": 0,
+          "title": "阿乌拉",
+          "contentmodel": "wikitext",
+          "pagelanguage": "zh",
+          "pagelanguagehtmlcode": "zh",
+          "pagelanguagedir": "ltr",
+          "touched": "2026-10-21T15:45:43Z",
+          "lastrevid": 8509408,
+          "length": 7399
+        },
+        "587956": {
+          "pageid": 587956,
+          "ns": 0,
+          "title": "赞因",
+          "contentmodel": "wikitext",
+          "pagelanguage": "zh",
+          "pagelanguagehtmlcode": "zh",
+          "pagelanguagedir": "ltr",
+          "touched": "2026-10-21T15:45:43Z",
+          "lastrevid": 8333537,
+          "length": 11583
+        },
+        "588067": {
+          "pageid": 588067,
+          "ns": 0,
+          "title": "伏拉梅",
+          "contentmodel": "wikitext",
+          "pagelanguage": "zh",
+          "pagelanguagehtmlcode": "zh",
+          "pagelanguagedir": "ltr",
+          "touched": "2026-10-21T15:45:43Z",
+          "lastrevid": 8517236,
+          "length": 6681
+        },
+        "588162": {
+          "pageid": 588162,
+          "ns": 0,
+          "title": "海塔",
+          "contentmodel": "wikitext",
+          "pagelanguage": "zh",
+          "pagelanguagehtmlcode": "zh",
+          "pagelanguagedir": "ltr",
+          "touched": "2026-10-21T15:45:43Z",
+          "lastrevid": 8333545,
+          "length": 8686
+        },
+        "-1": {
+          "ns": 0,
+          "title": "后藤美智代",
+          "missing": "",
+          "contentmodel": "wikitext",
+          "pagelanguage": "zh",
+          "pagelanguagehtmlcode": "zh",
+          "pagelanguagedir": "ltr"
+        },
+        "-2": {
+          "ns": 0,
+          "title": "吉米亨",
+          "missing": "",
+          "contentmodel": "wikitext",
+          "pagelanguage": "zh",
+          "pagelanguagehtmlcode": "zh",
+          "pagelanguagedir": "ltr"
+        },
+        "-3": {
+          "ns": 0,
+          "title": "真井雾子",
+          "missing": "",
+          "contentmodel": "wikitext",
+          "pagelanguage": "zh",
+          "pagelanguagehtmlcode": "zh",
+          "pagelanguagedir": "ltr"
+        },
+        "-4": {
+          "ns": 0,
+          "title": "艾森",
+          "missing": "",
+          "contentmodel": "wikitext",
+          "pagelanguage": "zh",
+          "pagelanguagehtmlcode": "zh",
+          "pagelanguagedir": "ltr"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "evaluatedAt" : "2026-10-21T09:50:22.404692700Z",
+  "modelVersion" : "content-signed-tfidf/1",
+  "sample" : "Public Bangumi example sai, one user only",
+  "protocol" : "Frozen candidate/library snapshots; random 20% positive holdout, seeds 1021..1025; remove held works from all profile records before ranking; identical candidates for three models; no temporal claim",
+  "collectionCount" : 509,
+  "candidateCount" : 300,
+  "positiveCandidateWorks" : 54,
+  "holdoutPerSeed" : 10,
+  "candidateVersions" : [ "bangumi-ranked-300/3" ],
+  "librarySha256" : "1192890672346b201e734401e5c1cacd7fc946e6ecf83ddbacddc18e892f27ac",
+  "candidateSha256" : "4f803316310ca75cb0d2248afe331549c5824fb5e14c686fa3087506f28838a4",
+  "summary" : {
+    "POPULAR" : {
+      "precisionAt10" : 0.13999999999999999,
+      "candidateCoverage" : 0.05,
+      "ndcgAt10" : 0.1952514152557208,
+      "recallAt10" : 0.13999999999999999,
+      "distinctRecommended" : 15,
+      "tagDiversity" : 0.9251854774272547
+    },
+    "CONTENT" : {
+      "precisionAt10" : 0.22000000000000003,
+      "candidateCoverage" : 0.06666666666666667,
+      "ndcgAt10" : 0.222173022011284,
+      "recallAt10" : 0.22000000000000003,
+      "distinctRecommended" : 20,
+      "tagDiversity" : 0.90021762141398
+    },
+    "HYBRID" : {
+      "precisionAt10" : 0.22000000000000003,
+      "candidateCoverage" : 0.06666666666666667,
+      "ndcgAt10" : 0.20891093219992452,
+      "recallAt10" : 0.22000000000000003,
+      "distinctRecommended" : 20,
+      "tagDiversity" : 0.9213208129405391
+    }
+  },
+  "cases" : [ {
+    "precisionAt10" : 0.1,
+    "ndcgAt10" : 0.2200917662980802,
+    "hits" : 1,
+    "holdoutSize" : 10,
+    "seed" : 1021,
+    "tagDiversity" : 0.9227084632277096,
+    "recallAt10" : 0.1,
+    "mode" : "POPULAR",
+    "returned" : 10,
+    "algorithm" : "POPULAR"
+  }, {
+    "precisionAt10" : 0.2,
+    "ndcgAt10" : 0.314880130667631,
+    "hits" : 2,
+    "holdoutSize" : 10,
+    "seed" : 1022,
+    "tagDiversity" : 0.9334027250865612,
+    "recallAt10" : 0.2,
+    "mode" : "POPULAR",
+    "returned" : 10,
+    "algorithm" : "POPULAR"
+  }, {
+    "precisionAt10" : 0.1,
+    "ndcgAt10" : 0.07839826897867534,
+    "hits" : 1,
+    "holdoutSize" : 10,
+    "seed" : 1023,
+    "tagDiversity" : 0.9212888242161139,
+    "recallAt10" : 0.1,
+    "mode" : "POPULAR",
+    "returned" : 10,
+    "algorithm" : "POPULAR"
+  }, {
+    "precisionAt10" : 0.3,
+    "ndcgAt10" : 0.3628869103342175,
+    "hits" : 3,
+    "holdoutSize" : 10,
+    "seed" : 1024,
+    "tagDiversity" : 0.9335107096262638,
+    "recallAt10" : 0.3,
+    "mode" : "POPULAR",
+    "returned" : 10,
+    "algorithm" : "POPULAR"
+  }, {
+    "precisionAt10" : 0.0,
+    "ndcgAt10" : 0.0,
+    "hits" : 0,
+    "holdoutSize" : 10,
+    "seed" : 1025,
+    "tagDiversity" : 0.9150166649796246,
+    "recallAt10" : 0.0,
+    "mode" : "POPULAR",
+    "returned" : 10,
+    "algorithm" : "POPULAR"
+  }, {
+    "precisionAt10" : 0.3,
+    "ndcgAt10" : 0.3222722491219547,
+    "hits" : 3,
+    "holdoutSize" : 10,
+    "seed" : 1021,
+    "tagDiversity" : 0.8869689844811119,
+    "recallAt10" : 0.3,
+    "mode" : "CONTENT",
+    "returned" : 10,
+    "algorithm" : "CONTENT"
+  }, {
+    "precisionAt10" : 0.2,
+    "ndcgAt10" : 0.17318663334822615,
+    "hits" : 2,
+    "holdoutSize" : 10,
+    "seed" : 1022,
+    "tagDiversity" : 0.8914180255763517,
+    "recallAt10" : 0.2,
+    "mode" : "CONTENT",
+    "returned" : 10,
+    "algorithm" : "CONTENT"
+  }, {
+    "precisionAt10" : 0.2,
+    "ndcgAt10" : 0.29849003527675555,
+    "hits" : 2,
+    "holdoutSize" : 10,
+    "seed" : 1023,
+    "tagDiversity" : 0.904560263203,
+    "recallAt10" : 0.2,
+    "mode" : "CONTENT",
+    "returned" : 10,
+    "algorithm" : "CONTENT"
+  }, {
+    "precisionAt10" : 0.3,
+    "ndcgAt10" : 0.25329540411053186,
+    "hits" : 3,
+    "holdoutSize" : 10,
+    "seed" : 1024,
+    "tagDiversity" : 0.9108102787996675,
+    "recallAt10" : 0.3,
+    "mode" : "CONTENT",
+    "returned" : 10,
+    "algorithm" : "CONTENT"
+  }, {
+    "precisionAt10" : 0.1,
+    "ndcgAt10" : 0.06362078819895171,
+    "hits" : 1,
+    "holdoutSize" : 10,
+    "seed" : 1025,
+    "tagDiversity" : 0.9073305550097684,
+    "recallAt10" : 0.1,
+    "mode" : "CONTENT",
+    "returned" : 10,
+    "algorithm" : "CONTENT"
+  }, {
+    "precisionAt10" : 0.2,
+    "ndcgAt10" : 0.20829366581033182,
+    "hits" : 2,
+    "holdoutSize" : 10,
+    "seed" : 1021,
+    "tagDiversity" : 0.9105900811819027,
+    "recallAt10" : 0.2,
+    "mode" : "HYBRID",
+    "returned" : 10,
+    "algorithm" : "HYBRID"
+  }, {
+    "precisionAt10" : 0.2,
+    "ndcgAt10" : 0.16421958630632805,
+    "hits" : 2,
+    "holdoutSize" : 10,
+    "seed" : 1022,
+    "tagDiversity" : 0.9245087802474005,
+    "recallAt10" : 0.2,
+    "mode" : "HYBRID",
+    "returned" : 10,
+    "algorithm" : "HYBRID"
+  }, {
+    "precisionAt10" : 0.3,
+    "ndcgAt10" : 0.31516255047698366,
+    "hits" : 3,
+    "holdoutSize" : 10,
+    "seed" : 1023,
+    "tagDiversity" : 0.9203181863391681,
+    "recallAt10" : 0.3,
+    "mode" : "HYBRID",
+    "returned" : 10,
+    "algorithm" : "HYBRID"
+  }, {
+    "precisionAt10" : 0.3,
+    "ndcgAt10" : 0.2784805894273037,
+    "hits" : 3,
+    "holdoutSize" : 10,
+    "seed" : 1024,
+    "tagDiversity" : 0.9234150787189156,
+    "recallAt10" : 0.3,
+    "mode" : "HYBRID",
+    "returned" : 10,
+    "algorithm" : "HYBRID"
+  }, {
+    "precisionAt10" : 0.1,
+    "ndcgAt10" : 0.07839826897867534,
+    "hits" : 1,
+    "holdoutSize" : 10,
+    "seed" : 1025,
+    "tagDiversity" : 0.9277719382153081,
+    "recallAt10" : 0.1,
+    "mode" : "HYBRID",
+    "returned" : 10,
+    "algorithm" : "HYBRID"
+  } ],
+  "limitations" : [ "One user and popularity-biased candidate set; seeds are correlated, not five independent users.", "Current public ratings/tags are not historical features; no future prediction or cross-user generalization.", "Precision@10 denominator stays 10 even if fewer recommendations are available; no tuning against holdouts." ]
+}

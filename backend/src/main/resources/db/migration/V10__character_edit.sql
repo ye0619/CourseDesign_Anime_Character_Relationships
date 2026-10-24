@@ -1,0 +1,14 @@
+CREATE TABLE character_edit (
+    uid VARCHAR(200) NOT NULL PRIMARY KEY,
+    version BIGINT NOT NULL DEFAULT 0,
+    payload JSON NOT NULL,
+    updated_at TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_cs;
+CREATE TABLE character_edit_backup (
+    id CHAR(36) NOT NULL PRIMARY KEY,
+    uid VARCHAR(200) NOT NULL,
+    version BIGINT NOT NULL,
+    payload JSON NOT NULL,
+    created_at TIMESTAMP(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+    INDEX idx_character_edit_backup(uid,created_at)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_cs;
