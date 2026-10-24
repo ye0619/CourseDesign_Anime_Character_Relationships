@@ -1,0 +1,23 @@
+package com.animegraph.explore;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.time.Instant;
+import java.util.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+class SubjectSnapshotServiceTest {
+    @Test void durableJobIsReadableAfterRestartWithoutRemoteRequests(){var metadata=mock(SubjectMetadataService.class);var mapper=mock(MetadataMapper.class);when(mapper.latest(1)).thenReturn(new SubjectSnapshotService.Job("recovered","FAILED",3,"服务重启"));var service=new SubjectSnapshotService(metadata,mapper,new ObjectMapper());try{assertEquals("FAILED",service.read(1).job().status());verifyNoInteractions(metadata);}finally{service.close();}}
+    @Test void castFailureDoesNotPreventStaffPages() throws Exception {
+        var metadata=mock(SubjectMetadataService.class);var mapper=mock(MetadataMapper.class);var saved=new java.util.concurrent.ConcurrentHashMap<String,String>();
+        when(mapper.read(eq(1L),anyString())).thenAnswer(i->saved.get(i.getArgument(1)));
+        doAnswer(i->{saved.put(i.getArgument(1),i.getArgument(2));return null;}).when(mapper).save(eq(1L),anyString(),anyString());
+        when(metadata.page(1,"CAST",1)).thenThrow(new com.animegraph.common.ApiException(org.springframework.http.HttpStatus.BAD_GATEWAY,"OFFLINE","配音暂不可用"));
+        var base=page(1,0);when(metadata.page(1,"STAFF",1)).thenReturn(new CreditModels.Page(base.subjectUid(),"STAFF",List.of(),List.of(),List.of(),List.of(),base.coverage(),base.source(),"staff"));
+        var done=new java.util.concurrent.CountDownLatch(1);doAnswer(i->{if(!Set.of("PENDING","RUNNING").contains(i.getArgument(1)))done.countDown();return null;}).when(mapper).update(anyString(),anyString(),anyInt(),nullable(String.class));
+        var service=new SubjectSnapshotService(metadata,mapper,new ObjectMapper().findAndRegisterModules());try{service.start(1,false);assertTrue(done.await(5,java.util.concurrent.TimeUnit.SECONDS));var result=service.read(1);assertTrue(result.staff().complete());assertFalse(result.cast().complete());assertEquals("PARTIAL",result.job().status());assertTrue(result.job().error().contains("配音"));}finally{service.close();}
+    }
+    static CreditModels.Page page(int index,int total){return new CreditModels.Page("anime:bangumi:1","CAST",List.of(),List.of(),List.of(),List.of(),new CreditModels.Coverage(index,60,total,Math.min(60,total-(index-1)*60),Math.min(60,total-(index-1)*60),0,0,0,index*60<total?index+1:null,index*60>=total,false,"PARTIAL"),new CreditModels.Source("BANGUMI","url","path","adapter/1",Instant.now(),false,false,"names/1"),"version");}
+    @Test void completenessRequiresContiguousConsistentFreshPages(){var first=page(1,61);var last=page(2,61);assertFalse(SubjectSnapshotService.section("CAST",List.of(last),null).complete());assertTrue(SubjectSnapshotService.section("CAST",List.of(first,last),null).complete());assertFalse(SubjectSnapshotService.section("CAST",List.of(first,page(2,62)),null).complete());var missing=new CreditModels.Page(first.subjectUid(),first.kind(),first.people(),first.characters(),first.staff(),first.cast(),new CreditModels.Coverage(1,60,1,1,1,0,0,1,null,true,false,"PARTIAL"),first.source(),first.snapshotVersion());assertFalse(SubjectSnapshotService.section("CAST",List.of(missing),null).complete());}
+    @Test void readsNeverFetchAndInvalidInputsAreRejected(){var metadata=mock(SubjectMetadataService.class);var mapper=mock(MetadataMapper.class);var service=new SubjectSnapshotService(metadata,mapper,new ObjectMapper());try{assertEquals(1,service.read(1).cast().nextPage());verifyNoInteractions(metadata);assertThrows(com.animegraph.common.ApiException.class,()->service.read(-1));}finally{service.close();}}
+    @Test void compareDoesNotJoinSameNamesAndCountsOnlyVoicePeople(){var person=new CreditModels.Entity("person:bangumi:1","同名","","","PERSON",1,List.of(),List.of(),"v","url");var other=new CreditModels.Entity("person:bangumi:2","同名","","","PERSON",1,List.of(),List.of(),"v","url");var base=page(1,1);var a=new CreditModels.Page(base.subjectUid(),base.kind(),List.of(person),List.of(),List.of(new CreditModels.StaffCredit(person.id(),List.of())),List.of(),base.coverage(),base.source(),"a");var b=new CreditModels.Page(base.subjectUid(),base.kind(),List.of(other),List.of(),List.of(new CreditModels.StaffCredit(other.id(),List.of())),List.of(),base.coverage(),base.source(),"b");assertTrue(OnlineCompareService.group("STAFF",SubjectSnapshotService.section("CAST",List.of(a),null),SubjectSnapshotService.section("CAST",List.of(b),null)).items().isEmpty());}
+}

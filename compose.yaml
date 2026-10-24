@@ -1,0 +1,49 @@
+name: animegraph
+# Database-only deployment. Start the host application with Start-Project.ps1 -SkipDatabases.
+# Wait for both health checks; do not run beside the portable instances on the same ports.
+services:
+  mysql:
+    image: mysql:8.4.7
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:${MYSQL_PORT:-3307}:3306"
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-animegraph}
+      MYSQL_USER: ${MYSQL_USER:-animegraph}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?Run scripts/Initialize-Local.ps1 first}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Run scripts/Initialize-Local.ps1 first}
+      TZ: UTC
+    command: ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_0900_ai_ci"]
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "MYSQL_PWD=\"$$MYSQL_PASSWORD\" mysql -h 127.0.0.1 -u\"$$MYSQL_USER\" -D\"$$MYSQL_DATABASE\" -e 'SELECT 1' >/dev/null 2>&1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+  neo4j:
+    image: neo4j:5.26.16-community
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:7474:7474"
+      - "127.0.0.1:7687:7687"
+    environment:
+      NEO4J_AUTH: neo4j/${NEO4J_PASSWORD:?Run scripts/Initialize-Local.ps1 first}
+      GRAPH_PASSWORD: ${NEO4J_PASSWORD:?Run scripts/Initialize-Local.ps1 first}
+      NEO4J_server_memory_heap_initial__size: 256m
+      NEO4J_server_memory_heap_max__size: 512m
+      NEO4J_server_memory_pagecache_size: 256m
+    volumes:
+      - neo4j-data:/data
+      - neo4j-logs:/logs
+    healthcheck:
+      test: ["CMD-SHELL", "cypher-shell -a bolt://localhost:7687 -u neo4j -p \"$$GRAPH_PASSWORD\" 'RETURN 1;' >/dev/null 2>&1"]
+      interval: 10s
+      timeout: 10s
+      retries: 12
+      start_period: 30s
+volumes:
+  mysql-data:
+  neo4j-data:
+  neo4j-logs:

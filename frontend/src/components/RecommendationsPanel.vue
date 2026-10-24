@@ -1,0 +1,25 @@
+<script setup lang="ts">
+import { shallowRef } from 'vue'
+import { mutate } from '../api/client'
+import { usePrivateResource } from '../composables/usePrivateResource'
+import type { Entity } from '../types/catalog'
+import { title } from '../types/catalog'
+interface Recommendation {entity:Entity;score:number;contentScore:number;communityScore:number;diversityScore:number;reasons:{text:string;evidenceSubjectIds:number[]}[]}
+interface Result {result:{modelVersion:string;mode:string;positiveWorks:number;candidateCount:number;items:Recommendation[];methodology:string[]};candidateState:{status:string;collected:number;error:string|null;updatedAt:string|null;samplingRule:string};excluded:number[]}
+const props=defineProps<{scope:string}>(),offset=shallowRef(0),algorithm=shallowRef('HYBRID'),busy=shallowRef(false),actionError=shallowRef('')
+const {data,error,refresh}=usePrivateResource<Result>(()=>`/viewer/recommendations?offset=${offset.value}&algorithm=${algorithm.value}`,()=>props.scope,r=>r.candidateState.status==='RUNNING')
+async function prepare(){const scope=props.scope;busy.value=true;actionError.value='';try{await mutate('/viewer/recommendation-jobs','POST');if(scope===props.scope)await refresh()}catch(cause){if(scope===props.scope)actionError.value=cause instanceof Error?cause.message:'候选补充失败'}finally{if(scope===props.scope)busy.value=false}}
+async function feedback(id:number,restore=false){const scope=props.scope;actionError.value='';try{await mutate('/viewer/recommendation-feedback','POST',{subjectId:id,action:restore?'RESTORE':'NOT_INTERESTED'});if(scope===props.scope)await refresh()}catch(cause){if(scope===props.scope)actionError.value=cause instanceof Error?cause.message:'反馈保存失败'}}
+</script>
+<template>
+  <section class="panel recommendations"><div class="recommendation-heading"><div><h2>接下来，试试这些故事</h2><p>从公开候选作品中寻找与你片单有关的线索。</p></div><button :disabled="busy" @click="prepare">更新推荐候选</button></div>
+  <p v-if="error||actionError" class="feedback error" role="alert">{{ actionError||error }} <button @click="refresh">重试</button></p>
+  <template v-if="data"><p v-if="data.result.mode==='COLD_START'" class="notice">高评分已看作品不足5部，当前按社区质量与多样性提供候选。可先补充个人评分。</p><p class="muted">候选 {{ data.result.candidateCount }} 部 · {{ data.candidateState.status==='RUNNING'?'正在更新候选':data.candidateState.status==='FAILED'?'候选更新失败': '已存公共快照' }} {{ data.candidateState.error }}。{{ data.candidateState.samplingRule }}</p>
+    <div class="toolbar print-hide"><label>推荐方式<select v-model="algorithm"><option value="HYBRID">内容与社区质量、多样性</option><option value="CONTENT">内容相似度</option><option value="POPULAR">社区质量基线</option></select></label><button :disabled="data.result.candidateCount<11" @click="offset=offset>=50?0:offset+10">换一批</button></div>
+    <p v-if="!data.result.items.length" class="empty-state">当前没有可展示候选；可更新候选，或撤销已排除作品后再查看。</p>
+    <div class="recommendation-grid"><article v-for="item in data.result.items" :key="item.entity.uid" class="recommendation-item"><RouterLink :to="`/explore/anime/${item.entity.sourceId}`"><img v-if="item.entity.imageUrl" :src="item.entity.imageUrl" :alt="title(item.entity)" loading="lazy" referrerpolicy="no-referrer"><h3>{{ title(item.entity) }}</h3></RouterLink><p>{{ item.entity.year||'发行年未知' }} · 社区评分 {{ item.entity.score||'暂无' }}</p><details><summary>为什么推荐</summary><div v-for="reason in item.reasons" :key="reason.text"><p>{{ reason.text }}</p><RouterLink v-for="id in reason.evidenceSubjectIds.slice(0,6)" :key="id" :to="`/explore/anime/${id}`">依据作品 {{ id }} </RouterLink></div></details><button type="button" @click="feedback(Number(item.entity.sourceId))">不感兴趣</button></article></div>
+    <details v-if="data.excluded.length"><summary>已排除 {{ data.excluded.length }} 部 · 可撤销</summary><div v-for="id in data.excluded" :key="id" class="data-row"><RouterLink :to="`/explore/anime/${id}`">作品 {{ id }}</RouterLink><button @click="feedback(id,true)">撤销排除</button></div></details>
+    <details class="recommendation-method"><summary>推荐如何计算</summary><p v-for="line in data.result.methodology" :key="line">{{ line }}</p></details>
+  </template></section>
+</template>
+<style scoped>.recommendation-heading{display:flex;justify-content:space-between;gap:16px}.recommendation-heading h2{margin:0}.recommendation-heading p,.recommendations>.muted{font-size:12px;color:#71856f;line-height:1.9}.recommendation-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:22px;margin:24px 0}.recommendation-item{min-width:0;border-bottom:1px solid #dce6d1;padding-bottom:20px;font-size:12px;line-height:1.7}.recommendation-item img{width:100%;height:220px;object-fit:cover;border-radius:8px}.recommendation-item h3{font-size:15px;color:#40594f;margin:12px 0 6px;overflow-wrap:anywhere}.recommendation-item details{margin:12px 0}.recommendations summary{cursor:pointer;min-height:32px}.recommendation-item button{font-size:12px}.recommendation-method{margin-top:20px;font-size:12px;line-height:1.9}@media(max-width:550px){.recommendation-heading{flex-direction:column}.recommendation-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.recommendation-item img{height:185px}}</style>

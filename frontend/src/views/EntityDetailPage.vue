@@ -1,0 +1,30 @@
+<script setup lang="ts">
+import { computed, ref, watch, onUnmounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { get } from '../api/client'
+import { type Entity, type Related, type Page, title, entityLink, kindLabel } from '../types/catalog'
+import EntityNames from '../components/EntityNames.vue'
+import DeleteLocalWorkButton from '../components/DeleteLocalWorkButton.vue'
+import Pager from '../components/Pager.vue'
+const router = useRouter()
+const route = useRoute(), entity = ref<Entity>(), related = ref<Page<Related>>(), section = ref(''), page = ref(1), error = ref(''), loading = ref(false), imageFailed = ref(false)
+const base = computed(() => `/${String(route.path.split('/')[1])}/${encodeURIComponent(String(route.params.uid))}`)
+const onlineSubjectId = computed(() => entity.value?.type === 'ANIME' && entity.value?.source === 'bangumi' && /^[1-9][0-9]*$/.test(String(entity.value.sourceId)) ? String(entity.value.sourceId) : '')
+const sections = computed(() => entity.value?.type === 'ANIME' ? [{ code: 'staff', name: '制作人员' }, { code: 'characters', name: '出场角色' }, { code: 'cast', name: '本作配音' }] : entity.value?.type === 'CHARACTER' ? [{ code: 'works', name: '出场作品' }, { code: 'cast', name: '配音记录' }] : [{ code: 'works', name: '参与作品' }])
+let controller: AbortController | undefined
+async function load() {
+  controller?.abort(); controller = new AbortController(); const current = controller
+  loading.value = true; error.value = ''; entity.value = undefined; related.value = undefined; imageFailed.value = false
+  try { entity.value = await get<Entity>(base.value, current.signal); section.value = sections.value[0]!.code; page.value = 1; await loadRelated(current.signal) }
+  catch(e) { if (!current.signal.aborted) error.value = e instanceof Error ? e.message : '加载失败' }
+  finally { if (!current.signal.aborted) loading.value = false }
+}
+async function loadRelated(signal?: AbortSignal) { const data = await get<Page<Related>>(`${base.value}/${section.value}?page=${page.value}`, signal); for (const row of data.items) if (row.roles) row.relation = { roleName: row.roles.join('、') }; related.value = data }
+async function switchSection(code: string, nextPage = 1) { controller?.abort(); controller = new AbortController(); const current = controller; section.value = code; page.value = nextPage; loading.value = true; error.value = ''; try { await loadRelated(current.signal) } catch(e) { if (!current.signal.aborted) error.value = e instanceof Error ? e.message : '加载失败' } finally { if (!current.signal.aborted) loading.value = false } }
+watch(() => route.params.uid, load, { immediate: true }); onUnmounted(() => controller?.abort())
+</script>
+<template>
+  <p v-if="error" class="feedback error" role="alert">{{ error }} <button @click="entity ? switchSection(section, page) : load()">重试</button></p>
+  <template v-if="entity"><section class="detail-hero"><div class="detail-cover"><img v-if="entity.imageUrl && !imageFailed" :src="entity.imageUrl" :alt="title(entity)" referrerpolicy="no-referrer" @error="imageFailed = true"><span v-else>{{ kindLabel(entity.type) }}</span></div><div><p class="eyebrow">{{ kindLabel(entity.type) }}档案 · {{ entity.source === 'fixture' ? '合成演示数据' : entity.source }}</p><h1>{{ title(entity) }}</h1><p v-if="entity.nameCn">{{ entity.name }}</p><p class="muted">{{ [entity.airDate, entity.format].filter(Boolean).join(' · ') || '暂无日期信息' }}</p><div class="actions"><RouterLink class="button primary" :to="{ path: '/graph', query: { centerUid: entity.uid, dataSource: 'NEO4J' } }">查看本地名册</RouterLink><RouterLink v-if="onlineSubjectId" class="button primary" :to="`/explore/anime/${onlineSubjectId}/network`">主动查看在线关系</RouterLink><RouterLink v-if="entity.type === 'ANIME'" class="button" :to="{ path: '/character-graph', query: { animeUid: entity.uid, dataSource: 'NEO4J' } }">角色之间的关系</RouterLink><RouterLink v-if="entity.type === 'PERSON'" class="button" :to="{ path: '/analysis', query: { personUid: entity.uid } }">查看合作分析</RouterLink><DeleteLocalWorkButton v-if="entity.type === 'ANIME'" :uid="entity.uid" :work-title="title(entity)" @deleted="router.push('/anime')"/></div></div></section><section class="panel"><h2>简介</h2><p v-if="entity.nameNotice" class="feedback" role="status">{{ entity.nameNotice }}</p><EntityNames :node="{id:entity.uid,label:title(entity),originalName:entity.name,aliases:entity.aliases,nameAssertions:entity.nameAssertions,role:'',group:'',description:''}"/><p class="summary">{{ entity.summary || '暂无简介' }}</p><small class="muted">稳定标识：{{ entity.uid }}</small></section>
+  <section class="panel"><div class="tabs"><button v-for="tab in sections" :key="tab.code" :class="{ active: section === tab.code }" @click="switchSection(tab.code)">{{ tab.name }}</button></div><p v-if="loading" role="status">正在读取档案…</p><template v-else-if="related"><p v-if="!related.items.length" class="empty-state">暂无相关记录</p><div v-if="related.items.length" class="table-scroll"><table><caption>{{ sections.find(tab => tab.code === section)?.name }}</caption><thead><tr><th scope="col">名称</th><th scope="col">职务 / 记录</th><th v-if="section === 'cast'" scope="col">角色与配音范围</th></tr></thead><tbody><tr v-for="(row,i) in related.items" :key="`${row.entity.uid}-${i}`"><td><RouterLink :to="entityLink(row.entity)">{{ title(row.entity) }} ↗</RouterLink></td><td>{{ row.relation?.roleName || row.relation?.roleCode || row.relation?.characterRole || '未知' }}<small v-if="row.relation?.scopeKnown === false"> · 作品范围未知</small><small v-if="section !== 'cast' && row.relation?.animeUid"> · {{ row.relation.animeUid }}</small></td><td v-if="section === 'cast'"><RouterLink v-if="row.character" :to="entityLink(row.character)">饰 {{ title(row.character) }}</RouterLink> · {{ row.relation?.language || '语种未知' }} · {{ row.relation?.versionLabel || '版本未知' }}</td></tr></tbody></table></div><Pager :page="related.page" :size="related.pageSize" :total="related.total" @change="switchSection(section, $event)" /></template></section></template><p v-else-if="loading" class="feedback" role="status">正在读取档案…</p>
+</template>

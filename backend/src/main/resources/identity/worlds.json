@@ -1,0 +1,15 @@
+{
+  "version": "worlds/1",
+  "reviewedOn": "2026-10-21",
+  "worlds": [
+    {"uid":"universe:project:bocchi","title":"孤独摇滚！的日常世界","summary":"围绕结束乐队及相关角色的关系；角色关联可能包含原作进展，范围默认全局。","seriesUid":"series:project:bocchi","subjects":[{"id":328609,"title":"孤独摇滚！","order":1,"sourceUrl":"https://bgm.tv/subject/328609"}]},
+    {"uid":"universe:project:titan-tv","title":"进击的巨人 · 动画连续性","summary":"选取前三季TV作品，按明确续集关系组织。不同世界观、总集篇和外传不自动并入。","seriesUid":"series:project:titan-tv","subjects":[{"id":55770,"title":"进击的巨人","order":1,"sourceUrl":"https://api.bgm.tv/v0/subjects/55770/subjects"},{"id":118335,"title":"进击的巨人 第二季","order":2,"sourceUrl":"https://api.bgm.tv/v0/subjects/55770/subjects"},{"id":217300,"title":"进击的巨人 第三季","order":3,"sourceUrl":"https://api.bgm.tv/v0/subjects/118335/subjects"}]}
+  ],
+  "identities": [
+    {"canonicalUid":"character:bangumi:87968","provider":"MOEGIRL","providerId":"404558","entityType":"CHARACTER","label":"后藤一里","sourceUrl":"https://zh.moegirl.org.cn/后藤一里","sourceRevision":"8606350","status":"REVIEWED","matchMethod":"人工核对原名、作品及角色资料","licenseLabel":"萌娘百科作者；CC BY-NC-SA 4.0；链接署名，非商业使用"},
+    {"canonicalUid":"character:bangumi:87973","provider":"MOEGIRL","providerId":"451088","entityType":"CHARACTER","label":"伊地知虹夏","sourceUrl":"https://zh.moegirl.org.cn/伊地知虹夏","sourceRevision":"8334967","status":"CANDIDATE","matchMethod":"同作关联及页面标题；独立角色资料待复核","licenseLabel":"萌娘百科作者；CC BY-NC-SA 4.0；链接署名，非商业使用"},
+    {"canonicalUid":"character:bangumi:87974","provider":"MOEGIRL","providerId":"451137","entityType":"CHARACTER","label":"山田凉","sourceUrl":"https://zh.moegirl.org.cn/山田凉","sourceRevision":"8664320","status":"CANDIDATE","matchMethod":"同作关联及页面标题；独立角色资料待复核","licenseLabel":"萌娘百科作者；CC BY-NC-SA 4.0；链接署名，非商业使用"},
+    {"canonicalUid":"character:bangumi:87975","provider":"MOEGIRL","providerId":"451077","entityType":"CHARACTER","label":"喜多郁代","sourceUrl":"https://zh.moegirl.org.cn/喜多郁代","sourceRevision":"8572077","status":"CANDIDATE","matchMethod":"同作关联及页面标题；独立角色资料待复核","licenseLabel":"萌娘百科作者；CC BY-NC-SA 4.0；链接署名，非商业使用"}
+  ],
+  "memberships": [{"worldUid":"universe:project:bocchi","source":"character:bangumi:87968","target":"character:bangumi:125172","label":"成员","sourceUrl":"https://zh.moegirl.org.cn/后藤一里","sourceRevision":"8606350","provider":"MOEGIRL","attribution":"引自萌娘百科作者：后藤一里条目的所属团体资料，经人工摘录规范化；CC BY-NC-SA 4.0，非商业、署名、相同方式共享。"}]
+}

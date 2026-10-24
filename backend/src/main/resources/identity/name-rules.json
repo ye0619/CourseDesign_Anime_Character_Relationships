@@ -1,0 +1,16 @@
+{
+  "version": "names-2026-10-20.1",
+  "rules": [
+    {
+      "entityUid": "character:bangumi:125172",
+      "locale": "zh-Hans",
+      "preferredName": "结束乐队",
+      "reviewStatus": "REVIEWED",
+      "enabled": true,
+      "reviewedOn": "2026-10-20",
+      "sourceUrl": "https://bgm.tv/character/125172",
+      "sourceAliases": ["纽带乐队", "結束バンド", "团结Band", "团结乐队", "Kessoku Band"],
+      "reason": "用户指定的项目首选显示名；来源页同时收录简体中文名纽带乐队及第二中文名结束乐队，不主张唯一官方译名。"
+    }
+  ]
+}

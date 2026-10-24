@@ -1,0 +1,461 @@
+[
+  {
+    "entityUid": "character:bangumi:87968",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/b1/9c/87968_crt_z9LaF.jpg|200x594",
+    "reviewed": true,
+    "mode": "portrait",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1,
+    "headBox": {
+      "x": 28,
+      "y": 0,
+      "width": 125,
+      "height": 112
+    }
+  },
+  {
+    "entityUid": "character:bangumi:87973",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/6c/af/87973_crt_3iKWh.jpg|200x542",
+    "reviewed": true,
+    "mode": "portrait",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1,
+    "headBox": {
+      "x": 37,
+      "y": 2,
+      "width": 125,
+      "height": 120
+    }
+  },
+  {
+    "entityUid": "character:bangumi:87974",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/63/6b/87974_crt_WflM9.jpg|200x723",
+    "reviewed": true,
+    "mode": "portrait",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1,
+    "headBox": {
+      "x": 18,
+      "y": 0,
+      "width": 150,
+      "height": 136
+    }
+  },
+  {
+    "entityUid": "character:bangumi:87975",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/d4/f4/87975_crt_ADa0q.jpg|200x628",
+    "reviewed": true,
+    "mode": "portrait",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1,
+    "headBox": {
+      "x": 45,
+      "y": 0,
+      "width": 126,
+      "height": 124
+    }
+  },
+  {
+    "entityUid": "character:bangumi:120116",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/28/42/120116_crt_k2215.jpg?r=1671295482|200x224",
+    "reviewed": true,
+    "mode": "portrait",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1,
+    "headBox": {
+      "x": 18,
+      "y": 28,
+      "width": 137,
+      "height": 146
+    }
+  },
+  {
+    "entityUid": "character:bangumi:120117",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/a0/33/120117_crt_mAc6j.jpg?r=1668277140|200x200",
+    "reviewed": true,
+    "mode": "full",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1
+  },
+  {
+    "entityUid": "character:bangumi:64720",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/bb/d7/64720_crt_5oG86.jpg?r=1536329297|200x303",
+    "reviewed": true,
+    "mode": "portrait",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1,
+    "headBox": {
+      "x": 57,
+      "y": 11,
+      "width": 54,
+      "height": 65
+    }
+  },
+  {
+    "entityUid": "character:bangumi:64718",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/56/52/64718_crt_PN11l.jpg?r=1535709608|200x440",
+    "reviewed": true,
+    "mode": "portrait",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1,
+    "headBox": {
+      "x": 50,
+      "y": 0,
+      "width": 76,
+      "height": 86
+    }
+  },
+  {
+    "entityUid": "character:bangumi:64717",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/50/bf/64717_crt_N8kbI.jpg?r=1534512781|200x307",
+    "reviewed": true,
+    "mode": "portrait",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1,
+    "headBox": {
+      "x": 80,
+      "y": 0,
+      "width": 78,
+      "height": 68
+    }
+  },
+  {
+    "entityUid": "character:bangumi:64716",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/35/a0/64716_crt_KkkSk.jpg?r=1533455428|200x325",
+    "reviewed": true,
+    "mode": "portrait",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1,
+    "headBox": {
+      "x": 70,
+      "y": 0,
+      "width": 67,
+      "height": 69
+    }
+  },
+  {
+    "entityUid": "character:bangumi:64715",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/e5/8f/64715_crt_Bv1Tx.jpg?r=1533455105|200x345",
+    "reviewed": true,
+    "mode": "portrait",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1,
+    "headBox": {
+      "x": 68,
+      "y": 17,
+      "width": 56,
+      "height": 68
+    }
+  },
+  {
+    "entityUid": "character:bangumi:64714",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/13/f6/64714_crt_PLL77.jpg?r=1531647875|200x315",
+    "reviewed": true,
+    "mode": "portrait",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1,
+    "headBox": {
+      "x": 70,
+      "y": 0,
+      "width": 63,
+      "height": 70
+    }
+  },
+  {
+    "entityUid": "character:bangumi:86246",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/b5/b6/86246_crt_L0Zmt.jpg|200x544",
+    "reviewed": true,
+    "mode": "portrait",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1,
+    "headBox": {
+      "x": 25,
+      "y": 0,
+      "width": 136,
+      "height": 93
+    }
+  },
+  {
+    "entityUid": "character:bangumi:86247",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/38/6d/86247_crt_K4gRr.jpg|200x618",
+    "reviewed": true,
+    "mode": "portrait",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1,
+    "headBox": {
+      "x": 53,
+      "y": 0,
+      "width": 93,
+      "height": 100
+    }
+  },
+  {
+    "entityUid": "character:bangumi:89182",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/de/de/89182_crt_55gBE.jpg?r=1692974577|200x486",
+    "reviewed": true,
+    "mode": "portrait",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1,
+    "headBox": {
+      "x": 60,
+      "y": 0,
+      "width": 85,
+      "height": 86
+    }
+  },
+  {
+    "entityUid": "character:bangumi:88208",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/63/0a/88208_crt_mm77H.jpg?r=1692974287|200x454",
+    "reviewed": true,
+    "mode": "portrait",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1,
+    "headBox": {
+      "x": 65,
+      "y": 0,
+      "width": 64,
+      "height": 78
+    }
+  },
+  {
+    "entityUid": "character:bangumi:89183",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/ff/51/89183_crt_f0212.jpg?r=1692974645|200x499",
+    "reviewed": true,
+    "mode": "portrait",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1,
+    "headBox": {
+      "x": 77,
+      "y": 0,
+      "width": 56,
+      "height": 78
+    }
+  },
+  {
+    "entityUid": "character:bangumi:89184",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/f3/f8/89184_crt_e6Jj7.jpg?r=1692974662|200x229",
+    "reviewed": true,
+    "mode": "full",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1
+  },
+  {
+    "entityUid": "character:bangumi:18102",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/21/40/18102_crt_nVMeD.jpg?r=1700166918|200x531",
+    "reviewed": true,
+    "mode": "portrait",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1,
+    "headBox": {
+      "x": 70,
+      "y": 11,
+      "width": 74,
+      "height": 100
+    }
+  },
+  {
+    "entityUid": "character:bangumi:18101",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/e3/2f/18101_crt_343At.jpg?r=1410320023|200x633",
+    "reviewed": true,
+    "mode": "portrait",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1,
+    "headBox": {
+      "x": 47,
+      "y": 2,
+      "width": 93,
+      "height": 107
+    }
+  },
+  {
+    "entityUid": "character:bangumi:19616",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/4a/67/19616_crt_88rMm.jpg?r=1410320151|200x684",
+    "reviewed": true,
+    "mode": "portrait",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1,
+    "headBox": {
+      "x": 38,
+      "y": 5,
+      "width": 107,
+      "height": 121
+    }
+  },
+  {
+    "entityUid": "character:bangumi:19546",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/e5/b3/19546_crt_UP2v0.jpg?r=1611927735|200x533",
+    "reviewed": true,
+    "mode": "portrait",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1,
+    "headBox": {
+      "x": 65,
+      "y": 8,
+      "width": 72,
+      "height": 88
+    }
+  },
+  {
+    "entityUid": "character:bangumi:19622",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/c1/72/19622_crt_64o32.jpg?r=1410321346|200x566",
+    "reviewed": true,
+    "mode": "portrait",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1,
+    "headBox": {
+      "x": 64,
+      "y": 5,
+      "width": 57,
+      "height": 84
+    }
+  },
+  {
+    "entityUid": "character:bangumi:26899",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/a1/db/26899_crt_kMRQa.jpg?r=1649118603|200x415",
+    "reviewed": true,
+    "mode": "portrait",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1,
+    "headBox": {
+      "x": 77,
+      "y": 13,
+      "width": 59,
+      "height": 74
+    }
+  },
+  {
+    "entityUid": "character:bangumi:120118",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/21/74/120118_crt_ZQqR7.jpg|200x311",
+    "reviewed": true,
+    "mode": "portrait",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1,
+    "headBox": {
+      "x": 16,
+      "y": 0,
+      "width": 176,
+      "height": 197
+    }
+  },
+  {
+    "entityUid": "character:bangumi:120119",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/2f/df/120119_crt_oorSi.jpg?r=1670635437|200x188",
+    "reviewed": true,
+    "mode": "portrait",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1,
+    "headBox": {
+      "x": 25,
+      "y": 0,
+      "width": 151,
+      "height": 145
+    }
+  },
+  {
+    "entityUid": "character:bangumi:120120",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/bd/0b/120120_crt_EkQ69.jpg?r=1668277238|200x200",
+    "reviewed": true,
+    "mode": "full",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1
+  },
+  {
+    "entityUid": "character:bangumi:119632",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/f1/7a/119632_crt_MMmRk.jpg?r=1667677426|200x399",
+    "reviewed": true,
+    "mode": "portrait",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1,
+    "headBox": {
+      "x": 52,
+      "y": 2,
+      "width": 115,
+      "height": 162
+    }
+  },
+  {
+    "entityUid": "character:bangumi:119633",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/54/0a/119633_crt_e253B.jpg?r=1667677491|200x208",
+    "reviewed": true,
+    "mode": "portrait",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1,
+    "headBox": {
+      "x": 50,
+      "y": 0,
+      "width": 129,
+      "height": 139
+    }
+  },
+  {
+    "entityUid": "character:bangumi:120121",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/ec/f8/120121_crt_35KGO.jpg|200x302",
+    "reviewed": true,
+    "mode": "portrait",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1,
+    "headBox": {
+      "x": 62,
+      "y": 4,
+      "width": 88,
+      "height": 111
+    }
+  },
+  {
+    "entityUid": "character:bangumi:125172",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/72/e5/125172_crt_lZs9i.jpg|200x200",
+    "reviewed": true,
+    "mode": "full",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1
+  },
+  {
+    "entityUid": "character:bangumi:164132",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/b1/55/164132_crt_o3wqV.jpg|200x113",
+    "reviewed": true,
+    "mode": "full",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1
+  },
+  {
+    "entityUid": "character:bangumi:125202",
+    "imageFingerprint": "https://lain.bgm.tv/r/200/pic/crt/l/e9/23/125202_crt_j1THL.jpg|200x237",
+    "reviewed": true,
+    "mode": "full",
+    "focalX": 0.5,
+    "focalY": 0,
+    "scale": 1
+  }
+]

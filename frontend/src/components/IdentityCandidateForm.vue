@@ -1,0 +1,10 @@
+<script setup lang="ts">
+import { reactive } from 'vue'
+import IdentityTargetPreview from './IdentityTargetPreview.vue'
+import { identityProviders, type IdentityCandidate } from '../types/identityReview'
+defineProps<{busy:boolean}>()
+const emit=defineEmits<{save:[input:IdentityCandidate]}>()
+const form=reactive<IdentityCandidate>({provider:'MOEGIRL',providerId:'',entityType:'CHARACTER',canonicalUid:'',sourceUrl:'',sourceRevision:'',licenseLabel:'',evidenceText:'',reason:''})
+</script>
+<template><details class="panel"><summary>登记新的身份候选</summary><p>填写现有稳定实体编号，并核对原文和来源编号。同名不会自动合并，保存后仍需单独审核。</p><form class="form-grid" @submit.prevent="emit('save',{...form})"><label>来源<select v-model="form.provider"><option v-for="p in identityProviders" :key="p">{{ p }}</option></select></label><label>来源编号<input v-model="form.providerId" required maxlength="150"></label><label>实体类型<select v-model="form.entityType"><option value="CHARACTER">角色 / 虚构组织</option><option value="PERSON">自然人</option><option value="ANIME">动画作品</option></select></label><label>现有实体编号<input v-model="form.canonicalUid" required maxlength="200" placeholder="character:bangumi:87968"></label><IdentityTargetPreview :uid="form.canonicalUid" :disabled="busy"/><label>来源链接<input v-model="form.sourceUrl" type="url" required maxlength="1000"></label><label>来源修订<input v-model="form.sourceRevision" required maxlength="100"></label><label>许可与署名<input v-model="form.licenseLabel" required maxlength="200"></label><label>登记理由<input v-model="form.reason" required maxlength="500"></label><label class="full-width">身份核验原文<textarea v-model="form.evidenceText" required maxlength="2000" rows="4"></textarea></label><div class="full-width"><button :disabled="busy">登记为待审核候选</button></div></form></details></template>
+<style scoped>summary{cursor:pointer}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}label{min-width:0}.full-width{grid-column:1/-1}textarea{width:100%;box-sizing:border-box}p{font-size:13px;line-height:1.8}@media(max-width:650px){.form-grid{grid-template-columns:1fr}}</style>

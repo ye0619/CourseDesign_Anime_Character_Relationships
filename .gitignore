@@ -1,0 +1,86 @@
+# Local environment and secrets; keep shareable configuration templates.
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Local databases, credentials, runtime state, backups and source snapshots.
+/.local/
+/data/raw/
+/data/normalized/
+/data/index/
+
+# Java / Maven build output.
+/backend/target/
+*.class
+
+# Frontend dependencies, builds, caches and generated TypeScript metadata.
+node_modules/
+/frontend/dist/
+/frontend/.vite/
+/frontend/.vite-temp/
+/frontend/.cache/
+*.tsbuildinfo
+
+# Automated test output and coverage reports.
+/frontend/playwright-report/
+/frontend/test-results/
+/frontend/blob-report/
+coverage/
+.nyc_output/
+htmlcov/
+.coverage
+.coverage.*
+
+# Python helpers: bytecode, virtual environments and tool caches.
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Logs, process IDs and temporary files.
+*.log
+*.pid
+*.pid.lock
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# IDE-specific local settings.
+.idea/
+.vscode/
+*.iml
+
+# Operating-system metadata.
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local development plans, dated requirements and work records.
+/plans/
+/修改计划*.md
+/[0-9]*.[0-9]*.txt
+/docs/*计划*.md
+/docs/*实施记录*.md
+/docs/*进度*.md
+/docs/*路线*.md
+/docs/*验收*.md
+/docs/*问题与决策记录*.md
+/docs/*需求基线*.md
+/docs/*版本记录*.md
+/docs/*测试报告*.md
+/docs/*工作量与证据*.md
+/docs/*升级*.md
+/docs/Codex*.md
+/docs/screenshots/
+/data/samples/
+
+# Local AI tooling; not part of the application source.
+/.agents/
+/.codex/
+/skills-lock.json

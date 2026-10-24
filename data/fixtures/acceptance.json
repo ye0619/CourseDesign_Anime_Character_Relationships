@@ -1,0 +1,270 @@
+{
+  "schemaVersion": 1,
+  "source": "fixture",
+  "entities": [
+    {
+      "type": "Anime",
+      "sourceId": "a1",
+      "name": "测试动画A",
+      "year": 2020,
+      "summary": "人工合成验收样本，不代表真实作品。"
+    },
+    {
+      "type": "Anime",
+      "sourceId": "a2",
+      "name": "测试动画B",
+      "year": 2021,
+      "summary": "人工合成验收样本，不代表真实作品。"
+    },
+    {
+      "type": "Anime",
+      "sourceId": "a3",
+      "name": "测试动画C",
+      "year": 2022,
+      "summary": "人工合成验收样本，不代表真实作品。"
+    },
+    {
+      "type": "Anime",
+      "sourceId": "a4",
+      "name": "测试动画D",
+      "year": 2023,
+      "summary": "人工合成验收样本，不代表真实作品。"
+    },
+    {
+      "type": "Person",
+      "sourceId": "p1",
+      "name": "测试人员甲"
+    },
+    {
+      "type": "Person",
+      "sourceId": "p2",
+      "name": "测试人员乙"
+    },
+    {
+      "type": "Person",
+      "sourceId": "p3",
+      "name": "测试人员丙"
+    },
+    {
+      "type": "Person",
+      "sourceId": "p4",
+      "name": "测试人员丁"
+    },
+    {
+      "type": "Person",
+      "sourceId": "p5",
+      "name": "测试人员戊"
+    },
+    {
+      "type": "Character",
+      "sourceId": "c1",
+      "name": "测试角色X"
+    },
+    {
+      "type": "Character",
+      "sourceId": "c2",
+      "name": "测试角色Y"
+    },
+    {
+      "type": "Character",
+      "sourceId": "c3",
+      "name": "测试角色X"
+    }
+  ],
+  "relations": [
+    {
+      "type": "PARTICIPATED_IN",
+      "from": {
+        "type": "Person",
+        "sourceId": "p1"
+      },
+      "to": {
+        "type": "Anime",
+        "sourceId": "a1"
+      },
+      "properties": {
+        "roleCode": "DIRECTOR",
+        "roleName": "监督"
+      }
+    },
+    {
+      "type": "PARTICIPATED_IN",
+      "from": {
+        "type": "Person",
+        "sourceId": "p1"
+      },
+      "to": {
+        "type": "Anime",
+        "sourceId": "a1"
+      },
+      "properties": {
+        "roleCode": "SCRIPT",
+        "roleName": "脚本"
+      }
+    },
+    {
+      "type": "PARTICIPATED_IN",
+      "from": {
+        "type": "Person",
+        "sourceId": "p1"
+      },
+      "to": {
+        "type": "Anime",
+        "sourceId": "a2"
+      },
+      "properties": {
+        "roleCode": "DIRECTOR",
+        "roleName": "监督"
+      }
+    },
+    {
+      "type": "PARTICIPATED_IN",
+      "from": {
+        "type": "Person",
+        "sourceId": "p2"
+      },
+      "to": {
+        "type": "Anime",
+        "sourceId": "a2"
+      },
+      "properties": {
+        "roleCode": "SCRIPT",
+        "roleName": "脚本"
+      }
+    },
+    {
+      "type": "PARTICIPATED_IN",
+      "from": {
+        "type": "Person",
+        "sourceId": "p2"
+      },
+      "to": {
+        "type": "Anime",
+        "sourceId": "a3"
+      },
+      "properties": {
+        "roleCode": "SCRIPT",
+        "roleName": "脚本"
+      }
+    },
+    {
+      "type": "APPEARS_IN",
+      "from": {
+        "type": "Character",
+        "sourceId": "c1"
+      },
+      "to": {
+        "type": "Anime",
+        "sourceId": "a1"
+      },
+      "properties": {}
+    },
+    {
+      "type": "APPEARS_IN",
+      "from": {
+        "type": "Character",
+        "sourceId": "c1"
+      },
+      "to": {
+        "type": "Anime",
+        "sourceId": "a2"
+      },
+      "properties": {}
+    },
+    {
+      "type": "APPEARS_IN",
+      "from": {
+        "type": "Character",
+        "sourceId": "c2"
+      },
+      "to": {
+        "type": "Anime",
+        "sourceId": "a2"
+      },
+      "properties": {}
+    },
+    {
+      "type": "APPEARS_IN",
+      "from": {
+        "type": "Character",
+        "sourceId": "c2"
+      },
+      "to": {
+        "type": "Anime",
+        "sourceId": "a3"
+      },
+      "properties": {}
+    },
+    {
+      "type": "APPEARS_IN",
+      "from": {
+        "type": "Character",
+        "sourceId": "c3"
+      },
+      "to": {
+        "type": "Anime",
+        "sourceId": "a4"
+      },
+      "properties": {}
+    },
+    {
+      "type": "VOICED",
+      "from": {
+        "type": "Person",
+        "sourceId": "p3"
+      },
+      "to": {
+        "type": "Character",
+        "sourceId": "c1"
+      },
+      "properties": {
+        "animeUid": "anime:fixture:a1",
+        "scopeKnown": true
+      }
+    },
+    {
+      "type": "VOICED",
+      "from": {
+        "type": "Person",
+        "sourceId": "p3"
+      },
+      "to": {
+        "type": "Character",
+        "sourceId": "c2"
+      },
+      "properties": {
+        "animeUid": "anime:fixture:a2",
+        "scopeKnown": true
+      }
+    },
+    {
+      "type": "VOICED",
+      "from": {
+        "type": "Person",
+        "sourceId": "p4"
+      },
+      "to": {
+        "type": "Character",
+        "sourceId": "c1"
+      },
+      "properties": {
+        "animeUid": "anime:fixture:a2",
+        "scopeKnown": true
+      }
+    },
+    {
+      "type": "VOICED",
+      "from": {
+        "type": "Person",
+        "sourceId": "p5"
+      },
+      "to": {
+        "type": "Character",
+        "sourceId": "c1"
+      },
+      "properties": {
+        "scopeKnown": false
+      }
+    }
+  ]
+}

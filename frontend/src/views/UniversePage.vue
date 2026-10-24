@@ -1,0 +1,8 @@
+<script setup lang="ts">
+import { computed } from 'vue'
+import { useExploreRequest } from '../composables/useExploreRequest'
+interface World {uid:string;title:string;summary:string;seriesUid:string;subjects:{id:number;title:string;order:number;sourceUrl:string}[]}
+const {data,pending,error,retry}=useExploreRequest<World[]>(computed(()=>'/universes'))
+</script>
+<template><section class="page-intro"><h1>走进故事的世界</h1><p>把作品、角色和组织放回同一设定中，比较一季与整个已收录系列的联系。</p></section><p v-if="pending" class="feedback" role="status">正在读取世界观…</p><p v-if="error" class="feedback error" role="alert">{{ error }} <button @click="retry">重试</button></p><div class="world-list"><article v-for="world in data" :key="world.uid" class="world-entry"><div><h2><RouterLink :to="`/universes/${encodeURIComponent(world.uid)}`">{{ world.title }}</RouterLink></h2><p>{{ world.summary }}</p></div><ol><li v-for="subject in world.subjects" :key="subject.id"><RouterLink :to="`/explore/anime/${subject.id}`">{{ subject.title }}</RouterLink></li></ol><RouterLink :to="`/universes/${encodeURIComponent(world.uid)}`" class="button primary">探索角色与关系</RouterLink></article></div><p class="notice">世界观成员由来源证据和人工核验配置；不同世界观、改编分支和外传不会仅凭相似标题自动合并。</p></template>
+<style scoped>.world-list{display:grid;gap:30px;margin:25px 0}.world-entry{display:grid;grid-template-columns:1.4fr 1fr auto;gap:25px;align-items:center;padding:28px;background:#fff;border-left:4px solid #86a590;border-radius:8px}.world-entry h2{font-size:22px;margin:0 0 16px;color:#40594f}.world-entry p,.world-entry li{font-size:13px;line-height:1.9;color:#71856f}.world-entry ol{padding-left:18px}.world-entry .button{font-size:12px}@media(max-width:800px){.world-entry{grid-template-columns:1fr;gap:12px}}</style>

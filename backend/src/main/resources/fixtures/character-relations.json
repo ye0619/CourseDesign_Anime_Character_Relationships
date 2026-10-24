@@ -1,0 +1,331 @@
+{
+  "works": [
+    {
+      "work": {
+        "uid": "anime:fixture:starlit",
+        "title": "星海旅人",
+        "subtitle": "沿着星图，探索远航小队的羁绊",
+        "characterCount": 8,
+        "relationCount": 13
+      },
+      "nodes": [
+        {
+          "id": "character:fixture:starlit-linxing",
+          "label": "林星",
+          "group": "远航小队",
+          "role": "领航员",
+          "description": "寻找失落星图的年轻领航员，习惯把伙伴的安全放在第一位。"
+        },
+        {
+          "id": "character:fixture:starlit-linxia",
+          "label": "林夏",
+          "group": "远航小队",
+          "role": "机械师",
+          "description": "林星的妹妹，负责修复远航飞船，喜欢用行动表达关心。"
+        },
+        {
+          "id": "character:fixture:starlit-sucheng",
+          "label": "苏澄",
+          "group": "远航小队",
+          "role": "通讯员",
+          "description": "林星的儿时好友，擅长在分歧中找到彼此能够理解的语言。"
+        },
+        {
+          "id": "character:fixture:starlit-guyao",
+          "label": "顾遥",
+          "group": "远航小队",
+          "role": "观察员",
+          "description": "独立而可靠的观察员，与林星共同完成星图测绘。"
+        },
+        {
+          "id": "character:fixture:starlit-jichuan",
+          "label": "纪川",
+          "group": "星庭研究所",
+          "role": "星图导师",
+          "description": "曾经的远航者，为林星提供星图知识和航行指导。"
+        },
+        {
+          "id": "character:fixture:starlit-baizhi",
+          "label": "白芷",
+          "group": "星庭研究所",
+          "role": "研究员",
+          "description": "负责研究古代机械，也是林夏在机械学上的指导者。"
+        },
+        {
+          "id": "character:fixture:starlit-luchen",
+          "label": "陆沉",
+          "group": "夜航团",
+          "role": "领队",
+          "description": "夜航团的领队，与远航小队争夺同一条航线的探索权。"
+        },
+        {
+          "id": "character:fixture:starlit-luoning",
+          "label": "洛宁",
+          "group": "夜航团",
+          "role": "侦察员",
+          "description": "陆沉的搭档，与苏澄有一段共同成长的经历。"
+        }
+      ],
+      "edges": [
+        {
+          "id": "character-relation:fixture:starlit-01",
+          "source": "character:fixture:starlit-linxia",
+          "target": "character:fixture:starlit-linxing",
+          "relationType": "FAMILY",
+          "label": "兄妹",
+          "description": "林星与林夏是兄妹，旅途中彼此照顾。",
+          "evidence": "人物设定 · 示例01",
+          "sourceName": "人工构造演示",
+          "directed": false
+        },
+        {
+          "id": "character-relation:fixture:starlit-02",
+          "source": "character:fixture:starlit-linxing",
+          "target": "character:fixture:starlit-sucheng",
+          "relationType": "FRIEND",
+          "label": "儿时好友",
+          "description": "两人从小相识，启程后仍保持信任。",
+          "evidence": "人物设定 · 示例02",
+          "sourceName": "人工构造演示",
+          "directed": false
+        },
+        {
+          "id": "character-relation:fixture:starlit-03",
+          "source": "character:fixture:starlit-linxing",
+          "target": "character:fixture:starlit-sucheng",
+          "relationType": "TEAMMATE",
+          "label": "航行搭档",
+          "description": "苏澄加入林星的航行任务，负责联络与协调。",
+          "evidence": "故事片段 · 示例03",
+          "sourceName": "人工构造演示",
+          "directed": false
+        },
+        {
+          "id": "character-relation:fixture:starlit-04",
+          "source": "character:fixture:starlit-guyao",
+          "target": "character:fixture:starlit-linxing",
+          "relationType": "TEAMMATE",
+          "label": "测绘同伴",
+          "description": "林星与顾遥共同绘制新的航线图。",
+          "evidence": "故事片段 · 示例04",
+          "sourceName": "人工构造演示",
+          "directed": false
+        },
+        {
+          "id": "character-relation:fixture:starlit-05",
+          "source": "character:fixture:starlit-linxing",
+          "target": "character:fixture:starlit-luchen",
+          "relationType": "RIVAL",
+          "label": "竞争对手",
+          "description": "两支队伍争夺同一条航线的首次探索权。",
+          "evidence": "故事片段 · 示例05",
+          "sourceName": "人工构造演示",
+          "directed": false
+        },
+        {
+          "id": "character-relation:fixture:starlit-06",
+          "source": "character:fixture:starlit-jichuan",
+          "target": "character:fixture:starlit-linxing",
+          "relationType": "MENTOR",
+          "label": "导师",
+          "description": "纪川教授林星解读古代星图。",
+          "evidence": "人物设定 · 示例06",
+          "sourceName": "人工构造演示",
+          "directed": true
+        },
+        {
+          "id": "character-relation:fixture:starlit-07",
+          "source": "character:fixture:starlit-baizhi",
+          "target": "character:fixture:starlit-linxia",
+          "relationType": "MENTOR",
+          "label": "指导者",
+          "description": "白芷指导林夏修复飞船核心装置。",
+          "evidence": "故事片段 · 示例07",
+          "sourceName": "人工构造演示",
+          "directed": true
+        },
+        {
+          "id": "character-relation:fixture:starlit-08",
+          "source": "character:fixture:starlit-guyao",
+          "target": "character:fixture:starlit-sucheng",
+          "relationType": "FRIEND",
+          "label": "朋友",
+          "description": "两人在远航任务中成为朋友。",
+          "evidence": "故事片段 · 示例08",
+          "sourceName": "人工构造演示",
+          "directed": false
+        },
+        {
+          "id": "character-relation:fixture:starlit-09",
+          "source": "character:fixture:starlit-luchen",
+          "target": "character:fixture:starlit-luoning",
+          "relationType": "TEAMMATE",
+          "label": "搭档",
+          "description": "洛宁协助陆沉执行侦察计划。",
+          "evidence": "人物设定 · 示例09",
+          "sourceName": "人工构造演示",
+          "directed": false
+        },
+        {
+          "id": "character-relation:fixture:starlit-10",
+          "source": "character:fixture:starlit-luoning",
+          "target": "character:fixture:starlit-sucheng",
+          "relationType": "FRIEND",
+          "label": "旧友",
+          "description": "洛宁与苏澄曾在同一座港口生活。",
+          "evidence": "人物设定 · 示例10",
+          "sourceName": "人工构造演示",
+          "directed": false
+        },
+        {
+          "id": "character-relation:fixture:starlit-11",
+          "source": "character:fixture:starlit-baizhi",
+          "target": "character:fixture:starlit-jichuan",
+          "relationType": "TEAMMATE",
+          "label": "研究同伴",
+          "description": "两人在星庭研究所共同研究古代机械。",
+          "evidence": "人物设定 · 示例11",
+          "sourceName": "人工构造演示",
+          "directed": false
+        },
+        {
+          "id": "character-relation:fixture:starlit-12",
+          "source": "character:fixture:starlit-guyao",
+          "target": "character:fixture:starlit-luchen",
+          "relationType": "RIVAL",
+          "label": "测绘对手",
+          "description": "两位观察者使用不同方法争夺测绘结果。",
+          "evidence": "故事片段 · 示例12",
+          "sourceName": "人工构造演示",
+          "directed": false
+        },
+        {
+          "id": "character-relation:fixture:starlit-13",
+          "source": "character:fixture:starlit-linxia",
+          "target": "character:fixture:starlit-sucheng",
+          "relationType": "FRIEND",
+          "label": "好友",
+          "description": "两人共同维护船员日志，逐渐成为好友。",
+          "evidence": "故事片段 · 示例13",
+          "sourceName": "人工构造演示",
+          "directed": false
+        }
+      ]
+    },
+    {
+      "work": {
+        "uid": "anime:fixture:mist",
+        "title": "雾港纪事",
+        "subtitle": "一座港口，几段交错的相遇",
+        "characterCount": 5,
+        "relationCount": 6
+      },
+      "nodes": [
+        {
+          "id": "character:fixture:mist-wenxi",
+          "label": "温汐",
+          "group": "灯塔守望者",
+          "role": "守灯人",
+          "description": "负责照看港口灯塔，在迷雾中为船只指引方向。"
+        },
+        {
+          "id": "character:fixture:mist-wenche",
+          "label": "温澈",
+          "group": "灯塔守望者",
+          "role": "学徒",
+          "description": "温汐的弟弟，正在学习航海与灯塔维护。"
+        },
+        {
+          "id": "character:fixture:mist-jiangxu",
+          "label": "江叙",
+          "group": "港口调查队",
+          "role": "调查员",
+          "description": "为调查海雾来到港口，与温汐建立友谊。"
+        },
+        {
+          "id": "character:fixture:mist-shenmo",
+          "label": "沈墨",
+          "group": "港口调查队",
+          "role": "队长",
+          "description": "经验丰富的调查队长，也是江叙的导师。"
+        },
+        {
+          "id": "character:fixture:mist-qiaoyin",
+          "label": "乔音",
+          "group": "远海商会",
+          "role": "商会代表",
+          "description": "希望寻找新的贸易航线，与调查队存在竞争。"
+        }
+      ],
+      "edges": [
+        {
+          "id": "character-relation:fixture:mist-01",
+          "source": "character:fixture:mist-wenche",
+          "target": "character:fixture:mist-wenxi",
+          "relationType": "FAMILY",
+          "label": "姐弟",
+          "description": "温汐与温澈共同守护灯塔。",
+          "evidence": "人物设定 · 示例A",
+          "sourceName": "人工构造演示",
+          "directed": false
+        },
+        {
+          "id": "character-relation:fixture:mist-02",
+          "source": "character:fixture:mist-jiangxu",
+          "target": "character:fixture:mist-wenxi",
+          "relationType": "FRIEND",
+          "label": "朋友",
+          "description": "两人在雾夜救援中建立了友谊。",
+          "evidence": "故事片段 · 示例B",
+          "sourceName": "人工构造演示",
+          "directed": false
+        },
+        {
+          "id": "character-relation:fixture:mist-03",
+          "source": "character:fixture:mist-shenmo",
+          "target": "character:fixture:mist-jiangxu",
+          "relationType": "MENTOR",
+          "label": "导师",
+          "description": "沈墨指导江叙开展海雾调查。",
+          "evidence": "人物设定 · 示例C",
+          "sourceName": "人工构造演示",
+          "directed": true
+        },
+        {
+          "id": "character-relation:fixture:mist-04",
+          "source": "character:fixture:mist-jiangxu",
+          "target": "character:fixture:mist-wenche",
+          "relationType": "TEAMMATE",
+          "label": "调查同伴",
+          "description": "两人共同记录港口的潮汐数据。",
+          "evidence": "故事片段 · 示例D",
+          "sourceName": "人工构造演示",
+          "directed": false
+        },
+        {
+          "id": "character-relation:fixture:mist-05",
+          "source": "character:fixture:mist-qiaoyin",
+          "target": "character:fixture:mist-shenmo",
+          "relationType": "RIVAL",
+          "label": "立场对手",
+          "description": "两人对港口探索计划的优先次序有不同意见。",
+          "evidence": "故事片段 · 示例E",
+          "sourceName": "人工构造演示",
+          "directed": false
+        },
+        {
+          "id": "character-relation:fixture:mist-06",
+          "source": "character:fixture:mist-qiaoyin",
+          "target": "character:fixture:mist-wenxi",
+          "relationType": "FRIEND",
+          "label": "旧识",
+          "description": "两人曾在往来的商船上相识。",
+          "evidence": "人物设定 · 示例F",
+          "sourceName": "人工构造演示",
+          "directed": false
+        }
+      ]
+    }
+  ]
+}
+

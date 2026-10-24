@@ -1,0 +1,55 @@
+server:
+  address: ${SERVER_ADDRESS:127.0.0.1}
+  port: ${SERVER_PORT:8080}
+  servlet:
+    session:
+      cookie:
+        http-only: true
+        same-site: lax
+        secure: ${SESSION_COOKIE_SECURE:false}
+spring:
+  application:
+    name: animegraph
+  datasource:
+    url: ${MYSQL_URL:jdbc:mysql://127.0.0.1:3307/animegraph?useUnicode=true&characterEncoding=UTF-8&connectionTimeZone=UTC&connectTimeout=2000&socketTimeout=3000}
+    username: ${MYSQL_USER:animegraph}
+    password: ${MYSQL_PASSWORD:}
+    hikari:
+      maximum-pool-size: 5
+      minimum-idle: 0
+      connection-timeout: 1500
+      initialization-fail-timeout: -1
+  flyway:
+    enabled: ${FLYWAY_ENABLED:true}
+  jackson:
+    time-zone: UTC
+    serialization:
+      write-dates-as-timestamps: false
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 21MB
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    default-statement-timeout: 3
+    arg-name-based-constructor-auto-mapping: true
+app:
+  admin:
+    enabled: ${LEGACY_ADMIN_ENABLED:false}
+    username: ${ADMIN_USERNAME:admin}
+    password: ${ADMIN_PASSWORD:}
+  bangumi:
+    proxy: ${BANGUMI_PROXY:}
+    api-base: ${BANGUMI_API_BASE:https://api.bgm.tv}
+    network-base: ${BANGUMI_NETWORK_BASE:https://next.bgm.tv}
+    archive-index: ${BANGUMI_ARCHIVE_INDEX:../data/index/bangumi}
+    user-agent: ${BANGUMI_USER_AGENT:AnimeGraphGraduation/local-viewer/0.6}
+  neo4j:
+    uri: ${NEO4J_URI:bolt://127.0.0.1:7687}
+    username: ${NEO4J_USERNAME:neo4j}
+    password: ${NEO4J_PASSWORD:}
+    database: ${NEO4J_DATABASE:neo4j}
+logging:
+  pattern:
+    level: '%5p [requestId=%X{requestId}]'

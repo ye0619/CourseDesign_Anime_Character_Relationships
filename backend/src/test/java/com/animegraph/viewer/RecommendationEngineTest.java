@@ -1,0 +1,11 @@
+package com.animegraph.viewer;
+import java.util.*;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+class RecommendationEngineTest {
+    static ViewerModels.Collection work(long id,int status,int rating,List<String> tags){return new ViewerModels.Collection(id,status,rating,"样本"+id,"","","2020",12,12,8,"",List.of(),tags);}
+    static Map<String,Object> candidate(long id,String tag,double score){return Map.of("sourceId",String.valueOf(id),"uid","anime:bangumi:"+id,"name","候选"+id,"tags",List.of(tag),"score",score);}
+    @Test void excludesAllCollectionStatesAndFeedbackAndHandlesColdStart(){var library=new ArrayList<ViewerModels.Collection>();for(int i=1;i<=5;i++)library.add(work(i,i,0,List.of("音乐")));var candidates=new ArrayList<Map<String,Object>>();for(int i=1;i<=25;i++)candidates.add(candidate(i,"音乐",8));var result=RecommendationEngine.rank(library,candidates,Set.of(6L),0,"HYBRID");assertEquals("COLD_START",result.mode());assertEquals(10,result.items().size());assertTrue(result.items().stream().allMatch(i->Long.parseLong(String.valueOf(i.entity().get("sourceId")))>6));assertEquals(10,result.items().stream().map(i->i.entity().get("sourceId")).distinct().count());}
+    @Test void signedRatingsRankPositiveEvidenceAndDoNotUseUnratedAsPreference(){var library=new ArrayList<ViewerModels.Collection>();for(int i=1;i<=5;i++)library.add(work(i,2,9,List.of("音乐")));library.add(work(6,2,2,List.of("恐怖")));library.add(work(7,2,0,List.of("运动")));var result=RecommendationEngine.rank(library,List.of(candidate(100,"音乐",8),candidate(101,"恐怖",8),candidate(102,"运动",8)),Set.of(),0,"CONTENT");assertEquals("CONTENT",result.mode());assertEquals("100",result.items().getFirst().entity().get("sourceId"));assertEquals(List.of(1L,2L,3L,4L,5L),result.items().getFirst().reasons().getFirst().evidenceSubjectIds());assertTrue(result.items().stream().skip(1).allMatch(i->i.contentScore()==0));}
+    @Test void diversityNeverRepeatsCandidateAndIsDeterministic(){var candidates=new ArrayList<Map<String,Object>>();for(int i=1;i<=35;i++)candidates.add(candidate(100+i,i%2==0?"音乐":"冒险",8));assertEquals(RecommendationEngine.rank(List.of(),candidates,Set.of(),10,"HYBRID"),RecommendationEngine.rank(List.of(),candidates,Set.of(),10,"HYBRID"));}
+}
